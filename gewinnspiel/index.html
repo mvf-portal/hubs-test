@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Mit den fünfzehn Knowledge-Hubs von Monitor Versorgungsforschung eines von bis zu 10 Tickets für den 15. MVF-Fachkongress „Primärversorgung 2030“ am 27. November 2026 in Berlin gewinnen. Teilnahme bis 11. November 2026.">
+<title>Gewinnspiel — Die Knowledge-Hubs von Monitor Versorgungsforschung</title>
+<link rel="canonical" href="https://mvf-portal.github.io/hubs-test/gewinnspiel/">
+<link rel="icon" href="/hubs-test/logo/hub-icon.svg" type="image/svg+xml">
+<link rel="icon" href="/hubs-test/logo/hub-icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/hubs-test/logo/hub-icon-180.png">
+<meta name="theme-color" content="#0051A1">
+<style>
+/* Schrift, Farben und Geruest wie in den Hubs und auf der Vorschaltseite -
+   die Gewinnspielseite gehoert sichtbar dazu. Die Tokens stehen wortgleich
+   in index.html; wer sie dort aendert, aendert sie hier mit. */
+@font-face{ font-family:"Lato"; font-style:normal; font-weight:300;
+  src:url("/hubs-test/fonts/lato-300.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"Lato"; font-style:normal; font-weight:400;
+  src:url("/hubs-test/fonts/lato-400.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"Lato"; font-style:normal; font-weight:700;
+  src:url("/hubs-test/fonts/lato-700.woff2") format("woff2"); font-display:swap; }
+
+:root{
+  --paper:#EDF2FA; --card:#FFFFFF; --card-2:#F7FAFD;
+  --ink:#111111; --ink-soft:#444A50; --ink-faint:#545C63;
+  --line:#D0D8E4; --line-soft:#E3EAF3;
+  --brand:#0051A1; --brand-deep:#003B77; --brand-tint:#E1EAF6;
+  --action:#BE9E53; --on-action:#2A2207;
+  --warn:#8A1F1F; --ok:#1F5C34;
+  --shadow:0 1px 2px rgba(16,40,38,.05), 0 8px 24px -16px rgba(16,40,38,.28);
+  --shadow-hover:0 2px 4px rgba(16,40,38,.06), 0 18px 40px -20px rgba(16,40,38,.40);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A1120; --card:#111B2E; --card-2:#0E1728;
+    --ink:#E9EEF6; --ink-soft:#A9B7CA; --ink-faint:#8FA0B7;
+    --line:#22314A; --line-soft:#1A2639;
+    --brand:#6FA8E8; --brand-deep:#9CC6F4; --brand-tint:#152742;
+    --action:#D4B878; --on-action:#221A08;
+    --warn:#F2A0A0; --ok:#8FD6AA;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.7);
+    --shadow-hover:0 2px 6px rgba(0,0,0,.4), 0 22px 46px -22px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A1120; --card:#111B2E; --card-2:#0E1728;
+  --ink:#E9EEF6; --ink-soft:#A9B7CA; --ink-faint:#8FA0B7;
+  --line:#22314A; --line-soft:#1A2639;
+  --brand:#6FA8E8; --brand-deep:#9CC6F4; --brand-tint:#152742;
+  --action:#D4B878; --on-action:#221A08;
+  --warn:#F2A0A0; --ok:#8FD6AA;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.7);
+  --shadow-hover:0 2px 6px rgba(0,0,0,.4), 0 22px 46px -22px rgba(0,0,0,.8);
+}
+
+*{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Lato", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size:16px; line-height:1.6;
+}
+.wrap{ width:min(880px, 94vw); margin:0 auto; }
+a{ color:var(--brand); text-underline-offset:2px; }
+a:focus-visible{ outline:2px solid var(--brand); outline-offset:3px; border-radius:3px; }
+
+header.top{ background:var(--card); border-bottom:1px solid var(--line); padding:30px 0 34px; }
+.kopf-oben{ display:flex; justify-content:space-between; align-items:flex-start; gap:24px; }
+.eyebrow{
+  margin:0 0 8px; font-size:11.5px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-faint);
+}
+h1{ margin:0 0 12px; font-size:clamp(26px,4.2vw,40px); line-height:1.15; font-weight:700; }
+.standfirst{ margin:0; max-width:64ch; font-size:clamp(16px,1.9vw,18.5px); color:var(--ink-soft); }
+.marke img{ display:block; width:200px; height:auto; }
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .marke{ background:#fff; padding:9px 12px; border-radius:4px; } }
+:root[data-theme="dark"] .marke{ background:#fff; padding:9px 12px; border-radius:4px; }
+@media (max-width:760px){
+  .kopf-oben{ flex-direction:column-reverse; align-items:flex-start; gap:16px; }
+  .marke img{ width:150px; max-width:52vw; }
+}
+
+main{ padding:34px 0 48px; }
+h2{ margin:34px 0 10px; font-size:clamp(20px,2.8vw,26px); line-height:1.25; }
+h3{ margin:22px 0 6px; font-size:17px; }
+p{ margin:0 0 12px; max-width:70ch; }
+.fein{ font-size:13.5px; color:var(--ink-faint); }
+
+/* Der Gewinn steht als eigene Karte - er ist der Grund, warum jemand stehen
+   bleibt, und muss vor dem Formular erfasst sein. */
+.gewinn{
+  background:var(--card); border:1px solid var(--line); border-left:4px solid var(--action);
+  border-radius:8px; padding:20px 22px; box-shadow:var(--shadow); margin:0 0 26px;
+}
+.gewinn h2{ margin:0 0 8px; }
+.gewinn dl{ margin:14px 0 0; display:grid; grid-template-columns:auto 1fr; gap:4px 16px; font-size:15px; }
+.gewinn dt{ color:var(--ink-faint); }
+.gewinn dd{ margin:0; }
+
+form{ background:var(--card); border:1px solid var(--line); border-radius:8px;
+      padding:22px; box-shadow:var(--shadow); }
+fieldset{ border:0; margin:0 0 22px; padding:0; }
+legend{ font-weight:700; font-size:17px; padding:0; margin:0 0 4px; }
+.wahl{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; margin-top:12px; }
+.karte{
+  display:block; position:relative; background:var(--card-2); border:1px solid var(--line);
+  border-radius:6px; padding:12px 12px 12px 38px; cursor:pointer; font-size:14px;
+}
+.karte:hover{ border-color:var(--brand); }
+.karte input{ position:absolute; left:13px; top:14px; }
+.karte b{ display:block; }
+.karte .was{ display:block; color:var(--ink-faint); font-size:13px; margin-top:2px; }
+.karte .takt{
+  display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-faint); margin-bottom:2px;
+}
+.feld{ display:block; font-weight:700; font-size:14px; margin:0 0 4px; }
+input[type=email], input[type=text]{
+  width:100%; padding:11px 12px; font:inherit; color:var(--ink);
+  background:var(--card-2); border:1px solid var(--line); border-radius:6px;
+}
+input[type=email]:focus, input[type=text]:focus{ outline:2px solid var(--brand); outline-offset:1px; }
+.zeile{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:560px){ .zeile{ grid-template-columns:1fr; } }
+.einwilligung{
+  display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:start;
+  font-size:14px; margin:0 0 14px; padding:12px; border:1px solid var(--line-soft);
+  border-radius:6px; background:var(--card-2);
+}
+.einwilligung input{ margin-top:4px; }
+.pflicht{ border-color:var(--action); }
+.falle{ position:absolute; left:-9999px; }
+.btn-gold{
+  display:inline-block; background:var(--action); color:var(--on-action);
+  border:0; border-radius:6px; padding:13px 22px; font:inherit; font-weight:700;
+  cursor:pointer;
+}
+.btn-gold:hover{ filter:brightness(1.06); }
+.btn-gold:disabled{ opacity:.55; cursor:default; }
+.meldung{ margin:14px 0 0; font-size:14px; }
+.meldung.fehler{ color:var(--warn); font-weight:700; }
+.meldung.ok{ color:var(--ok); }
+
+footer{ background:var(--card); border-top:1px solid var(--line); padding:26px 0 34px;
+        color:var(--ink-soft); font-size:14px; }
+footer p{ margin:0 0 8px; }
+details{ margin:10px 0 0; }
+summary{ cursor:pointer; font-weight:700; }
+.legal-body{ font-size:13px; color:var(--ink-faint); margin-top:8px; }
+.legal-body h4{ margin:14px 0 4px; font-size:13.5px; }
+.legal-body p{ margin:0 0 8px; max-width:none; }
+
+/* Die Teilnahmebedingungen sind ein Rechtstext und werden gelesen, nicht
+   ueberflogen - schmalere Spalte, nummerierte Abschnitte. */
+.bedingungen h3{ margin:26px 0 6px; }
+.bedingungen ol{ padding-left:1.2em; }
+.bedingungen li{ margin:0 0 8px; }
+</style>
+
+<header class="top">
+  <div class="wrap kopf-oben">
+    <div>
+      <p class="eyebrow">Die Knowledge-Hubs von Monitor Versorgungsforschung</p>
+      <h1>1 von 10 Tickets gewinnen</h1>
+      <p class="standfirst"><i>Monitor Versorgungsforschung</i> hat fünfzehn
+      Rechercheportale für das deutsche Gesundheitswesen entwickelt — von
+      Versorgungsforschung und Impfen über Diabetes bis hin zu Digitalisierung und KI.
+      Ein einziger Suchbegriff startet die Live-Suche in allen einschlägigen Datenbanken,
+      und jeden Morgen kommt eine neue Studienauswahl mit deutscher Zusammenfassung hinzu.
+      Lernen Sie die <a href="/">Knowledge-Hubs</a> kennen und gewinnen Sie ein Ticket für
+      den <a href="https://www.monitor-versorgungsforschung.de/featured/15-mvf-fachkongress-primaerversorgung/" target="_blank" rel="noopener">15. MVF-Fachkongress</a> am
+      27. November 2026, der in Kooperation mit dem DNVF stattfindet.</p>
+    </div>
+    <a class="marke" href="https://www.monitor-versorgungsforschung.de/?utm_source=gewinnspiel&amp;utm_medium=referral&amp;utm_campaign=gewinnspiel" target="_blank" rel="noopener" title="Monitor Versorgungsforschung — Herausgeber dieser Portale">
+      <img src="/hubs-test/logo/mvf-logo.png" width="1236" height="327" alt="Monitor Versorgungsforschung">
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="gewinn">
+    <h2>Zu gewinnen gibt es bis zu 10 Tickets</h2>
+    <p>Wir verlosen bis zu 10 Tickets für den <strong><a href="https://www.monitor-versorgungsforschung.de/featured/15-mvf-fachkongress-primaerversorgung/" target="_blank"
+    rel="noopener">15. MVF-Fachkongress „Primärversorgung 2030 — Implementierung und
+    Verbindlichkeit“</a></strong>. Jede Teilnehmerin und jeder
+    Teilnehmer des Gewinnspiels kann dabei höchstens ein Ticket gewinnen.</p>
+    <dl>
+      <dt>Wann</dt><dd>Freitag, 27. November 2026, 9:00 bis 16:00 Uhr</dd>
+      <dt>Wo</dt><dd>Scharounsaal, 1. OG, AOK Nordost, Wilhelmstraße 1, 10963 Berlin</dd>
+      <dt>Wert</dt><dd>bis zu 225 Euro je Ticket · eine Barauszahlung ist nicht möglich</dd>
+      <dt>Teilnahme</dt><dd>bis 11.11.2026, 23:59 Uhr</dd>
+    </dl>
+  </section>
+
+  <!-- Der Kurztext steht bewusst ueber dem Formular und nicht darunter: Wer
+       ueber einen Verweis hereinkommt, liest die ersten zwei Saetze und sonst
+       nichts. -->
+  <h2>Mitmachen</h2>
+  <p>Tragen Sie Ihre E-Mail-Adresse ein und setzen Sie das Häkchen bei „Ich nehme am
+  Gewinnspiel teil“. Zusätzlich können Sie den täglichen Studien-Newsletter einzelner
+  Knowledge-Hubs abonnieren: fünf bis sechs neue Arbeiten pro Tag in einer E-Mail, jede
+  mit deutscher Zusammenfassung, kostenfrei und jederzeit abbestellbar.
+  <strong>Ihre Gewinnchance hängt davon nicht ab.</strong></p>
+
+  <form id="anmeldung" novalidate>
+
+    <fieldset>
+      <legend>Newsletter — freiwillig</legend>
+      <div class="wahl" id="wahlHubs"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ihre Daten</legend>
+      <div class="zeile">
+        <div>
+          <label class="feld" for="vorname">Vorname <span class="fein">(freiwillig)</span></label>
+          <input type="text" id="vorname" name="FNAME" autocomplete="given-name">
+        </div>
+        <div>
+          <label class="feld" for="nachname">Nachname <span class="fein">(freiwillig)</span></label>
+          <input type="text" id="nachname" name="LNAME" autocomplete="family-name">
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <label class="feld" for="email">E-Mail-Adresse</label>
+        <input type="email" id="email" name="EMAIL" autocomplete="email" required
+               placeholder="name@einrichtung.de" spellcheck="false">
+      </div>
+      <!-- Honigtopf: Menschen sehen dieses Feld nicht, automatische Formularausfueller
+           schon. Ist es gefuellt, antwortet der Endpunkt freundlich und traegt nichts ein. -->
+      <div class="falle" aria-hidden="true"><input type="text" id="falle" tabindex="-1" autocomplete="off"></div>
+    </fieldset>
+
+    <!-- Zwei Haekchen, voneinander unabhaengig. Das ist keine Formsache: Nur so
+         ist die Newsletter-Einwilligung nachweislich freiwillig (Art. 7 Abs. 4
+         DSGVO), und nur so stimmt der Satz "Ihre Gewinnchance ist davon
+         unabhaengig" oben im Text. Wer hier koppelt, muss beides aendern. -->
+    <label class="einwilligung">
+      <input type="checkbox" id="einwilligungNl">
+      <span>Ich möchte die oben ausgewählten Newsletter per E-Mail erhalten. Meine Adresse wird
+      dafür an unseren Versanddienstleister übermittelt und dort gespeichert. Die Einwilligung
+      kann ich jederzeit über den Abmeldelink am Ende jeder E-Mail widerrufen — die
+      Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt davon unberührt.</span>
+    </label>
+
+    <!-- Das Haekchen sperrt sich ausserhalb des Teilnahmezeitraums selbst - siehe
+         Skript. Es steht auch dann sichtbar da: Wer die Seite ausserhalb des
+         Zeitraums findet, soll sehen, worum es geht, und nicht raten muessen. -->
+    <label class="einwilligung pflicht" id="feldGewinnspiel">
+      <input type="checkbox" id="einwilligungGs">
+      <span><strong>Ich nehme am Gewinnspiel teil.</strong> Ich bin mindestens 18 Jahre alt und
+      stimme den <a href="teilnahmebedingungen.html">Teilnahmebedingungen</a> und den
+      <a href="#datenschutz">Datenschutzhinweisen</a> zu. Meine E-Mail-Adresse darf zur
+      Gewinnbenachrichtigung genutzt werden. Der Rechtsweg ist ausgeschlossen.
+      <span class="fein" id="fensterHinweis"></span></span>
+    </label>
+
+    <button type="submit" class="btn-gold" id="absenden">Jetzt teilnehmen</button>
+
+    <p class="meldung" id="meldung" role="status" aria-live="polite"></p>
+  </form>
+
+  <p class="fein" style="margin-top:14px">Ihre Eingabe wird an unseren Versanddienstleister
+  Mailchimp übermittelt. Anschließend erhalten Sie eine E-Mail mit einem Bestätigungslink.
+  <strong>Erst mit dem Klick darauf ist Ihre Teilnahme gültig</strong> — und beginnt,
+  falls bestellt, der Newsletter-Versand (Double-Opt-in). So kann niemand fremde Adressen
+  eintragen. Sehen Sie notfalls im Spam-Ordner nach.</p>
+
+  <h2>Die Knowledge-Hubs kennenlernen</h2>
+  <p>Alle zwölf Portale sind frei zugänglich, ohne Anmeldung und ohne Kosten. Jedes hat
+  seinen eigenen täglichen Studien-Newsletter, den Sie dort bestellen können:
+  <a href="/">knowledge-hubs.m-vf.de</a></p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Ein Angebot von „Monitor Versorgungsforschung“ · eRelation AG – Content in Health</p>
+    <p><a href="/">Übersicht der Hubs</a> ·
+       <a href="teilnahmebedingungen.html">Teilnahmebedingungen</a> ·
+       <a href="/#impressum">Impressum</a></p>
+
+    <details id="datenschutz">
+      <summary>Datenschutzhinweise zur Anmeldung</summary>
+      <div class="legal-body">
+        <h4>1. Verantwortlicher</h4>
+        <p>eRelation AG – Content in Health, vertreten durch Peter Stegmaier, Johannes-von-Hanstein-Str. 2, 53115 Bonn. Kontakt siehe <a href="/#impressum">Impressum</a>.</p>
+        <h4>2. Welche Daten und wofür</h4>
+        <p>Über das Anmeldeformular erheben wir Ihre E-Mail-Adresse und – sofern Sie ihn angeben – Ihren Namen. Die Angabe des Namens ist freiwillig; ohne ihn sprechen wir Sie im Gewinnfall neutral an.</p>
+        <p><strong>Gewinnspiel:</strong> Wir verarbeiten die Daten, um das Gewinnspiel durchzuführen, die Gewinner zu ermitteln und zu benachrichtigen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung des Teilnahmeverhältnisses). Die Teilnahmedaten werden spätestens drei Monate nach Ende des Gewinnspiels gelöscht, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+        <p><strong>Newsletter:</strong> Haben Sie einen Newsletter bestellt, verarbeiten wir Ihre Adresse zusätzlich für dessen Versand. Rechtsgrundlage ist Ihre Einwilligung, Art. 6 Abs. 1 lit. a DSGVO. Sie können sie jederzeit mit Wirkung für die Zukunft widerrufen, am einfachsten über den Abmeldelink am Ende jeder E-Mail. Der Widerruf hat keinen Einfluss auf Ihre Gewinnchance.</p>
+        <h4>3. Übermittlungsweg und Versanddienstleister</h4>
+        <p>Ihre Eingaben gehen zunächst an unseren eigenen Server unter <b>monitor-versorgungsforschung.de</b> und von dort an Mailchimp. Auf unserem Server werden Ihre Angaben <b>nicht gespeichert</b>; er reicht sie unmittelbar weiter. Zum Schutz vor automatisierten Masseneintragungen zählt er, wie viele Anmeldungen von einem Anschluss an einem Tag kommen — dafür geht Ihre IP-Adresse gemeinsam mit einer täglich wechselnden Zufallszahl in einen nicht umkehrbaren Hashwert ein; die IP-Adresse selbst wird nicht gespeichert. Rechtsgrundlage dafür ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <p>Der Versand läuft über Mailchimp (Intuit Inc., 2700 Coast Avenue, Mountain View, CA 94043, USA). Mit dem Anbieter besteht ein Auftragsverarbeitungsvertrag; die Übermittlung in die USA ist auf die Standardvertragsklauseln der EU-Kommission gestützt. Zur Bestätigung Ihrer Anmeldung verwenden wir das Double-Opt-in-Verfahren und protokollieren dabei Zeitpunkt und IP-Adresse der Anmeldung sowie der Bestätigung.</p>
+        <h4>4. Server-Protokolle und Reichweitenmessung</h4>
+        <p>Diese Seite wird bei GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA) gehostet; beim Abruf verarbeitet der Anbieter technisch notwendige Verbindungsdaten wie Ihre IP-Adresse (Art. 6 Abs. 1 lit. f DSGVO). Wie oft die Seite aufgerufen wird, zählen wir auf einem eigenen Server von <i>Monitor Versorgungsforschung</i>. Dabei wird nichts auf Ihrem Endgerät gespeichert oder ausgelesen, und Ihre IP-Adresse wird nicht gespeichert: Sie geht nur gemeinsam mit einer geheimen Zufallszahl in einen nicht umkehrbaren Hashwert ein, der mehrfache Aufrufe desselben Tages als eine Person zählbar macht. Die Zufallszahl wird jede Nacht ersetzt. Aufrufe mit <i>Do Not Track</i> werden nicht gezählt.</p>
+        <h4>5. Keine Weitergabe an Dritte</h4>
+        <p>Eine Weitergabe Ihrer Daten an Dritte findet über die genannten Dienstleister hinaus nicht statt.</p>
+        <h4>6. Ihre Rechte</h4>
+        <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, sich bei einer Aufsichtsbehörde zu beschweren. Zuständig ist die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen.</p>
+      </div>
+    </details>
+  </div>
+</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// Die Anmeldung geht an den eigenen Endpunkt auf dem MVF-Server, der sie ueber
+// die Mailchimp-API eintraegt. Warum nicht mehr unmittelbar an Mailchimps
+// Formularadresse /subscribe/post: Die ist seit 2026 mit reCAPTCHA und Akamais
+// Bot Manager geschuetzt und verwirft jede Einsendung von fremder Domain
+// stillschweigend - am 31.08.2026 an dieser Seite mit zwei echten Adressen
+// belegt. Ausfuehrlich in mvf-server/anmeldung/LIESMICH.md.
+// ---------------------------------------------------------------------------
+const ZIEL = "https://www.monitor-versorgungsforschung.de/anmeldung/anmeldung.php";
+
+// Der Tag, an dem die Auslosung haengt. Er muss beim Endpunkt in TAGS_ERLAUBT
+// stehen - ein Endpunkt im offenen Netz darf nicht jeden beliebigen Tag in die
+// Zielgruppe schreiben. Schreibweise auf das Zeichen genau, sonst weist er die
+// Teilnahme mit "unbekannter-tag" ab.
+const TAG_GEWINNSPIEL = "Gewinnspiel DKVF 2026";
+
+// ---------------------------------------------------------------------------
+// Der Teilnahmezeitraum aus Nummer 3 der Teilnahmebedingungen. Seit dem
+// 01.10.2026 ist das Gewinnspiel vom DKVF geloest und laeuft offen bis zum
+// 11.11.2026.
+//
+// ACHTUNG BEIM VERSATZ: Der Beginn liegt in der Sommerzeit (+02:00), das Ende
+// NACH der Umstellung am 25.10.2026 und damit in der Winterzeit (+01:00). Wer
+// hier gedankenlos +02:00 schreibt, verschiebt den Schluss um eine Stunde.
+// Geschrieben wird er ueberhaupt, damit die Grenze fuer jeden Besucher
+// dieselbe ist, egal in welcher Zeitzone sein Geraet steht.
+//
+// Wer die Frist aendert, aendert sie in den Teilnahmebedingungen mit - die
+// beiden Stellen gehoeren zusammen.
+//
+// Die Uhr des Besuchers kann falsch gehen; das ist hingenommen. Sie entscheidet
+// nur ueber die Anzeige. Was zaehlt, ist der Eingang beim Endpunkt.
+// ---------------------------------------------------------------------------
+const BEGINN = new Date("2026-10-01T00:00:00+02:00");
+const ENDE   = new Date("2026-11-11T23:59:59+01:00");
+
+// Die Hubs. Dieselbe Reihe wie in der newsletter.html der Portale; die
+// Schluessel sind die des Endpunkts.
+const HUBS = [
+  { hub:"wissen",         titel:"Versorgungsforschung",
+    was:"Versorgungsformen, Qualität, Steuerung, Nutzenbewertung." },
+  { hub:"healthliteracy", titel:"Gesundheitskompetenz",
+    was:"Verständliche Information, Entscheidungshilfen, Beteiligung." },
+  { hub:"pflege",         titel:"Pflege &amp; Langzeitversorgung",
+    was:"Langzeitpflege, Personal, Qualität, Angehörige." },
+  { hub:"impfen",         titel:"Impfen &amp; Impfprävention",
+    was:"Impfquoten, Impfbereitschaft, Impfstoffsicherheit." },
+  { hub:"ncd",            titel:"Nicht übertragbare Krankheiten",
+    was:"Diabetes, Herz-Kreislauf, Krebs, Mehrfacherkrankung." },
+  { hub:"adipositas",     titel:"Adipositas",
+    was:"Gewichtsmanagement, Arzneimittel, Chirurgie, Erstattung." },
+  { hub:"ki",             titel:"Digitalisierung, KI &amp; Gesundheit",
+    was:"Digitale Anwendungen und KI in der Versorgung." },
+  { hub:"klima",          titel:"Hitze, Klima &amp; Gesundheit",
+    was:"Hitze, Extremwetter und was sie für die Versorgung bedeuten." },
+  { hub:"longevity",      titel:"Gesundes Altern &amp; Longevity",
+    was:"Prävention, Geriatrie, gesunde Lebensjahre." },
+  { hub:"gender",         titel:"Geschlechtersensible Medizin",
+    was:"Geschlecht als Einflussgröße in der Versorgung." },
+  { hub:"safety",         titel:"Patientensicherheit",
+    was:"Behandlungs- und Medikationsfehler, Infektionen, Sepsis." },
+  { hub:"onkologie",      titel:"Onkologie",
+    was:"Von der Grundlagenforschung bis zur Versorgung, mit Blick auf Deutschland." },
+  { hub:"kardio",         titel:"Kardiologie",
+    was:"Herz, Kreislauf und Gefäße — Forschung und Versorgung." },
+  { hub:"diabetes",       titel:"Diabetes",
+    was:"Typ 1 und Typ 2, Folgeerkrankungen, Technik und Versorgung." },
+  { hub:"mental",         titel:"Psychische Gesundheit",
+    was:"Zugang, Wartezeiten, gemeindenahe Angebote, Krisenversorgung." }
+];
+const HUB_MVF = "mvf";
+
+// Faellt der Endpunkt aus oder hat sich jemand frueher abgemeldet, fuehrt der
+// Weg auf diese Anmeldeseite. Sie liegt bei Mailchimp und traegt deshalb den
+// Botschutz mit - vor allem aber ist sie die EINZIGE Stelle, an der eine
+// abgemeldete Adresse zurueckkommen kann: Das darf nach Art. 7 Abs. 3 DSGVO
+// nur die Person selbst, und die Mailchimp-API weist uns dabei hart ab.
+//
+// Bis zum 02.09.2026 zeigte der Link auf Mailchimps klassisches Formular. Das
+// hatte unsichtbare Ankreuzfelder (weisses Kaestchen, Rahmen #D0D0D0, 1,5:1)
+// und liess sich nicht gestalten - weder ueber die API noch im Baukasten.
+// Diese Landingpage kann es: echte Bedienelemente, deutsche Beschriftungen,
+// alle Gruppen zur Auswahl. Am 02.09.2026 an einer abgemeldeten Adresse
+// geprueft: unsubscribed -> pending -> subscribed.
+const MC_SEITE = "https://mailchi.mp/erelation/newsletter-von-monitor-versorgungsforschung";
+
+const form     = document.getElementById('anmeldung');
+const wahlBox  = document.getElementById('wahlHubs');
+const feldMail = document.getElementById('email');
+const feldVor  = document.getElementById('vorname');
+const feldNach = document.getElementById('nachname');
+const feldFalle= document.getElementById('falle');
+const einwNl   = document.getElementById('einwilligungNl');
+const einwGs   = document.getElementById('einwilligungGs');
+const hinweis  = document.getElementById('fensterHinweis');
+const knopf    = document.getElementById('absenden');
+const meldung  = document.getElementById('meldung');
+
+// Die Karten entstehen erst hier - so steht die Liste nur einmal im Dokument.
+wahlBox.innerHTML = HUBS.map(h => (
+  '<label class="karte">'
+  + '<input type="checkbox" class="wahlHub" data-hub="' + h.hub + '">'
+  + '<span class="takt">täglich</span>'
+  + '<b>' + h.titel + '</b>'
+  + '<span class="was">' + h.was + '</span>'
+  + '</label>'
+)).join('')
++ '<label class="karte">'
++ '<input type="checkbox" class="wahlHub" data-hub="' + HUB_MVF + '">'
++ '<span class="takt">regelmäßig</span>'
++ '<b>MVF-Newsletter</b>'
++ '<span class="was">Der redaktionelle Newsletter: Beiträge, Nachrichten, Termine.</span>'
++ '</label>';
+
+// Das Gewinnspiel-Haekchen oeffnet und schliesst sich mit dem Zeitraum. Der
+// Newsletter laesst sich davon unabhaengig immer bestellen - deshalb wird nur
+// dieses eine Feld gesperrt und nicht das Formular.
+const jetzt = new Date();
+const offen = jetzt >= BEGINN && jetzt <= ENDE;
+if (!offen) {
+  einwGs.checked  = false;
+  einwGs.disabled = true;
+  hinweis.innerHTML = jetzt < BEGINN
+    ? '<br>Die Teilnahme öffnet am 1. Oktober 2026. '
+      + 'Einen Newsletter können Sie schon jetzt bestellen.'
+    : '<br>Der Teilnahmezeitraum ist am 11. November 2026 um 23:59 Uhr abgelaufen. '
+      + 'Einen Newsletter können Sie weiterhin bestellen.';
+  knopf.textContent = 'Newsletter bestellen';
+}
+
+function sage(text, art){ meldung.className = 'meldung ' + (art || ''); meldung.innerHTML = text; }
+
+const NOTAUSGANG = ' Bitte versuchen Sie es später noch einmal '
+  + 'oder bestellen Sie über die <a href="' + MC_SEITE + '" target="_blank" rel="noopener">'
+  + 'Anmeldeseite von Monitor Versorgungsforschung</a>.';
+
+// Der Knopf sperrt sich beim Absenden, die Eingabetaste umgeht ihn aber -
+// ohne diesen Riegel liesse sich zweimal senden.
+let laeuft = false;
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  if(laeuft) return;
+
+  const gewaehlt = [...document.querySelectorAll('.wahlHub:checked')];
+  const mitmachen = offen && einwGs.checked;
+
+  if(!feldMail.value.trim() || !feldMail.checkValidity()){
+    sage('Bitte geben Sie eine gültige E-Mail-Adresse ein.', 'fehler');
+    feldMail.focus(); return;
+  }
+  if(!mitmachen && !gewaehlt.length){
+    sage(offen
+      ? 'Bitte nehmen Sie am Gewinnspiel teil oder wählen Sie mindestens einen Newsletter aus.'
+      : 'Bitte wählen Sie mindestens einen Newsletter aus.', 'fehler');
+    // Ein div nimmt keinen Fokus an - ausserhalb des Zeitraums also auf das
+    // erste Ankreuzfeld, nicht auf den Kasten darum.
+    (offen ? einwGs : document.querySelector('.wahlHub')).focus(); return;
+  }
+  if(gewaehlt.length && !einwNl.checked){
+    sage('Sie haben einen Newsletter ausgewählt. Ohne Ihre Einwilligung dürfen wir ihn nicht schicken — '
+       + 'bitte setzen Sie das Häkchen, oder nehmen Sie die Auswahl zurück.', 'fehler');
+    einwNl.focus(); return;
+  }
+
+  laeuft = true;
+  knopf.disabled = true;
+  sage('Wird gesendet …', '');
+
+  let daten = null;
+  try {
+    const antwort = await fetch(ZIEL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email:    feldMail.value.trim(),
+        vorname:  feldVor.value.trim(),
+        nachname: feldNach.value.trim(),
+        hubs:     gewaehlt.map(el => el.dataset.hub),
+        tags:     mitmachen ? [TAG_GEWINNSPIEL] : [],
+        falle:    feldFalle.value
+      })
+    });
+    daten = await antwort.json();
+  } catch (err) {
+    // Netz weg oder Endpunkt weg. Die Seite weiss nichts - und sagt genau das,
+    // statt eine Teilnahme zu quittieren, die es nicht gibt. Genau diese Luege
+    // hat die alte Bauweise erzaehlt.
+    laeuft = false; knopf.disabled = false;
+    sage('<b>Ihre Eingabe ist nicht angekommen.</b> Wir konnten unseren Server nicht '
+       + 'erreichen.' + NOTAUSGANG, 'fehler');
+    return;
+  }
+
+  if (daten && daten.ok) {
+    form.querySelectorAll('input').forEach(i=>{ i.disabled = true; });
+    if (daten.zustand === 'eingetragen') {
+      // Bekannte Adresse: keine zweite Bestaetigungsmail. Beim Gewinnspiel
+      // entscheidet der Tag, und der steht jetzt - das muss die Seite sagen,
+      // sonst wartet der Teilnehmer auf eine E-Mail, die nie kommt.
+      sage(mitmachen
+        ? '<b>Ihre Teilnahme ist eingetragen.</b> Ihre Adresse war bereits bei uns bekannt und '
+          + 'bestätigt — eine weitere Bestätigungsmail brauchen Sie deshalb nicht. Sie sind bei '
+          + 'der Auslosung dabei.'
+        : '<b>Ihre Auswahl ist eingetragen.</b> Ihre Adresse war bereits bei uns bekannt; die '
+          + 'neu gewählten Newsletter kommen ab der nächsten Ausgabe.', 'ok');
+    } else {
+      sage('<b>Bitte prüfen Sie Ihr Postfach.</b> Sie finden dort gleich eine E-Mail mit einem '
+         + 'Bestätigungslink — erst mit dem Klick darauf '
+         + (mitmachen ? 'ist Ihre Teilnahme gültig' : 'beginnt der Versand')
+         + '. Sehen Sie notfalls im Spam-Ordner nach.', 'ok');
+    }
+    return;
+  }
+
+  const grund = (daten && daten.grund) || '';
+  laeuft = false; knopf.disabled = false;
+
+  if (grund === 'email') {
+    sage('Diese E-Mail-Adresse konnten wir nicht annehmen. Bitte prüfen Sie die Schreibweise.', 'fehler');
+    feldMail.focus();
+  } else if (grund === 'abgemeldet') {
+    // Wir duerfen nicht, die Person selbst schon: Art. 7 Abs. 3 DSGVO
+    // verbietet uns das Wiedereintragen, nicht ihr die Neuanmeldung.
+    // Deshalb der Weg ueber Mailchimps eigene Seite statt einer Sackgasse.
+    sage('<b>Diese Adresse hat sich früher von unseren E-Mails abgemeldet.</b> Aus rechtlichen '
+       + 'Gründen dürfen wir sie nicht selbst wieder eintragen — das können nur Sie, über die '
+       + '<a href="' + MC_SEITE + '" target="_blank" rel="noopener">Anmeldeseite von Monitor '
+       + 'Versorgungsforschung</a>. Danach ist die Teilnahme hier möglich. Oder verwenden '
+       + 'Sie bitte eine andere Adresse.', 'fehler');
+  } else if (grund === 'unzustellbar') {
+    sage('An diese Adresse war eine frühere E-Mail nicht zustellbar. Bitte prüfen Sie die '
+       + 'Schreibweise oder verwenden Sie eine andere Adresse.', 'fehler');
+    feldMail.focus();
+  } else if (grund === 'zu-oft') {
+    // In einem Firmen- oder Tagungsnetz teilen sich viele Menschen eine
+    // IP-Adresse - die Taktbremse trifft dann Unbeteiligte.
+    sage('Von diesem Anschluss sind heute schon ungewöhnlich viele Eingaben gekommen — in '
+       + 'einem Firmen- oder WLAN-Netz kann das passieren, ohne dass Sie etwas falsch gemacht '
+       + 'haben. Bitte versuchen Sie es morgen noch einmal oder schreiben Sie uns an '
+       + '<a href="mailto:info@m-vf.de">info@m-vf.de</a>.', 'fehler');
+  } else {
+    sage('<b>Ihre Eingabe ist nicht durchgegangen.</b> Unser Versanddienstleister hat sie '
+       + 'abgelehnt (' + (grund || 'unbekannt') + ').' + NOTAUSGANG, 'fehler');
+  }
+});
+</script>
+
+<div style="position:fixed;left:12px;bottom:12px;z-index:9999;background:#C62828;color:#fff;font:700 12px/1.3 Lato,Arial,sans-serif;padding:7px 11px;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.3)">TESTVERSION – nicht öffentlich, Stand 07.10.2026</div>
+</html>
