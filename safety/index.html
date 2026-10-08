@@ -95,7 +95,31 @@
       var(--card);
     border-bottom:1px solid var(--line);
   }
-  .masthead-inner{ padding:34px 0 30px; }
+  /* Nur oben und unten: Der seitliche Rand kommt von .wrap. Bis Oktober
+     2026 stand hier "padding:28px 0 30px" - das nahm .wrap den Seitenrand,
+     und der Inhalt stand 22 px weiter aussen als Kopfband und Leisten. */
+  .masthead-inner{ padding-top:28px; padding-bottom:30px; }
+  header.masthead{ background:var(--paper); border-bottom:1px solid var(--line); }
+  .kopfband{ --kb-1:#0A3F7E; --kb-2:#0051A1; color:#FFFFFF;
+    background:radial-gradient(110% 150% at 85% -30%, var(--kb-2) 0%, transparent 60%), var(--kb-1); }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .kopfband{ --kb-1:#0B2547; --kb-2:#123A6B; } }
+  :root[data-theme="dark"] .kopfband{ --kb-1:#0B2547; --kb-2:#123A6B; }
+  :root[data-theme="light"] .kopfband{ --kb-1:#0A3F7E; --kb-2:#0051A1; }
+  .kopfband .wrap{ padding-top:40px; padding-bottom:34px; }
+  .kopf-eyebrow{ margin:0 0 8px; font-size:12px; font-weight:700; letter-spacing:.14em; color:#C9D8EC; }
+  .kopfband h1{ color:#FFFFFF; font-size:clamp(28px,4.2vw,42px); line-height:1.15; margin:0; }
+  .kopfband h1 .sub{ color:#E2EBF6; font-size:.46em; margin-top:.5em; max-width:60ch; }
+  .kopfband .lede{ color:#DCE6F3; max-width:78ch; font-size:16.5px; margin:16px 0 0; }
+  /* Auf dem Telefon schob der Einleitungstext die Suche bis zu 600 px nach
+     unten. Dort drei Zeilen und „Weiterlesen" - der Text selbst bleibt. */
+  .lede-mehr{ display:none; margin-top:6px; background:none; border:0; padding:4px 0; cursor:pointer;
+    font:inherit; font-size:14px; font-weight:700; color:#FFFFFF; text-decoration:underline; }
+  @media (max-width:560px){
+    .kopfband .wrap{ padding-top:28px; padding-bottom:26px; }
+    .kopfband .lede{ font-size:15.5px; }
+    .kopfband .lede.kurz{ display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+    .lede-mehr:not([hidden]){ display:inline-block; }
+  }
   /* Kopfzeile: Titelblock links, MVF-Logo rechts. Ab 760 px untereinander. */
   .masthead-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:26px; }
   .masthead-text{ min-width:0; }
@@ -197,7 +221,10 @@
     .search-row{ gap:24px; }
   }
   .search-field{
-    position:relative; flex:1 1 320px; display:flex; align-items:center;
+    /* 200 statt 320 px: Seit der Inhalt den Seitenrand von .wrap hat
+       (Oktober 2026), ist die Zeile 44 px schmaler - mit 320 rutschte
+       „Leeren" auf dem Desktop in eine eigene Zeile. */
+    position:relative; flex:1 1 200px; display:flex; align-items:center;
   }
   .search-field svg{ position:absolute; left:15px; width:19px; height:19px; color:var(--ink-faint); pointer-events:none; }
   #q{
@@ -273,7 +300,7 @@
     transition:top .22s ease;
     backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid var(--line);
   }
-  .jump-inner{ display:flex; gap:6px; overflow-x:auto; padding:11px 0; scrollbar-width:thin; }
+  .jump-inner{ display:flex; gap:6px; overflow-x:auto; padding-top:11px; padding-bottom:11px; scrollbar-width:thin; }
   .jump a{
     flex:0 0 auto; font-size:13px; color:var(--ink-soft); text-decoration:none; font-weight:500;
     padding:6px 12px; border-radius:6px; border:1px solid transparent; white-space:nowrap; transition:all .14s;
@@ -281,7 +308,7 @@
   .jump a:hover{ background:var(--card); border-color:var(--line); color:var(--brand); }
 
   /* ---------- Layout (Datenbanken + Studien-Frame) ---------- */
-  .layout{ padding:26px 0 40px; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:start; }
+  .layout{ padding-top:26px; padding-bottom:40px; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:start; }
   @media (min-width:1000px){ .layout{ grid-template-columns:minmax(0,1fr) 358px; } }
   .col-main{ min-width:0; }
 
@@ -935,8 +962,23 @@
   .empty{ grid-column:1/-1; text-align:center; color:var(--ink-faint); padding:30px; font-size:14px; }
 
   /* ---------- Footer ---------- */
-  footer{ border-top:1px solid var(--line); margin-top:44px; }
-  .foot-inner{ padding:26px 0 40px; color:var(--ink-faint); font-size:13px; display:grid; gap:10px; }
+  /* Dunkler Fussbereich wie auf der Uebersicht. Das Logo in der Negativ-
+     fassung (Blau wird Weiss, Gold bleibt) - logo/mvf-logo-negativ.png. */
+  footer{ margin-top:44px; background:#14202E; color:#C3CFDD; }
+  footer .foot-inner{ color:#C3CFDD; padding-top:28px; padding-bottom:36px; }
+  footer .foot-inner a{ color:#9CC6F4; }
+  .absender{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; text-decoration:none !important; }
+  .absender span{ font-size:12px; letter-spacing:.06em; color:#9FB0C4; }
+  .absender img{ width:150px; height:auto; display:block; }
+  .absender small{ color:#9FB0C4; font-size:13px; }
+  footer .legal details{ background:#1B2A3C; border-color:#2E3D52; }
+  footer .legal summary{ color:#E3EAF3; }
+  footer .legal summary::before{ color:#9FB0C4; }
+  footer .legal details[open] summary{ border-bottom-color:#2E3D52; }
+  footer .legal .legal-body{ color:#C3CFDD; }
+  footer .legal .legal-body h4{ color:#FFFFFF; }
+  footer .legal .legal-body a{ color:#9CC6F4; }
+  .foot-inner{ padding-top:26px; padding-bottom:40px; color:var(--ink-faint); font-size:13px; display:grid; gap:10px; }
   .foot-inner strong{ color:var(--ink-soft); font-weight:600; }
   .foot-inner a{ color:var(--brand); text-decoration:none; }
   .foot-inner a:hover{ text-decoration:underline; }
@@ -955,7 +997,7 @@
   .legal .legal-body a{ color:var(--brand); word-break:break-word; }
 
   @media (max-width:560px){
-    .masthead-inner{ padding:26px 0 22px; }
+    .masthead-inner{ padding-top:26px; padding-bottom:22px; }
     .panel{ padding:16px; }
     .cat-count{ display:none; }
   }
@@ -1293,21 +1335,24 @@
   </div>
 </div>
 
+<!-- Kopfband wie auf der Uebersicht knowledge-hubs.m-vf.de: dunkelblau,
+     Name des Hubs als Titel. „Knowledge-Hub" steht klein darueber statt im
+     Titel - es steht ohnehin schon in der weissen Leiste. Das MVF-Logo ist
+     von hier in den Fussbereich gewandert (Entwurf Mariann Stegmaier, S. 6). -->
 <header class="masthead">
-  <div class="wrap masthead-inner">
-    <div class="masthead-top">
-      <div class="masthead-text">
-        <h1 class="serif">Knowledge-Hub Patientensicherheit
-          <span class="sub">Ein Zugang zu Studien, Meldesystemen und Qualitätsdaten</span>
-        </h1>
-      </div>
-      <a class="brand-link" href="https://www.monitor-versorgungsforschung.de/?utm_source=safety-hub&amp;utm_medium=referral&amp;utm_campaign=logo" target="_blank" rel="noopener" title="Monitor Versorgungsforschung — Herausgeber dieses Portals">
-        <img src="logo/mvf-logo.png" width="1236" height="327" alt="Monitor Versorgungsforschung">
-      </a>
+  <div class="kopfband">
+    <div class="wrap">
+      <p class="kopf-eyebrow">KNOWLEDGE-HUB</p>
+      <h1 class="serif">Patientensicherheit
+        <span class="sub">Ein Zugang zu Studien, Meldesystemen und Qualitätsdaten</span>
+      </h1>
+      <p class="lede" id="kopfLede">Ein Suchbegriff, alle Datenbanken. Geben Sie bitte unten einen Begriff ein — jede Datenbankkarte öffnet damit direkt die passende Live-Suche in einem neuen Tab. Von PubMed über die Surveillance-Daten des RKI bis zur Rechtsprechung zur Arzthaftung. Ein Service von Monitor Versorgungsforschung.</p>
+      <button class="lede-mehr" id="ledeMehr" type="button" aria-controls="kopfLede" aria-expanded="false" hidden>Weiterlesen</button>
     </div>
+  </div>
+  <div class="wrap masthead-inner">
     <div class="lede-zeile">
       <div class="lede-links">
-        <p class="lede">Ein Suchbegriff, alle Datenbanken. Geben Sie bitte unten einen Begriff ein — jede Datenbankkarte öffnet damit direkt die passende Live-Suche in einem neuen Tab. Von PubMed über die Surveillance-Daten des RKI bis zur Rechtsprechung zur Arzthaftung. Ein Service von Monitor Versorgungsforschung.</p>
 
         <div class="panel" id="suche">
           <label class="panel-label" for="q">Suchbegriff</label>
@@ -1606,7 +1651,15 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <div class="attrib">Ein Angebot von „Monitor Versorgungsforschung" · eRelation AG – Content in Health</div>
+    <a class="absender" href="https://www.monitor-versorgungsforschung.de/?utm_source=safety-hub&amp;utm_medium=referral&amp;utm_campaign=fuss" target="_blank" rel="noopener">
+      <span>Ein Angebot von</span>
+      <img src="logo/mvf-logo-negativ.png" width="1236" height="327" alt="Monitor Versorgungsforschung">
+      <small>· eRelation AG – Content in Health</small>
+    </a>
+    <!-- Das farbige Logo fuer den Word-Kopf der Downloads (logoDataUri). Stand
+         bis Oktober 2026 sichtbar im Seitenkopf; ohne dieses Bild kaemen die
+         Word-Dateien ohne Logo heraus. -->
+    <img id="wordLogo" src="logo/mvf-logo.png" width="1236" height="327" alt="" hidden>
 
     <div class="legal">
       <details id="impressum">
@@ -2284,7 +2337,7 @@ function speichern(dateiname, inhalt, mime){
 // ueber die Leinwand, weil das Logo je nach Fassung als Datei oder bereits als
 // data:-URI vorliegt.
 function logoDataUri(){
-  const img = document.querySelector('.brand-link img');
+  const img = document.getElementById('wordLogo');
   if(!img || !img.complete || !img.naturalWidth) return '';
   if(img.src.startsWith('data:')) return img.src;
   try{
@@ -3926,6 +3979,22 @@ filtern();
 goBtn.disabled = !input.value.trim();
 goMetaBtn.disabled = !input.value.trim();
 
+// ---- Einleitung auf dem Telefon: drei Zeilen, dann „Weiterlesen" ----------
+(function(){
+  const p = document.getElementById('kopfLede'), b = document.getElementById('ledeMehr');
+  if(!p || !b) return;
+  p.classList.add('kurz');
+  const pruefe = ()=>{ b.hidden = !p.classList.contains('kurz') || p.scrollHeight <= p.clientHeight + 2; };
+  b.addEventListener('click', ()=>{
+    const auf = p.classList.toggle('kurz') === false;
+    b.textContent = auf ? 'Weniger anzeigen' : 'Weiterlesen';
+    b.setAttribute('aria-expanded', auf ? 'true' : 'false');
+    if(!auf) pruefe();
+  });
+  window.addEventListener('resize', ()=>{ if(p.classList.contains('kurz')) pruefe(); });
+  pruefe();
+})();
+
 // ---- Einstieg von aussen -------------------------------------------------
 // Zwei Wege, auf denen die Uebersicht knowledge-hubs.m-vf.de in einen Hub
 // fuehrt: mit einem Suchbegriff (?q=Sepsis - der Hub-Vorschlag der Suche
@@ -3982,4 +4051,4 @@ window.addEventListener('load', ()=>{
 <!-- ADRESSZEILE-ENDE ------------------------------------------------- -->
 
 
-<div style="position:fixed;left:12px;bottom:12px;z-index:9999;background:#C62828;color:#fff;font:700 12px/1.3 Lato,Arial,sans-serif;padding:7px 11px;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.3)">TESTVERSION – nicht öffentlich, Stand 07.10.2026</div>
+<div style="position:fixed;left:12px;bottom:12px;z-index:9999;background:#C62828;color:#fff;font:700 12px/1.3 Lato,Arial,sans-serif;padding:7px 11px;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.3)">TESTVERSION – nicht öffentlich, Stand 08.10.2026</div>
