@@ -9,9 +9,9 @@
 <link rel="alternate" hreflang="de" href="https://mvf-portal.github.io/hubs-test/">
 <link rel="alternate" hreflang="en" href="https://mvf-portal.github.io/hubs-test/en/">
 <link rel="alternate" hreflang="x-default" href="https://mvf-portal.github.io/hubs-test/">
-<link rel="icon" href="/hubs-test/logo/hub-icon.svg" type="image/svg+xml">
-<link rel="icon" href="/hubs-test/logo/hub-icon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="/hubs-test/logo/hub-icon-180.png">
+<link rel="icon" href="logo/hub-icon.svg" type="image/svg+xml">
+<link rel="icon" href="logo/hub-icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="logo/hub-icon-180.png">
 <meta name="theme-color" content="#14202E">
 <style>
 @font-face{ font-family:"Lato"; font-style:normal; font-weight:300; font-display:swap; src:url("fonts/lato-300.woff2") format("woff2"); }
@@ -278,6 +278,14 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
   .aktion .wrap{ font-size:13px; }
 }
 @media print{ .aktion, .held .suche, .filter{ display:none; } }
+
+/* Englische Seite: Hinweis, dass die Hubs deutsch sind - gleich unter dem
+   Einstieg, bevor jemand auf eine Kachel klickt. */
+.notiz-rahmen{ padding-top:26px; }
+.sprachnotiz{ margin:0; background:var(--gold-tint); border-left:4px solid var(--action); border-radius:8px;
+  padding:14px 18px; font-size:15px; color:var(--ink-soft); max-width:60em; }
+.sprachnotiz b{ display:block; color:var(--ink); font-size:16px; margin-bottom:3px; }
+.sprachnotiz a{ color:var(--brand); font-weight:700; }
 </style>
 <style>
   .netz{ --nz-grund:#14202E; --nz-text:#D3DCE8; --nz-leise:#9FB0C4; --nz-gold:#BE9E53;
@@ -631,7 +639,7 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
 <h2>Die Hubs in Zahlen</h2>
 <div class="tafel-rahmen"><table class="zahlentafel">
 <thead><tr><th>Hub</th><th>Datenbanken</th><th>Live-Suche</th><th>Rubriken</th><th>Glossar</th><th>Studien</th></tr></thead>
-<tbody><tr><td><a href="https://mvf-portal.github.io/hubs-test/wissen/">Versorgungsforschung</a></td><td>57</td><td>29</td><td>8</td><td>170</td><td>310</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/ncd/">Chronische Erkrankungen</a></td><td>102</td><td>41</td><td>11</td><td>158</td><td>263</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/ki/">Digitalisierung, KI &amp; Gesundheit</a></td><td>106</td><td>49</td><td>10</td><td>253</td><td>301</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/gender/">Geschlechtersensible Medizin</a></td><td>93</td><td>45</td><td>10</td><td>173</td><td>258</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/longevity/">Gesundes Altern &amp; Longevity</a></td><td>100</td><td>51</td><td>11</td><td>222</td><td>268</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/healthliteracy/">Gesundheitskompetenz</a></td><td>76</td><td>36</td><td>10</td><td>165</td><td>272</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/klima/">Hitze, Klima &amp; Gesundheit</a></td><td>90</td><td>40</td><td>9</td><td>240</td><td>268</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/impfen/">Impfen</a></td><td>97</td><td>50</td><td>10</td><td>167</td><td>263</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/safety/">Patientensicherheit</a></td><td>75</td><td>34</td><td>11</td><td>95</td><td>257</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/pflege/">Pflege &amp; Langzeitversorgung</a></td><td>88</td><td>42</td><td>11</td><td>156</td><td>264</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/mental/">Psychische Gesundheit</a></td><td>72</td><td>34</td><td>9</td><td>96</td><td>252</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/adipositas/">Adipositas</a></td><td>65</td><td>31</td><td>10</td><td>166</td><td>263</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/diabetes/">Diabetes</a></td><td>61</td><td>28</td><td>9</td><td>87</td><td>164</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/kardio/">Kardiologie</a></td><td>53</td><td>28</td><td>9</td><td>88</td><td>148</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/onkologie/">Onkologie</a></td><td>54</td><td>25</td><td>9</td><td>89</td><td>170</td></tr></tbody>
+<tbody><tr><td><a href="https://mvf-portal.github.io/hubs-test/wissen/">Versorgungsforschung</a></td><td>57</td><td>29</td><td>8</td><td>170</td><td>310</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/adipositas/">Adipositas</a></td><td>65</td><td>31</td><td>10</td><td>166</td><td>263</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/ncd/">Chronische Erkrankungen</a></td><td>102</td><td>41</td><td>11</td><td>158</td><td>263</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/diabetes/">Diabetes</a></td><td>61</td><td>28</td><td>9</td><td>87</td><td>164</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/ki/">Digitalisierung, KI &amp; Gesundheit</a></td><td>106</td><td>49</td><td>10</td><td>253</td><td>301</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/gender/">Geschlechtersensible Medizin</a></td><td>93</td><td>45</td><td>10</td><td>173</td><td>258</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/longevity/">Gesundes Altern &amp; Longevity</a></td><td>100</td><td>51</td><td>11</td><td>222</td><td>268</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/healthliteracy/">Gesundheitskompetenz</a></td><td>76</td><td>36</td><td>10</td><td>165</td><td>272</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/klima/">Hitze, Klima &amp; Gesundheit</a></td><td>90</td><td>40</td><td>9</td><td>240</td><td>268</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/impfen/">Impfen</a></td><td>97</td><td>50</td><td>10</td><td>167</td><td>263</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/kardio/">Kardiologie</a></td><td>53</td><td>28</td><td>9</td><td>88</td><td>148</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/onkologie/">Onkologie</a></td><td>54</td><td>25</td><td>9</td><td>89</td><td>170</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/safety/">Patientensicherheit</a></td><td>75</td><td>34</td><td>11</td><td>95</td><td>257</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/pflege/">Pflege &amp; Langzeitversorgung</a></td><td>88</td><td>42</td><td>11</td><td>156</td><td>264</td></tr><tr><td><a href="https://mvf-portal.github.io/hubs-test/mental/">Psychische Gesundheit</a></td><td>72</td><td>34</td><td>9</td><td>96</td><td>252</td></tr></tbody>
 <tfoot><tr><td>Zusammen</td><td>1189</td><td>563</td><td>147</td><td>2325</td><td>3721</td></tr></tfoot>
 </table></div>
 <p style="font-size:14px">Die Glossare überschneiden sich: Ohne Doppelungen sind es 1.349 verschiedene Begriffe.</p>
@@ -642,7 +650,7 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
   <p>Die Knowledge-Hubs sind ein Angebot von <i>Monitor Versorgungsforschung</i>, der Fachzeitschrift für Versorgungsforschung und Gesundheitsökonomie, herausgegeben von der eRelation AG – Content in Health in Bonn. <a href="https://www.monitor-versorgungsforschung.de/?utm_source=hub-uebersicht&amp;utm_medium=referral&amp;utm_campaign=ueber" target="_blank" rel="noopener">monitor-versorgungsforschung.de ↗</a></p>
 </div>
 </main>
-<script type="application/json" id="hubDaten">{"hubs":[]}</script>
+<script type="application/json" id="hubDaten">{"hubs":[],"t":{"passend":"PASSENDE HUBS","ueber":"über","oeffnen":"Hub öffnen →","leer":"Kein Hub führt diesen Begriff in seinem Glossar. Mit „Suchen“ öffnen Sie den Ausgangs-Hub Versorgungsforschung mit Ihrem Begriff.","studien":"STUDIEN","inAllen":"in allen deutschen Zusammenfassungen suchen","alleHubs":"Alle Hubs ↗","heute":"heute","gestern":"gestern","locale":"de-DE","zusammenfassung":"Zusammenfassung","mehr":"Mehr Studien anzeigen ▾","weniger":"Weniger anzeigen ▴"}}</script>
 <script>
 // Startseite knowledge-hubs.m-vf.de - Verhalten.
 // Alles, was diese Datei tut, ist Zugabe: Ohne JavaScript stehen Kacheln,
@@ -654,6 +662,10 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
   var HUBS = DATEN.hubs || [];
   var NACH_DOMAIN = {};
   HUBS.forEach(function (h) { NACH_DOMAIN[h.domain] = h; });
+  // Alle Texte, die das Skript selbst schreibt, kommen aus der Seite
+  // (startseite_neu.py, TEXT[lang]["js"]) - so gibt es eine deutsche und
+  // eine englische Fassung ohne zweites Skript.
+  var T = DATEN.t || {};
 
   function sicher(t) {
     return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -706,7 +718,7 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
   var aktiv = -1, treffer = [];
 
   function norm(t) {
-    return String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    return String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       .replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, ' ').trim();
   }
   // Gewichtung: Kernbegriffe (Schnellwahl, Name, Kernthemen) zaehlen
@@ -759,18 +771,18 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
     treffer = bewerte(q);
     aktiv = -1;
     if (q.length < 2) { box.hidden = true; feld.setAttribute('aria-expanded', 'false'); return; }
-    var h = '<h2>PASSENDE HUBS</h2>';
+    var h = '<h2>' + T.passend + '</h2>';
     if (treffer.length) {
       h += '<ul id="vorschlagListe">' + treffer.map(function (t, i) {
-        var grund = t.grund && norm(t.grund) !== norm(q) ? '<span class="vs-grund">über „' + sicher(t.grund) + '“</span>' : '';
+        var grund = t.grund && norm(t.grund) !== norm(q) ? '<span class="vs-grund">' + T.ueber + ' „' + sicher(t.grund) + '“</span>' : '';
         return '<li><a id="vs' + i + '" class="' + (t.hub.teil === 'indikation' ? 'krank' : '') + '" href="' + sicher(zielAdresse(t.hub, q)) + '">'
-          + t.hub.icon + '<span><b>' + sicher(t.hub.name) + '</b>' + grund + '</span><small>Hub öffnen →</small></a></li>';
+          + t.hub.icon + '<span><b>' + sicher(t.hub.name) + '</b>' + grund + '</span><small>' + T.oeffnen + '</small></a></li>';
       }).join('') + '</ul>';
     } else {
-      h += '<p class="vs-leer">Kein Hub führt diesen Begriff in seinem Glossar. Mit „Suchen“ öffnen Sie den Ausgangs-Hub Versorgungsforschung mit Ihrem Begriff.</p>';
+      h += '<p class="vs-leer">' + T.leer + '</p>';
     }
-    h += '<div class="vs-studien"><h2>STUDIEN</h2><ul><li><a href="' + sicher(DATEN.studiensuche + encodeURIComponent(q))
-      + '" target="_blank" rel="noopener"><span>„' + sicher(q) + '“ in allen deutschen Zusammenfassungen suchen</span><small>Alle Hubs ↗</small></a></li></ul></div>';
+    h += '<div class="vs-studien"><h2>' + T.studien + '</h2><ul><li><a href="' + sicher(DATEN.studiensuche + encodeURIComponent(q))
+      + '" target="_blank" rel="noopener"><span>„' + sicher(q) + '“ ' + T.inAllen + '</span><small>' + T.alleHubs + '</small></a></li></ul></div>';
     box.innerHTML = h;
     box.hidden = false;
     feld.setAttribute('aria-expanded', 'true');
@@ -820,9 +832,9 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
     var heute = new Date(); heute.setHours(12, 0, 0, 0);
     var d = new Date(tag + 'T12:00:00');
     var diff = Math.round((heute - d) / 864e5);
-    if (diff === 0) return 'heute';
-    if (diff === 1) return 'gestern';
-    return d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' });
+    if (diff === 0) return T.heute;
+    if (diff === 1) return T.gestern;
+    return d.toLocaleDateString(T.locale || 'de-DE', { day: '2-digit', month: '2-digit' });
   }
   function kuerze(t, n) {
     t = String(t || '');
@@ -837,7 +849,7 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
     return '<li data-teil="' + h.teil + '"' + (sichtbar ? '' : ' hidden data-mehr') + '>'
       + '<div class="st-zeile1"><a class="st-hub' + (h.teil === 'indikation' ? ' krank' : '') + '" href="' + sicher(h.url) + '">' + sicher(h.name) + ' ›</a>'
       + '<a class="st-titel" href="' + sicher(ziel) + '">' + sicher(e.title) + '</a></div>'
-      + '<p class="st-erg">' + sicher(kuerze(e.result, 190)) + ' · <a href="' + sicher(ziel) + '">Zusammenfassung</a></p>'
+      + '<p class="st-erg">' + sicher(kuerze(e.result, 190)) + ' · <a href="' + sicher(ziel) + '">' + T.zusammenfassung + '</a></p>'
       + '<span class="st-datum">' + datumText(e.aufgenommen) + '</span></li>';
   }
   function anzeigen() {
@@ -849,14 +861,14 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
     if (mehrKnopf) {
       mehrKnopf.hidden = stTeil !== 'alle';
       mehrKnopf.setAttribute('aria-expanded', aufgeklappt ? 'true' : 'false');
-      mehrKnopf.textContent = aufgeklappt ? 'Weniger anzeigen ▴' : 'Mehr Studien anzeigen ▾';
+      mehrKnopf.textContent = aufgeklappt ? T.weniger : T.mehr;
     }
   }
   if (mehrKnopf) mehrKnopf.addEventListener('click', function () { aufgeklappt = !aufgeklappt; anzeigen(); });
   filterLeiste(document.getElementById('stFilter'), function (teil) { stTeil = teil; anzeigen(); });
 
   if (liste && window.fetch) {
-    fetch('studien.json', { cache: 'no-cache' })
+    fetch(DATEN.studienDatei || 'studien.json', { cache: 'no-cache' })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) {
         // Je Hub die juengste Studie, die ersten vier sichtbar. Gleicher Tag:

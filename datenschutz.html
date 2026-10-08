@@ -9,9 +9,9 @@
 <link rel="alternate" hreflang="de" href="https://mvf-portal.github.io/hubs-test/">
 <link rel="alternate" hreflang="en" href="https://mvf-portal.github.io/hubs-test/en/">
 <link rel="alternate" hreflang="x-default" href="https://mvf-portal.github.io/hubs-test/">
-<link rel="icon" href="/hubs-test/logo/hub-icon.svg" type="image/svg+xml">
-<link rel="icon" href="/hubs-test/logo/hub-icon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="/hubs-test/logo/hub-icon-180.png">
+<link rel="icon" href="logo/hub-icon.svg" type="image/svg+xml">
+<link rel="icon" href="logo/hub-icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="logo/hub-icon-180.png">
 <meta name="theme-color" content="#14202E">
 <style>
 @font-face{ font-family:"Lato"; font-style:normal; font-weight:300; font-display:swap; src:url("fonts/lato-300.woff2") format("woff2"); }
@@ -278,6 +278,14 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
   .aktion .wrap{ font-size:13px; }
 }
 @media print{ .aktion, .held .suche, .filter{ display:none; } }
+
+/* Englische Seite: Hinweis, dass die Hubs deutsch sind - gleich unter dem
+   Einstieg, bevor jemand auf eine Kachel klickt. */
+.notiz-rahmen{ padding-top:26px; }
+.sprachnotiz{ margin:0; background:var(--gold-tint); border-left:4px solid var(--action); border-radius:8px;
+  padding:14px 18px; font-size:15px; color:var(--ink-soft); max-width:60em; }
+.sprachnotiz b{ display:block; color:var(--ink); font-size:16px; margin-bottom:3px; }
+.sprachnotiz a{ color:var(--brand); font-weight:700; }
 </style>
 <style>
   .netz{ --nz-grund:#14202E; --nz-text:#D3DCE8; --nz-leise:#9FB0C4; --nz-gold:#BE9E53;
@@ -607,7 +615,7 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
         <h4>5. Ihre Rechte</h4>
         <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, sich bei einer Aufsichtsbehörde zu beschweren. Zuständig ist die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen.</p>
 </main>
-<script type="application/json" id="hubDaten">{"hubs":[]}</script>
+<script type="application/json" id="hubDaten">{"hubs":[],"t":{"passend":"PASSENDE HUBS","ueber":"über","oeffnen":"Hub öffnen →","leer":"Kein Hub führt diesen Begriff in seinem Glossar. Mit „Suchen“ öffnen Sie den Ausgangs-Hub Versorgungsforschung mit Ihrem Begriff.","studien":"STUDIEN","inAllen":"in allen deutschen Zusammenfassungen suchen","alleHubs":"Alle Hubs ↗","heute":"heute","gestern":"gestern","locale":"de-DE","zusammenfassung":"Zusammenfassung","mehr":"Mehr Studien anzeigen ▾","weniger":"Weniger anzeigen ▴"}}</script>
 <script>
 // Startseite knowledge-hubs.m-vf.de - Verhalten.
 // Alles, was diese Datei tut, ist Zugabe: Ohne JavaScript stehen Kacheln,
@@ -619,6 +627,10 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
   var HUBS = DATEN.hubs || [];
   var NACH_DOMAIN = {};
   HUBS.forEach(function (h) { NACH_DOMAIN[h.domain] = h; });
+  // Alle Texte, die das Skript selbst schreibt, kommen aus der Seite
+  // (startseite_neu.py, TEXT[lang]["js"]) - so gibt es eine deutsche und
+  // eine englische Fassung ohne zweites Skript.
+  var T = DATEN.t || {};
 
   function sicher(t) {
     return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -671,7 +683,7 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
   var aktiv = -1, treffer = [];
 
   function norm(t) {
-    return String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    return String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       .replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, ' ').trim();
   }
   // Gewichtung: Kernbegriffe (Schnellwahl, Name, Kernthemen) zaehlen
@@ -724,18 +736,18 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
     treffer = bewerte(q);
     aktiv = -1;
     if (q.length < 2) { box.hidden = true; feld.setAttribute('aria-expanded', 'false'); return; }
-    var h = '<h2>PASSENDE HUBS</h2>';
+    var h = '<h2>' + T.passend + '</h2>';
     if (treffer.length) {
       h += '<ul id="vorschlagListe">' + treffer.map(function (t, i) {
-        var grund = t.grund && norm(t.grund) !== norm(q) ? '<span class="vs-grund">über „' + sicher(t.grund) + '“</span>' : '';
+        var grund = t.grund && norm(t.grund) !== norm(q) ? '<span class="vs-grund">' + T.ueber + ' „' + sicher(t.grund) + '“</span>' : '';
         return '<li><a id="vs' + i + '" class="' + (t.hub.teil === 'indikation' ? 'krank' : '') + '" href="' + sicher(zielAdresse(t.hub, q)) + '">'
-          + t.hub.icon + '<span><b>' + sicher(t.hub.name) + '</b>' + grund + '</span><small>Hub öffnen →</small></a></li>';
+          + t.hub.icon + '<span><b>' + sicher(t.hub.name) + '</b>' + grund + '</span><small>' + T.oeffnen + '</small></a></li>';
       }).join('') + '</ul>';
     } else {
-      h += '<p class="vs-leer">Kein Hub führt diesen Begriff in seinem Glossar. Mit „Suchen“ öffnen Sie den Ausgangs-Hub Versorgungsforschung mit Ihrem Begriff.</p>';
+      h += '<p class="vs-leer">' + T.leer + '</p>';
     }
-    h += '<div class="vs-studien"><h2>STUDIEN</h2><ul><li><a href="' + sicher(DATEN.studiensuche + encodeURIComponent(q))
-      + '" target="_blank" rel="noopener"><span>„' + sicher(q) + '“ in allen deutschen Zusammenfassungen suchen</span><small>Alle Hubs ↗</small></a></li></ul></div>';
+    h += '<div class="vs-studien"><h2>' + T.studien + '</h2><ul><li><a href="' + sicher(DATEN.studiensuche + encodeURIComponent(q))
+      + '" target="_blank" rel="noopener"><span>„' + sicher(q) + '“ ' + T.inAllen + '</span><small>' + T.alleHubs + '</small></a></li></ul></div>';
     box.innerHTML = h;
     box.hidden = false;
     feld.setAttribute('aria-expanded', 'true');
@@ -785,9 +797,9 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
     var heute = new Date(); heute.setHours(12, 0, 0, 0);
     var d = new Date(tag + 'T12:00:00');
     var diff = Math.round((heute - d) / 864e5);
-    if (diff === 0) return 'heute';
-    if (diff === 1) return 'gestern';
-    return d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' });
+    if (diff === 0) return T.heute;
+    if (diff === 1) return T.gestern;
+    return d.toLocaleDateString(T.locale || 'de-DE', { day: '2-digit', month: '2-digit' });
   }
   function kuerze(t, n) {
     t = String(t || '');
@@ -802,7 +814,7 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
     return '<li data-teil="' + h.teil + '"' + (sichtbar ? '' : ' hidden data-mehr') + '>'
       + '<div class="st-zeile1"><a class="st-hub' + (h.teil === 'indikation' ? ' krank' : '') + '" href="' + sicher(h.url) + '">' + sicher(h.name) + ' ›</a>'
       + '<a class="st-titel" href="' + sicher(ziel) + '">' + sicher(e.title) + '</a></div>'
-      + '<p class="st-erg">' + sicher(kuerze(e.result, 190)) + ' · <a href="' + sicher(ziel) + '">Zusammenfassung</a></p>'
+      + '<p class="st-erg">' + sicher(kuerze(e.result, 190)) + ' · <a href="' + sicher(ziel) + '">' + T.zusammenfassung + '</a></p>'
       + '<span class="st-datum">' + datumText(e.aufgenommen) + '</span></li>';
   }
   function anzeigen() {
@@ -814,14 +826,14 @@ footer.fuss .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-con
     if (mehrKnopf) {
       mehrKnopf.hidden = stTeil !== 'alle';
       mehrKnopf.setAttribute('aria-expanded', aufgeklappt ? 'true' : 'false');
-      mehrKnopf.textContent = aufgeklappt ? 'Weniger anzeigen ▴' : 'Mehr Studien anzeigen ▾';
+      mehrKnopf.textContent = aufgeklappt ? T.weniger : T.mehr;
     }
   }
   if (mehrKnopf) mehrKnopf.addEventListener('click', function () { aufgeklappt = !aufgeklappt; anzeigen(); });
   filterLeiste(document.getElementById('stFilter'), function (teil) { stTeil = teil; anzeigen(); });
 
   if (liste && window.fetch) {
-    fetch('studien.json', { cache: 'no-cache' })
+    fetch(DATEN.studienDatei || 'studien.json', { cache: 'no-cache' })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) {
         // Je Hub die juengste Studie, die ersten vier sichtbar. Gleicher Tag:
