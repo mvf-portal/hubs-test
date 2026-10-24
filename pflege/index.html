@@ -471,6 +471,7 @@
   .erstmal{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin-top:16px; padding:11px 14px;
     background:var(--brand-tint); border-radius:8px; font-size:14px; }
   .erstmal[hidden]{ display:none; }
+  .erstmal.oben{ margin:0 0 16px; }
   .erstmal-frage{ font-weight:700; color:var(--ink); }
   .erstmal a{ color:var(--brand); font-weight:700; text-decoration:none; }
   .erstmal a:hover{ text-decoration:underline; }
@@ -1559,6 +1560,17 @@
       <div class="lede-links">
 
         <div class="panel" id="suche">
+          <!-- Bis Oktober 2026 standen hier acht Erklaerbloecke mit rund 700 Woertern
+               (Suche, Operatoren, Portale, Lizenzen, Glossar). Seit Stufe 2 steht
+               all das auf „Über die Knowledge-Hubs" und „Themen & Quellen"; hier
+               bleibt nur der Weg dorthin (Entwurf Mariann Stegmaier, Hub-Seiten S. 2).
+               Wegklicken speichert nichts - beim naechsten Besuch ist er wieder da. -->
+          <div class="erstmal oben" id="erstmal">
+            <span class="erstmal-frage">Zum ersten Mal hier?</span>
+            <a href="https://mvf-portal.github.io/hubs-test/ueber-die-hubs.html#suche">So funktioniert die Suche →</a>
+            <a href="themen-quellen.html">Themen &amp; Quellen dieses Hubs →</a>
+            <button type="button" class="erstmal-zu" aria-label="Hinweis schließen" title="Hinweis schließen">&times;</button>
+          </div>
           <label class="panel-label" for="q">Suchbegriff</label>
           <div class="search-row">
             <div class="search-field">
@@ -1685,17 +1697,6 @@
               </div>
             </div>
           </details>
-          <!-- Bis Oktober 2026 standen hier acht Erklaerbloecke mit rund 700 Woertern
-               (Suche, Operatoren, Portale, Lizenzen, Glossar). Seit Stufe 2 steht
-               all das auf „Über die Knowledge-Hubs" und „Themen & Quellen"; hier
-               bleibt nur der Weg dorthin (Entwurf Mariann Stegmaier, Hub-Seiten S. 2).
-               Wegklicken speichert nichts - beim naechsten Besuch ist er wieder da. -->
-          <div class="erstmal" id="erstmal">
-            <span class="erstmal-frage">Zum ersten Mal hier?</span>
-            <a href="https://mvf-portal.github.io/hubs-test/ueber-die-hubs.html#suche">So funktioniert die Suche →</a>
-            <a href="themen-quellen.html">Themen &amp; Quellen dieses Hubs →</a>
-            <button type="button" class="erstmal-zu" aria-label="Hinweis schließen" title="Hinweis schließen">&times;</button>
-          </div>
           <div class="hints-sponsor">
             <p id="sponsorText" hidden><b>Sponsoren.</b> Unsere Sponsoren ermöglichen mit ihrer finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Sie nehmen dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
             <p id="koopText" hidden><b>Medienpartnerschaft.</b> Dieser Hub wird in einer Medienkooperation präsentiert. Der Medienpartner ermöglicht mit seiner finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Er nimmt dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
