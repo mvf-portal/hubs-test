@@ -466,6 +466,36 @@
     line-height:1.35; letter-spacing:-.005em; display:inline-block;
   }
   .mt-titel:hover{ color:var(--brand); text-decoration:underline; }
+  /* ---------- Stufe 3a (Entwurf Mariann Stegmaier): eine Spalte, Band ---------- */
+  .lede-zeile{ flex-direction:column; gap:18px; align-items:stretch; }
+  .erstmal{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin-top:16px; padding:11px 14px;
+    background:var(--brand-tint); border-radius:8px; font-size:14px; }
+  .erstmal[hidden]{ display:none; }
+  .erstmal-frage{ font-weight:700; color:var(--ink); }
+  .erstmal a{ color:var(--brand); font-weight:700; text-decoration:none; }
+  .erstmal a:hover{ text-decoration:underline; }
+  .erstmal-zu{ margin-left:auto; background:none; border:0; font-size:20px; line-height:1; cursor:pointer;
+    color:var(--ink-faint); padding:2px 6px; border-radius:4px; }
+  .erstmal-zu:hover{ color:var(--brand); background:var(--card); }
+  .hints-sponsor p{ margin:10px 0 0; font-size:12px; line-height:1.5; color:var(--ink-faint); }
+  .band{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 18px 16px; }
+  .band-kopf{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .band-kopf h2{ margin:0; font-size:17px; display:flex; align-items:center; gap:8px; }
+  .band-nl{ margin-left:auto; background:var(--action); color:var(--on-action); font-weight:700; font-size:13.5px;
+    text-decoration:none; padding:7px 14px; border-radius:6px; }
+  .band-nl:hover{ filter:brightness(1.08); }
+  .band-zu{ background:none; border:1px solid var(--line); border-radius:6px; font:inherit; font-size:12.5px;
+    color:var(--ink-soft); padding:6px 10px; cursor:pointer; }
+  .band-zu:hover{ border-color:var(--brand); color:var(--brand); }
+  .band[data-zu] .band-inhalt{ display:none; }
+  .band-inhalt{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin-top:12px; }
+  .band .band-karte{ margin:0; padding:12px 14px; border:1px solid var(--line-soft); border-radius:8px; background:var(--card-2); }
+  .band .band-karte[hidden]{ display:none; }
+  .band .magazin-list li:nth-child(n+4){ display:none; }
+  .band-studien-titel::before{ content:"\1F4C4" !important; }
+  .band-radar-titel::before{ content:"\1F4E2" !important; }
+  .band-radar .radar-hinweis, .band-radar .zulassung-hinweis{ margin:6px 0 0; }
+  .band .ki-pille.ki-klein{ margin:2px 0 4px; }
   /* KI-Kennzeichen, lila wie auf „Über die Knowledge-Hubs" (Entwurf Mariann Stegmaier). */
   .ki-pille{ display:inline-block; font-size:11px; font-weight:700; padding:2px 9px; border-radius:20px;
     background:#EEE8F7; color:#4B2E83; border:1px solid #D5C8EC; white-space:nowrap; }
@@ -1655,17 +1685,18 @@
               </div>
             </div>
           </details>
-          <div class="hints">
-            <p><b>So funktioniert die Suche.</b> Begriff eingeben, <b>Eingabetaste</b> drücken oder auf <b>„In allen Datenbanken suchen"</b> klicken — damit werden alle Kacheln auf Ihren Begriff eingestellt. Ein Klick auf eine Kachel öffnet dann <b>direkt die Trefferliste</b> dieser Datenbank in einem neuen Tab; ein zweites Mal suchen müssen Sie dort nicht. Die Kacheln bleiben eingestellt, Sie können also nacheinander mehrere Datenbanken öffnen, ohne den Begriff erneut einzugeben. Ausnahme sind die als <b>„Portal"</b> gekennzeichneten Anbieter — die erlauben technisch keine verlinkbare Trefferadresse.</p>
-            <p><b>Treffer direkt auf dieser Seite.</b> Der Knopf <b>&bdquo;Treffer direkt anzeigen&ldquo;</b> fragt die Datenbanken unmittelbar ab, die einen direkten Zugriff auf ihre Inhalte erlauben (derzeit <b id="cntMeta"></b>), und zeigt die Fundstellen zusammengef&uuml;hrt hier auf der Seite &mdash; jede mit Angabe der Datenbank, aus der sie stammt. Dubletten werden &uuml;ber die DOI zusammengelegt; erscheint eine Arbeit in mehreren Datenbanken, steht sie einmal in der Liste und tr&auml;gt mehrere Herkunftszeichen. Die Trefferliste zeigt <b>25 Treffer je Blatt</b>. Neben Zeitschriftenaufs&auml;tzen sind angemeldete Studien, Preprints und Repositorien darunter; der Filter <b>Art</b> trennt sie. Wo es eine legale frei zug&auml;ngliche Fassung gibt, steht ein Verweis <b>Volltext</b>. Die Liste l&auml;sst sich als Word, Excel, RIS oder BibTeX herunterladen und damit in Zotero, EndNote oder Citavi weiterverarbeiten. Die &uuml;brigen halten ihre Inhalte f&uuml;r eine solche Abfrage verschlossen; sie bleiben &uuml;ber die Kacheln zu &ouml;ffnen. Dabei erf&auml;hrt der jeweilige Anbieter Ihren Suchbegriff &mdash; N&auml;heres in den <a href="#datenschutz">Datenschutzhinweisen</a>.</p>
-            <p><b>Vollständigkeit.</b> Auch dieses Portal kann nicht sämtliche Artikel „aller Datenbanken" enthalten — das verhindern Lizenz- und Technikgrenzen. Es bündelt stattdessen die maßgeblichen Suchen, sodass eine Recherche systematisch über alle relevanten Datenbanken laufen kann.</p>
-            <!-- === THEMA-HINWEIS-START (themenspezifisch; aus dem Themenprofil) === -->
-            <p><b>Vier Wissenschaften, eine Suche.</b> Gesundheitskompetenz wird nicht nur medizinisch beforscht: Bildungsforschung, Psychologie, Soziologie und Kommunikationswissenschaft haben eigene Datenbanken — deshalb der Block „Bildung, Kommunikation &amp; Bevölkerungsdaten". Wer nur in PubMed sucht, übersieht einen erheblichen Teil des Feldes. Block „Entscheidungshilfen &amp; Patientenbeteiligung" führt zu <b>Instrumenten und Materialien</b> statt zu Studien. Zur Abgrenzung: Digitale Anwendungen kommen hier nur vor, wenn es um Verständlichkeit und Beteiligung geht — die Technik selbst steht im <a href="https://mvf-portal.github.io/hubs-test/ki/">Knowledge-Hub Digitalisierung, KI &amp; Gesundheit</a>.</p>
-            <!-- === THEMA-HINWEIS-ENDE === -->
-            <p><b>Portal vs. Live-Suche.</b> Von den derzeit <b id="cntGesamt"></b> eingebundenen Datenbanken unterstützen <b id="cntLive"></b> die Live-Suche; sie sind entsprechend gekennzeichnet. Weitere <b id="cntPortal"></b> sind als „Portal" markiert: Angebote wie LIVIVO, das DRKS oder die WHO-Plattform ICTRP erlauben technisch keine verlinkbaren Ergebnisadressen. Der Klick führt dort auf die Startseite — der Suchbegriff ist anschließend von Hand einzugeben.</p>
-            <p><b>Suchoperatoren.</b> <b>AND</b>, <b>OR</b> und <b>NOT</b> funktionieren nicht überall gleich — wir haben es einzeln nachgemessen. <span class="boolmark ja">AND/OR ✓</span> heißt: geprüft, die Operatoren wirken (<b id="cntBoolJa"></b> Datenbanken). <span class="boolmark nein">AND/OR ✗</span> heißt: geprüft, sie wirken nicht — die Wörter werden einfach mitgesucht (<b id="cntBoolNein"></b>). <b>Ohne Zeichen ist es ungeprüft</b> (<b id="cntBoolOffen"></b>): Diese Anbieter liefern eine Bot-Sperre oder eine reine JavaScript-Oberfläche, aus der sich kein belastbares Ergebnis ablesen ließ — das heißt ausdrücklich <i>nicht</i>, dass sie es nicht können. Der Filter „Operatoren" zeigt auf Wunsch nur die geprüft tauglichen.</p>
-            <p><b>Deutsch suchen, international finden.</b> Internationale Datenbanken kennen keine deutschen Fachbegriffe — „Gesundheitskompetenz" liefert dort nichts. Der Hub übersetzt deshalb <b id="cntGlossar"></b> Fachbegriffe automatisch: Deutschsprachige Datenbanken behalten Ihren Begriff, internationale bekommen den Ausdruck, unter dem sie tatsächlich indexieren („Gesundheitskompetenz" wird zu <i>health literacy</i>, „gemeinsame Entscheidungsfindung" zu <i>shared decision making</i>, „Leichte Sprache" zu <i>easy language</i>). Die Ergebnisleiste zeigt die verwendete Fassung; der Schalter unter dem Suchfeld stellt es ab.</p>
-            <p><b>Hinweis zu Lizenzen.</b> Mit <span class="badge lic">Lizenz</span> markierte Datenbanken (z. B. Web of Science, Scopus, Embase, CINAHL) sind kostenpflichtig — der Zugang läuft meist über Ihre Bibliothek/Institution. Der Link führt zur Startseite bzw. zum institutionellen Login.</p>
+          <!-- Bis Oktober 2026 standen hier acht Erklaerbloecke mit rund 700 Woertern
+               (Suche, Operatoren, Portale, Lizenzen, Glossar). Seit Stufe 2 steht
+               all das auf „Über die Knowledge-Hubs" und „Themen & Quellen"; hier
+               bleibt nur der Weg dorthin (Entwurf Mariann Stegmaier, Hub-Seiten S. 2).
+               Wegklicken speichert nichts - beim naechsten Besuch ist er wieder da. -->
+          <div class="erstmal" id="erstmal">
+            <span class="erstmal-frage">Zum ersten Mal hier?</span>
+            <a href="https://mvf-portal.github.io/hubs-test/ueber-die-hubs.html#suche">So funktioniert die Suche →</a>
+            <a href="themen-quellen.html">Themen &amp; Quellen dieses Hubs →</a>
+            <button type="button" class="erstmal-zu" aria-label="Hinweis schließen" title="Hinweis schließen">&times;</button>
+          </div>
+          <div class="hints-sponsor">
             <p id="sponsorText" hidden><b>Sponsoren.</b> Unsere Sponsoren ermöglichen mit ihrer finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Sie nehmen dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
             <p id="koopText" hidden><b>Medienpartnerschaft.</b> Dieser Hub wird in einer Medienkooperation präsentiert. Der Medienpartner ermöglicht mit seiner finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Er nimmt dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
           </div>
@@ -1694,11 +1725,26 @@
           Der Medienpartner nimmt darauf keinen Einfluss.</p>
         </div>
       </div>
-      <aside class="lede-nl">
-        <a class="btn-nl" href="newsletter.html">Newsletter abonnieren</a>
-        <span class="nl-mini">Die Studienauswahl jeden Morgen per E-Mail — kostenfrei und jederzeit kündbar.</span>
-        <a class="btn-ueber" href="ueber.html">Themen &amp; Quellen</a>
-        <a class="btn-ueber" href="https://mvf-portal.github.io/hubs-test/wissen/ausschreibungen.html#healthliteracy" target="_blank" rel="noopener">Ausschreibungsradar <span aria-hidden="true">↗</span></a>
+      <!-- Band „Aktuell im Hub" (Entwurf Mariann Stegmaier, Hub-Seiten S. 3).
+           Bis Oktober 2026 eine schmale Spalte rechts neben der Suche - auf dem
+           Handy rutschte sie hinter die Suche, und Seitenspalten werden als
+           Werbung ueberlesen. Jetzt ein Band unter der Suche, jede Rubrik eine
+           Karte mit hoechstens drei Eintraegen. „Ausblenden" speichert nichts. -->
+      <aside class="band" id="band" aria-labelledby="bandTitel">
+        <div class="band-kopf">
+          <h2 id="bandTitel"><span class="dot"></span>Aktuell im Hub</h2>
+          <a class="band-nl" href="newsletter.html">Newsletter abonnieren</a>
+          <button class="band-zu" id="bandZu" type="button" aria-expanded="true" aria-controls="bandInhalt">Ausblenden</button>
+        </div>
+        <div class="band-inhalt" id="bandInhalt">
+        <section class="band-karte" id="bandStudien" hidden>
+          <div class="magazin-title band-studien-titel">Neue Studien aus PubMed</div>
+          <span class="ki-pille ki-klein">Von KI ausgewählt und zusammengefasst</span>
+          <ul class="magazin-list" id="bandStudienListe"></ul>
+          <a class="magazin-mehr" href="#studien">Alle neuen Studien ↓</a>
+        </section>
+        <section class="band-karte band-radar">
+          <div class="magazin-title band-radar-titel">Ausschreibungen &amp; Zulassungen</div>
         <!-- Hinweis auf den Ausschreibungsradar. Angeregt von einem Nutzer
              der Hubs: Wer zu einem Thema forscht, sucht nicht nur Studien,
              sondern auch Geld. Gesucht wird zentral im Versorgungsforschungs-
@@ -1716,6 +1762,8 @@
              dauerhaft leer. Das ist kein Ausfall, sondern der Zuschnitt:
              Auf diese Themen zeigt keine Arzneimittelzulassung. -->
         <div class="zulassung-hinweis" id="zulassungHinweis" hidden></div>
+          <a class="magazin-mehr" href="https://mvf-portal.github.io/hubs-test/wissen/ausschreibungen.html#healthliteracy" target="_blank" rel="noopener">Zum Ausschreibungsradar ↗</a>
+        </section>
 
         <!-- Ausgesuchte News. Angeregt vom selben Nutzer wie der
              Ausschreibungsradar: Wer sich fuer ein Thema interessiert, will
@@ -1728,7 +1776,7 @@
              Scrollbereich (826 px hoch, 4.239 px Inhalt), und hinter
              Studienliste und Archivordner faende den Kasten niemand.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin" id="magazin" hidden>
+        <section class="magazin band-karte" id="magazin" hidden>
           <div class="magazin-title">Ausgesuchte News zu diesem Themenfeld</div>
           <p class="magazin-sub">Beiträge aus dem Portal von „Monitor
             Versorgungsforschung“ (<a href="https://www.monitor-versorgungsforschung.de/?utm_source=hl-hub&amp;utm_medium=referral&amp;utm_campaign=magazin" target="_blank" rel="noopener">www.m-vf.de</a>)</p>
@@ -1742,7 +1790,7 @@
              Hochschulen und Instituten) und presseportal.de, letzteres nur
              als Auffuellung und nur bei Treffer im Titel.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin presse" id="presse" hidden>
+        <section class="magazin presse band-karte" id="presse" hidden>
           <div class="magazin-title">Weitere Pressemeldungen zum Thema</div>
           <p class="magazin-sub">Pressemitteilungen Dritter, aus
             <a href="https://idw-online.de/" target="_blank" rel="noopener">idw</a>
@@ -1757,12 +1805,13 @@
              Leserschaft betrifft. Im Versorgungsforschungs-Hub ungefiltert,
              sonst nach dem Thema des Hubs ausgewaehlt.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin presse" id="selbst" hidden>
+        <section class="magazin presse band-karte" id="selbst" hidden>
           <div class="magazin-title">Aus der Selbstverwaltung</div>
           <p class="magazin-sub">Beschlüsse und Meldungen des
             <a href="https://www.g-ba.de/" target="_blank" rel="noopener">Gemeinsamen Bundesausschusses</a></p>
           <ul class="magazin-list" id="selbstList"></ul>
         </section>
+        </div>
       </aside>
     </div>
 
@@ -2043,62 +2092,62 @@ const DB = [
 
 // Momentaufnahme neuester Studien (PubMed, nach Datum sortiert) — deutsche Zusammenfassungen
 // === STUDIES-BLOCK-START (taeglich 06:00 Uhr von GitHub Actions ersetzt) ===
-const SNAP_DATE = "23. Okt. 2026, 06:02 Uhr";
+const SNAP_DATE = "24. Okt. 2026, 06:01 Uhr";
 const SNAP_STATUS = "neu";
 const STUDIES = [
   {
-    journal:"Support Care Cancer", year:"2026", pmid:"42907685",
-    author:"Yurtseven Ş et al.", pubdate:"22.10.2026",
-    added:"22.10.2026",
-    title:"Telefonische Schulung verbessert Anpassung nach Kolostomie und senkt Komplikationen",
-    sum:"RCT mit Kolostomie-Patienten (Telefon-Schulung n=, Routine-Pflege n=) über 3 Monate zur Wirkung von strukturierter Pflege-Beratung auf Stoma-Anpassung und Komplikationsschweregrad.",
-    result:"Telefon-Gruppe zeigte nach 3 Monaten signifikant höhere Akzeptanz- und Gesamt-Anpassungswerte und signifikant niedrigere Komplikationsschweregrad-Werte vs. Kontrolle. Kein signifikanter Unterschied in Angstpreokupation, sozialer Engagement oder Wut.",
-    transfer:"Türkei, Telemedizin-Format systemunabhängig, aber Kontinuität post-stationärer Versorgung zentral"
+    journal:"Rev Lat Am Enfermagem", year:"2026", pmid:"42912030",
+    author:"Lexius O et al.", pubdate:"16.10.2026",
+    added:"23.10.2026",
+    title:"Mehrsprachige Schulungsmaterialien zu chronischen Erkrankungen sind verständlich und akzeptiert",
+    sum:"Validierungsstudie eines Schulungsleitfadens in Kreolisch für haitianische Migranten in Brasilien: Inhalts- und semantische Validierung durch 17 Fachexperten und 30 Migranten.",
+    result:"Gesamter Konkordanzindex 0,91, SAM-Score 25,8 Punkte. Beide Validierungen bestätigen Eignung des Materials für Prävention und Selbstmanagement chronischer Erkrankungen bei Migranten. Hohe kulturelle und sprachliche Angemessenheit.",
+    transfer:"Brasilien, aber Ansatz zur migrantengerechten Materialentwicklung mit Sprachangepassung auf Deutschland übertragbar."
   },
   {
-    journal:"Eur Respir Rev", year:"2026", pmid:"42906938",
-    author:"Djuric O et al.", pubdate:"21.10.2026",
-    added:"22.10.2026",
-    title:"Multikomponenten-Interventionen erhöhen Teilnahme an Lungenkrebs-Screening deutlich",
-    sum:"Systematische Übersicht mit Metaanalyse von 14 abgeschlossenen Studien (2000–März 2023) zum Effekt von Aufklärung, SDM und Navigation auf LDCT-Screening-Uptake.",
-    result:"SDM+Navigation: OR 4,34 (95%-CI 2,50–7,54). Outreach+Navigation: OR 2,20 (95%-CI 1,70–2,84). Reine Aufklärung/Information: OR 1,03 (95%-CI 0,89–1,19, nicht signifikant). Multikomponenten-Interventionen: OR 2,64 (95%-CI 1,79–3,90) vs. Monokomponenten: OR 1,00 (95%-CI 0,87–1,14).",
-    transfer:"Italien koordinierte Studie, europäische Versorgungskontexte, Screening-Systeme ähnlich Deutschland"
+    journal:"Radiography (Lond)", year:"2026", pmid:"42858546",
+    author:"Angaag NA et al.", pubdate:"10.10.2026",
+    added:"10.10.2026",
+    title:"Radiographen kommunizieren Strahlenrisiken oft unklar – Schulung und Materialien helfen",
+    sum:"Scoping Review der Kommunikationspraktiken von Radiographen beim Aufklären über Strahlenrisiken in der Bildgebung: Welche Strategien funktionieren, welche Barrieren bestehen?",
+    result:"Radiographen nutzten überwiegend verbale, aktive oder passive Kommunikation. Hauptbarrieren: Angst vor Patientenangst, niedriges Wissen und Selbstvertrauen, unklare Rollenverteilung, fehlende Ressourcen. Empfohlen: standardisierte Protokolle, Radiographen-Fortbildung, interaktive Strategien und Patientenmaterialien.",
+    transfer:"Überwiegend Studien aus Großbritannien und Australien; Befunde zu Kommunikationsbarrieren in der Medizin international relevant."
   },
   {
-    journal:"BMC Health Serv Res", year:"2026", pmid:"42907825",
-    author:"Schoefs E et al.", pubdate:"05.10.2026",
-    added:"22.10.2026",
-    title:"Shared Decision Making in der Gastroenterologie: Barrieren und Erfolgsfaktoren",
-    sum:"Qualitative Studie mit 15 IBD-Patienten, 11 Gastroenterologen und 12 Krankenpflegerinnen in Belgien zum Implementierungsstand von SDM bei chronisch-entzündlichen Darmerkrankungen.",
-    result:"Gastroenterologen berichten routinemäßige SDM-Umsetzung, Patienten jedoch erleben Inkonsistenzen bei emotionaler Unterstützung und Preferenzerkundung. IBD-Pflegekräfte werden als essenzielle Partner wahrgenommen. Hauptbarrieren: niedrige Health Literacy, mangelnde Kommunikation, Zeitmangel. Facilitators: klinischer Nutzen, verstärkte SDM-Schulung, Organisationswandel.",
-    transfer:"Belgien, vergleichbarer europäischer Versicherungskontext, ähnliche Organisationsstrukturen"
+    journal:"Front Public Health", year:"2026", pmid:"42908939",
+    author:"Bazileva A et al.", pubdate:"07.10.2026",
+    added:"23.10.2026",
+    title:"Gesundheitskompetenz in Erwachsenenbildung: Verständnis und Handeln korrelieren nur schwach",
+    sum:"Mixed-Methods-Studie in Lettland: 320 Erwachsene wurden online zu Gesundheitskompetenz befragt, 6 Experten interviewt – Welche Faktoren fördern Verständnis und praktische Anwendung von Gesundheitsinformation?",
+    result:"Moderate positive Korrelation zwischen Verständnis und Anwendung (τ=0,383, p&lt;0,001), zwischen Zugang und Verständnis (τ=0,428, p&lt;0,001). Familienstand signifikant für kritische Informationsbewertung (H(3)=10,45, p=0,015). Barrieren: Fragmentierung der Bildung, fehlende Motivation, Desinformation. Ein konzeptueller Rahmen für mehrstufige Interventionen wurde entwickelt.",
+    transfer:"Lettland (EU), vergleichbare Gesundheitssystemaufgaben, Befunde zur Lücke zwischen Verständnis und Handeln relevant für Deutschland."
   },
   {
-    journal:"Health Promot Int", year:"2026", pmid:"42904456",
-    author:"Zhou J et al.", pubdate:"01.09.2026",
-    added:"22.10.2026",
-    title:"Gesundheitskompetenz und Stress beeinflussen Lebensqualität unterschiedlich je nach Krankheitslast",
-    sum:"Querschnittsstudie mit 3.716 finnischen Erwachsenen untersuchte pfadanalytisch, wie Health Literacy über wahrgenommenen Stress die gesundheitsbezogene Lebensqualität beeinflusst, stratifiziert nach Krankheitsbürde.",
-    result:"Höhere Health Literacy assoziiert mit niedrigerem wahrgenommenen Stress. Stress erklärt ca. 80 % der Gesamtassoziation zwischen Literacy und Lebensqualität (Pfadkoeffizient). Der Stress-Lebensqualität-Effekt war etwa doppelt so stark bei Personen mit mehreren chronischen Erkrankungen (hochsignifikant, p&lt;0,001) als ohne.",
-    transfer:"Finnland, Sozialsicherungssystem vergleichbar mit Deutschland, bevölkerungsbasierte Kohortendaten"
+    journal:"BMC Geriatr", year:"2026", pmid:"42919127",
+    author:"Goh YL et al.", pubdate:"28.07.2026",
+    added:"23.10.2026",
+    title:"Informationsquellen beeinflussen Selbstwirksamkeit von Demenzpflegenden stärker als Wissen",
+    sum:"Querschnittstudie mit 258 Angehörigen von Demenzkranken in Malaysia: Welche Informationsquellen und deren Kombinationen beeinflussen die Selbstwirksamkeit in der Pflegeverantwortung?",
+    result:"Nutzung mehrerer Informationsquellen erhöht Selbstwirksamkeit signifikant (erklärte Varianz 6,7% auf 12,6%, p&lt;0,05). Schriftliche Materialien und ärztliche Beratung steigerten Selbstwirksamkeit; Facebook und Selbsthilfegruppen wirkten sich negativ aus. Besonderheit: Vertrauen war kulturabhängig (Glaubenshaltung half Malayen mehr).",
+    transfer:"Mittleres Einkommenland, aber Befund zu Qualität von Informationsquellen prinzipiell übertragbar."
   },
   {
-    journal:"BMC Pregnancy Childbirth", year:"2026", pmid:"42907796",
-    author:"Rahkar Farshi M et al.", pubdate:"27.07.2026",
-    added:"22.10.2026",
-    title:"Verständlichkeit von Elternschulung senkt mütterlichen Stress nach Frühgeburten",
-    sum:"Quasi-experimentelle Studie mit 90 Müttern von Frühgeborenen (Booklet n=30, Face-to-Face n=30, Routine n=30) verglich APIB-basierte Schulung zur Säuglingsverhaltensinterpretation auf Stress und Bindung.",
-    result:"Stress sank in allen Gruppen signifikant (p&lt;0,001). Nach Adjustierung zeigte Booklet-Gruppe signifikant niedrigeren Stress (MD=-6,09, p=0,004) und Face-to-Face-Gruppe (MD=-4,16, p=0,040) vs. Kontrolle. Attachment stieg in Interventionsgruppen, kein signifikanter Unterschied nach Adjustierung (F=0,94, p=0,394).",
-    transfer:"Iran, aber Interventionsformat (APIB-Schulung) sprachunabhängig übertragbar auf NICU-Strukturen"
+    journal:"BMC Oral Health", year:"2026", pmid:"42919312",
+    author:"Sun C et al.", pubdate:"28.07.2026",
+    added:"23.10.2026",
+    title:"Strukturierte Mundhygiene-Schulung verbessert Zahngesundheit vor Tumorbestrahlung langfristig",
+    sum:"Zweiarmige Studie in China: 63 Patienten mit Kopf-Hals-Tumoren erhielten strukturierte Schulung (OHBCA) zu Mundhygiene vor Bestrahlung; 24 davon wurden 12 Monate nachbeobachtet und mit 19 Kontrollpatienten verglichen.",
+    result:"Phase 1: Schulung führte zu signifikanten Verbesserungen bei Wissen, Bewusstsein und Verhalten (alle p&lt;0,01). Phase 2 (12 Monate): Interventionsgruppe zeigte bessere Mundhygiene-Indizes (alle p&lt;0,0001) als Kontrolle, weniger Zahnbelag und Zahnfleischentzündung.",
+    transfer:"China, aber Schulungsansatz zur Vermeidung strahlentherapiebedingter Zahnkomplikationen prinzipiell übertragbar."
   },
   {
-    journal:"BMC Pregnancy Childbirth", year:"2026", pmid:"42907785",
-    author:"Alrehaili S et al.", pubdate:"27.07.2026",
-    added:"22.10.2026",
-    title:"Verständliches Video-Training erhöht Wissen über Präeklampsie bei Schwangeren",
-    sum:"Quasi-experimentelle Studie mit 100 schwangeren Frauen untersuchte, ob ein Educational Video das Verständnis über Präeklampsie-Symptome und -risiken steigert, gemessen mit 39-Item-Fragebogen.",
-    result:"Wissensscore prä-Intervention: 17,40±8,98, post-Intervention: 33,00±4,35, nach 2 Wochen: 31,89±4,73 (p&lt;0,001). Verdoppelung des Wissenspunkts durch Video, mit partieller Retention nach 2 Wochen.",
-    transfer:"Saudi-Arabien, Video-Format kultur- und sprachabhängig, aber Prinzip verständlicher Prävention übertragbar"
+    journal:"BMC Geriatr", year:"2026", pmid:"42919133",
+    author:"Kim E et al.", pubdate:"27.07.2026",
+    added:"23.10.2026",
+    title:"Strukturierte Schulung senkt Stürze bei älteren Patienten deutlich",
+    sum:"Quasi-experimentelle Studie zur Wirkung eines partizipativen fünftägigen Schulungsprogramms (APREAL) auf Sturzrisiken bei älteren Patienten in koreanischen Krankenhausstationen.",
+    result:"Die Interventionsgruppe zeigte nach der Schulung signifikant höhere Werte bei Sturzwissen (F=27,41, p&lt;0,001, η²=0,287), Selbstwirksamkeit (F=32,85, p&lt;0,001, η²=0,326) und Sturzprävention-Verhalten (F=93,14, p&lt;0,001, η²=0,578). Die Kontrollstation verzeichnete 2,3 Stürze pro 1.000 Patiententage, die Interventionsstation 0,0.",
+    transfer:"Südkorea, aber Design und Schulungsformat lassen sich auf deutsche Krankenhausstationen übertragen."
   },
 ];
 // === STUDIES-BLOCK-ENDE ===
@@ -2113,7 +2162,7 @@ const RADAR_FRISTEN = [["2026-12-31", "2027-01-07", "2027-01-07", "2027-01-07", 
 // === RADAR-BLOCK-ENDE ===
 
 // === ZULASSUNG-BLOCK-START (taeglich von GitHub Actions ersetzt) ===
-const ZUL_STAND = "23.10.2026";
+const ZUL_STAND = "24.10.2026";
 const ZUL_EIGENE = 0;
 const ZUL_GUTACHTEN = 0;
 const ZUL_ZULASSUNG = 0;
@@ -2123,7 +2172,7 @@ const ZUL_DIGA = 0;
 
 // Beitraege aus dem MVF-Archiv zum Thema — taeglich von scripts/newsfeed.py
 // === NEWS-BLOCK-START (taeglich von GitHub Actions ersetzt) ===
-const NEWS_STAND = "23.10.2026";
+const NEWS_STAND = "24.10.2026";
 const NEWS = [
   {titel:"Männergesundheit: Nur jeder Dritte fühlt sich gut informiert", datum:"2026-09-30", url:"https://www.monitor-versorgungsforschung.de/news/maennergesundheit-nur-jeder-dritte-fuehlt-sich-gut-informiert/"},
   {titel:"Gefährliche Fehlinformationen: Auf TikTok werden psychische Erkrankungen oft falsch dargestellt", datum:"2026-04-07", url:"https://www.monitor-versorgungsforschung.de/news/gefaehrliche-fehlinformationen-auf-tiktok-werden-psychische-erkrankungen-oft-falsch-dargestellt/"},
@@ -2258,14 +2307,18 @@ CATS.forEach(cat=>{
 document.getElementById('dbCount').textContent = DB.length;
 // Die Zahlen im Hinweis 'Portal vs. Live-Suche' aus DB zaehlen, nicht fest
 // eintragen - sonst veralten sie beim naechsten neuen Eintrag unbemerkt.
-document.getElementById('cntGesamt').textContent = DB.length;
-document.getElementById('cntLive').textContent   = DB.filter(x=>x.t==='live').length;
-document.getElementById('cntPortal').textContent = DB.filter(x=>x.t==='portal').length;
+// Seit Oktober 2026 stehen die Erklaertexte nicht mehr auf der Seite. setzeZahl
+// greift deshalb nur zu, wo es die Stelle gibt - ein harter Zugriff auf ein
+// fehlendes Element haelt das ganze Skript an, und die Seite bliebe leer.
+function setzeZahl(id, wert){ const el = document.getElementById(id); if(el) el.textContent = wert; }
+setzeZahl('cntGesamt', DB.length);
+setzeZahl('cntLive', DB.filter(x=>x.t==='live').length);
+setzeZahl('cntPortal', DB.filter(x=>x.t==='portal').length);
 // Boolesch-Zahlen aus denselben Daten wie die Kennzeichen - nie getrennt pflegen.
 const _live = DB.filter(x=>x.t==='live');
-document.getElementById('cntBoolJa').textContent    = _live.filter(x=>x.b===1).length;
-document.getElementById('cntBoolNein').textContent  = _live.filter(x=>x.b===0).length;
-document.getElementById('cntBoolOffen').textContent = _live.filter(x=>x.b===undefined).length;
+setzeZahl('cntBoolJa', _live.filter(x=>x.b===1).length);
+setzeZahl('cntBoolNein', _live.filter(x=>x.b===0).length);
+setzeZahl('cntBoolOffen', _live.filter(x=>x.b===undefined).length);
 
 // ---- Studien-Frame rendern ----
 document.getElementById('snapDate').textContent = SNAP_DATE;
@@ -2304,6 +2357,28 @@ document.getElementById('snapDate').textContent = SNAP_DATE;
       + 'neuen passenden Studien geliefert. Die Liste ist deshalb unverändert.';
     el.hidden = false;
   }
+})();
+// ---- Band „Aktuell im Hub": die drei neuesten Studien ----
+// Der Titel fuehrt zur Studie in der Spalte weiter unten (#studie-<PMID>), nicht
+// zu PubMed - dort steht die deutsche Zusammenfassung.
+(function(){
+  const liste = document.getElementById('bandStudienListe');
+  if(!liste || !STUDIES.length) return;
+  liste.innerHTML = STUDIES.slice(0, 3).map(s =>
+    '<li><a href="#studie-' + s.pmid + '">' + s.title + '</a>'
+    + '<span class="magazin-datum">' + s.journal + ' · ' + (s.pubdate || s.year) + '</span></li>').join('');
+  document.getElementById('bandStudien').hidden = false;
+})();
+(function(){
+  const band = document.getElementById('band'), knopf = document.getElementById('bandZu');
+  if(band && knopf) knopf.addEventListener('click', function(){
+    const zu = !band.hasAttribute('data-zu');
+    band.toggleAttribute('data-zu', zu);
+    knopf.setAttribute('aria-expanded', zu ? 'false' : 'true');
+    knopf.textContent = zu ? 'Einblenden' : 'Ausblenden';
+  });
+  const erst = document.getElementById('erstmal');
+  if(erst) erst.querySelector('.erstmal-zu').addEventListener('click', function(){ erst.hidden = true; });
 })();
 const studiesList = document.getElementById('studiesList');
 STUDIES.forEach(s=>{
@@ -2956,7 +3031,7 @@ shubLeeren.addEventListener('click', ()=>{ shubFeld.value = ''; shubSuchen(); sh
 const GLOSSAR = [{"de":"Telemedizin","en":"telemedicine"},{"de":"Videosprechstunde","en":"video consultation"},{"de":"Arzneimitteltherapiesicherheit","en":"medication safety"},{"de":"Routinedaten","en":"claims data"},{"de":"Abrechnungsdaten","en":"administrative claims data"},{"de":"Datenschutz","en":"data protection"},{"de":"Interoperabilität","en":"interoperability"},{"de":"maschinelles Lernen","en":"machine learning"},{"de":"Erstattung","en":"reimbursement"},{"de":"Nutzenbewertung","en":"health technology assessment"},{"de":"Implementierungsforschung","en":"implementation research"},{"de":"Versorgungsqualität","en":"quality of care"},{"de":"Patientensicherheit","en":"patient safety"},{"de":"Behandlungsfehler","en":"medical error"},{"de":"Patientenbeteiligung","en":"patient participation"},{"de":"Gesundheitsökonomie","en":"health economics"},{"de":"Kosteneffektivität","en":"cost-effectiveness"},{"de":"Gesundheitsausgaben","en":"health expenditure"},{"de":"Versorgungsforschung","en":"health services research"},{"de":"Epidemiologie","en":"epidemiology"},{"de":"randomisierte kontrollierte Studie","en":"randomized controlled trial"},{"de":"Kohortenstudie","en":"cohort study"},{"de":"Beobachtungsstudie","en":"observational study"},{"de":"Querschnittstudie","en":"cross-sectional study"},{"de":"Machbarkeitsstudie","en":"feasibility study"},{"de":"systematische Übersichtsarbeit","en":"systematic review"},{"de":"Metaanalyse","en":"meta-analysis"},{"de":"Scoping Review","en":"scoping review"},{"de":"Modellierung","en":"modelling"},{"de":"Befragung","en":"survey"},{"de":"ältere Menschen","en":"aged"},{"de":"Kinder","en":"child"},{"de":"chronische Erkrankung","en":"chronic disease"},{"de":"seltene Erkrankung","en":"rare disease"},{"de":"Multimorbidität","en":"multimorbidity"},{"de":"psychische Gesundheit","en":"mental health"},{"de":"Hausarzt","en":"general practitioner"},{"de":"Krankenhaus","en":"hospital"},{"de":"Notaufnahme","en":"emergency department"},{"de":"Fachkräftemangel","en":"health workforce shortage"},{"de":"Gesundheitspersonal","en":"health personnel"},{"de":"Gesundheitssystem","en":"health system"},{"de":"Gesundheitspolitik","en":"health policy"},{"de":"Prävention","en":"prevention"},{"de":"Gesundheitsförderung","en":"health promotion"},{"de":"Gesundheitskompetenz","en":"health literacy"},{"de":"öffentlicher Gesundheitsdienst","en":"public health services"},{"de":"Health Literacy","en":"health literacy"},{"de":"digitale Gesundheitskompetenz","en":"digital health literacy"},{"de":"elektronische Gesundheitskompetenz","en":"eHealth literacy"},{"de":"kritische Gesundheitskompetenz","en":"critical health literacy"},{"de":"organisationale Gesundheitskompetenz","en":"organizational health literacy"},{"de":"Gesundheitsbildung","en":"health education"},{"de":"Patientenbildung","en":"patient education"},{"de":"Aufklärung","en":"health education"},{"de":"Aufklärungskampagne","en":"public awareness campaign"},{"de":"Gesundheitskommunikation","en":"health communication"},{"de":"Risikokommunikation","en":"risk communication"},{"de":"Krisenkommunikation","en":"crisis communication"},{"de":"Wissenschaftskommunikation","en":"science communication"},{"de":"Grundbildung","en":"basic education"},{"de":"Lesekompetenz","en":"reading literacy"},{"de":"funktionaler Analphabetismus","en":"functional illiteracy"},{"de":"Rechenkompetenz","en":"numeracy"},{"de":"Zahlenverständnis","en":"numeracy"},{"de":"Medienkompetenz","en":"media literacy"},{"de":"Informationskompetenz","en":"information literacy"},{"de":"Patienteninformation","en":"patient information"},{"de":"Gesundheitsinformation","en":"consumer health information"},{"de":"evidenzbasierte Patienteninformation","en":"evidence-based patient information"},{"de":"verständliche Sprache","en":"plain language"},{"de":"Leichte Sprache","en":"easy language"},{"de":"einfache Sprache","en":"plain language"},{"de":"Verständlichkeit","en":"comprehensibility"},{"de":"Lesbarkeit","en":"readability"},{"de":"Lesbarkeitsindex","en":"readability formula"},{"de":"Fachsprache","en":"medical terminology"},{"de":"Beipackzettel","en":"package insert"},{"de":"Patientenbroschüre","en":"patient education handout"},{"de":"Patientenleitlinie","en":"patient guideline"},{"de":"Qualität von Gesundheitsinformation","en":"quality of health information"},{"de":"Fehlinformation","en":"misinformation"},{"de":"Desinformation","en":"disinformation"},{"de":"Gesundheitsmythos","en":"health myth"},{"de":"Faktencheck","en":"fact checking"},{"de":"Impfskepsis","en":"vaccine hesitancy"},{"de":"Vertrauen","en":"trust"},{"de":"Informationsverhalten","en":"information seeking behavior"},{"de":"Internetnutzung","en":"internet use"},{"de":"soziale Medien","en":"social media"},{"de":"Gesundheitsportal","en":"health portal"},{"de":"gemeinsame Entscheidungsfindung","en":"shared decision making"},{"de":"partizipative Entscheidungsfindung","en":"shared decision making"},{"de":"Entscheidungshilfe","en":"decision aid"},{"de":"Entscheidungskonflikt","en":"decisional conflict"},{"de":"informierte Entscheidung","en":"informed choice"},{"de":"Einwilligung nach Aufklärung","en":"informed consent"},{"de":"Patientenzentrierung","en":"patient-centered care"},{"de":"Patientenpräferenz","en":"patient preference"},{"de":"Selbstwirksamkeit","en":"self efficacy"},{"de":"Selbstmanagement","en":"self-management"},{"de":"Patientenschulung","en":"patient education as topic"},{"de":"Therapietreue","en":"medication adherence"},{"de":"Adhärenz","en":"treatment adherence"},{"de":"Compliance","en":"patient compliance"},{"de":"Empowerment","en":"patient empowerment"},{"de":"Selbsthilfegruppe","en":"self-help group"},{"de":"Patientenvertretung","en":"patient advocacy"},{"de":"Patientenrechte","en":"patient rights"},{"de":"Beschwerdemanagement","en":"complaint management"},{"de":"Zweitmeinung","en":"second opinion"},{"de":"Arzt-Patienten-Kommunikation","en":"physician-patient relations"},{"de":"Arzt-Patienten-Gespräch","en":"physician-patient relations"},{"de":"Gesprächsführung","en":"communication skills"},{"de":"Rückfragemethode","en":"teach-back method"},{"de":"Dolmetscher","en":"translating"},{"de":"Sprachbarriere","en":"communication barriers"},{"de":"kultursensible Versorgung","en":"culturally competent care"},{"de":"Migrationshintergrund","en":"immigrants"},{"de":"Gesundheitslotse","en":"health navigator"},{"de":"Patientenlotse","en":"patient navigation"},{"de":"Beratung","en":"counseling"},{"de":"Apotheke","en":"pharmacy"},{"de":"Pflegekraft","en":"nurse"},{"de":"Pflege","en":"nursing"},{"de":"Pflegequalität","en":"quality of nursing care"},{"de":"Pflegebedürftigkeit","en":"long-term care needs"},{"de":"Pflegefachkraft","en":"nurse"},{"de":"Gesundheitsberuf","en":"health personnel"},{"de":"Entlassmanagement","en":"patient discharge"},{"de":"Aufklärungsgespräch","en":"informed consent"},{"de":"Sprechstunde","en":"office visit"},{"de":"Wartezeit","en":"waiting time"},{"de":"soziale Ungleichheit","en":"health inequalities"},{"de":"gesundheitliche Chancengleichheit","en":"health equity"},{"de":"sozioökonomischer Status","en":"socioeconomic status"},{"de":"Bildungsstand","en":"educational status"},{"de":"Armut","en":"poverty"},{"de":"vulnerable Gruppe","en":"vulnerable populations"},{"de":"Kinder und Jugendliche","en":"adolescent"},{"de":"Eltern","en":"parents"},{"de":"chronisch Kranke","en":"chronic disease"},{"de":"Menschen mit Behinderung","en":"disabled persons"},{"de":"Gesundheitsverhalten","en":"health behavior"},{"de":"Lebensstil","en":"life style"},{"de":"Inanspruchnahme","en":"health services accessibility"},{"de":"Zugang zur Versorgung","en":"health services accessibility"},{"de":"Bevölkerungsbefragung","en":"health surveys"},{"de":"Prävalenz","en":"prevalence"},{"de":"Messinstrument","en":"surveys and questionnaires"},{"de":"Fragebogen","en":"questionnaires"},{"de":"Validierung","en":"validation study"},{"de":"Reliabilität","en":"reproducibility of results"},{"de":"Interventionsstudie","en":"intervention study"},{"de":"Cluster-randomisierte Studie","en":"cluster randomized trial"},{"de":"qualitative Studie","en":"qualitative research"},{"de":"Fokusgruppe","en":"focus groups"},{"de":"Interviewstudie","en":"interviews as topic"},{"de":"Mixed Methods","en":"mixed methods"},{"de":"Prozessevaluation","en":"process evaluation"},{"de":"Implementierung","en":"implementation science"},{"de":"Wirksamkeit","en":"effectiveness"},{"de":"Lebensqualität","en":"quality of life"},{"de":"patientenberichtetes Ergebnis","en":"patient reported outcome measures"},{"de":"Krankenhauseinweisung","en":"hospitalization"}];
 // === GLOSSAR-BLOCK-ENDE ===
 
-document.getElementById('cntGlossar').textContent = GLOSSAR.length;
+setzeZahl('cntGlossar', GLOSSAR.length);
 
 // Sprungziele Impressum/Datenschutz: Die Texte stecken in <details>. Wird eines
 // direkt angesprungen, muss es aufklappen - sonst landet man auf einer
@@ -3703,7 +3778,7 @@ const goMetaBtn   = document.getElementById('goMeta');
 const metaArtBox  = document.getElementById('metaArt');
 const metaBlaetterEl = document.getElementById('metaBlaetter');
 
-document.getElementById('cntMeta').textContent = MT_QUELLEN.length;
+setzeZahl('cntMeta', MT_QUELLEN.length);
 
 // Ein Treffer kann in allen vier Quellen stehen. Zusammengelegt wird ueber
 // die DOI, ersatzweise ueber die PubMed-Nummer, zuletzt ueber den auf

@@ -466,6 +466,36 @@
     line-height:1.35; letter-spacing:-.005em; display:inline-block;
   }
   .mt-titel:hover{ color:var(--brand); text-decoration:underline; }
+  /* ---------- Stufe 3a (Entwurf Mariann Stegmaier): eine Spalte, Band ---------- */
+  .lede-zeile{ flex-direction:column; gap:18px; align-items:stretch; }
+  .erstmal{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin-top:16px; padding:11px 14px;
+    background:var(--brand-tint); border-radius:8px; font-size:14px; }
+  .erstmal[hidden]{ display:none; }
+  .erstmal-frage{ font-weight:700; color:var(--ink); }
+  .erstmal a{ color:var(--brand); font-weight:700; text-decoration:none; }
+  .erstmal a:hover{ text-decoration:underline; }
+  .erstmal-zu{ margin-left:auto; background:none; border:0; font-size:20px; line-height:1; cursor:pointer;
+    color:var(--ink-faint); padding:2px 6px; border-radius:4px; }
+  .erstmal-zu:hover{ color:var(--brand); background:var(--card); }
+  .hints-sponsor p{ margin:10px 0 0; font-size:12px; line-height:1.5; color:var(--ink-faint); }
+  .band{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 18px 16px; }
+  .band-kopf{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .band-kopf h2{ margin:0; font-size:17px; display:flex; align-items:center; gap:8px; }
+  .band-nl{ margin-left:auto; background:var(--action); color:var(--on-action); font-weight:700; font-size:13.5px;
+    text-decoration:none; padding:7px 14px; border-radius:6px; }
+  .band-nl:hover{ filter:brightness(1.08); }
+  .band-zu{ background:none; border:1px solid var(--line); border-radius:6px; font:inherit; font-size:12.5px;
+    color:var(--ink-soft); padding:6px 10px; cursor:pointer; }
+  .band-zu:hover{ border-color:var(--brand); color:var(--brand); }
+  .band[data-zu] .band-inhalt{ display:none; }
+  .band-inhalt{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin-top:12px; }
+  .band .band-karte{ margin:0; padding:12px 14px; border:1px solid var(--line-soft); border-radius:8px; background:var(--card-2); }
+  .band .band-karte[hidden]{ display:none; }
+  .band .magazin-list li:nth-child(n+4){ display:none; }
+  .band-studien-titel::before{ content:"\1F4C4" !important; }
+  .band-radar-titel::before{ content:"\1F4E2" !important; }
+  .band-radar .radar-hinweis, .band-radar .zulassung-hinweis{ margin:6px 0 0; }
+  .band .ki-pille.ki-klein{ margin:2px 0 4px; }
   /* KI-Kennzeichen, lila wie auf „Über die Knowledge-Hubs" (Entwurf Mariann Stegmaier). */
   .ki-pille{ display:inline-block; font-size:11px; font-weight:700; padding:2px 9px; border-radius:20px;
     background:#EEE8F7; color:#4B2E83; border:1px solid #D5C8EC; white-space:nowrap; }
@@ -1655,17 +1685,18 @@
               </div>
             </div>
           </details>
-          <div class="hints">
-            <p><b>So funktioniert die Suche.</b> Begriff eingeben, <b>Eingabetaste</b> drücken oder auf <b>„In allen Datenbanken suchen"</b> klicken — damit werden alle Kacheln auf Ihren Begriff eingestellt. Ein Klick auf eine Kachel öffnet dann <b>direkt die Trefferliste</b> dieser Datenbank in einem neuen Tab; ein zweites Mal suchen müssen Sie dort nicht. Die Kacheln bleiben eingestellt, Sie können also nacheinander mehrere Datenbanken öffnen, ohne den Begriff erneut einzugeben. Ausnahme sind die als <b>„Portal"</b> gekennzeichneten Anbieter — die erlauben technisch keine verlinkbare Trefferadresse.</p>
-            <p><b>Treffer direkt auf dieser Seite.</b> Der Knopf <b>&bdquo;Treffer direkt anzeigen&ldquo;</b> fragt die Datenbanken unmittelbar ab, die einen direkten Zugriff auf ihre Inhalte erlauben (derzeit <b id="cntMeta"></b>), und zeigt die Fundstellen zusammengef&uuml;hrt hier auf der Seite &mdash; jede mit Angabe der Datenbank, aus der sie stammt. Dubletten werden &uuml;ber die DOI zusammengelegt; erscheint eine Arbeit in mehreren Datenbanken, steht sie einmal in der Liste und tr&auml;gt mehrere Herkunftszeichen. Die Trefferliste zeigt <b>25 Treffer je Blatt</b>. Neben Zeitschriftenaufs&auml;tzen sind angemeldete Studien, Preprints und Repositorien darunter; der Filter <b>Art</b> trennt sie. Wo es eine legale frei zug&auml;ngliche Fassung gibt, steht ein Verweis <b>Volltext</b>. Die Liste l&auml;sst sich als Word, Excel, RIS oder BibTeX herunterladen und damit in Zotero, EndNote oder Citavi weiterverarbeiten. Die &uuml;brigen halten ihre Inhalte f&uuml;r eine solche Abfrage verschlossen; sie bleiben &uuml;ber die Kacheln zu &ouml;ffnen. Dabei erf&auml;hrt der jeweilige Anbieter Ihren Suchbegriff &mdash; N&auml;heres in den <a href="#datenschutz">Datenschutzhinweisen</a>.</p>
-            <p><b>Vollständigkeit.</b> Auch dieses Portal kann nicht sämtliche Artikel „aller Datenbanken" enthalten — das verhindern Lizenz- und Technikgrenzen. Es bündelt stattdessen die maßgeblichen Suchen, sodass eine Recherche systematisch über alle relevanten Datenbanken laufen kann.</p>
-            <!-- === THEMA-HINWEIS-START (themenspezifisch; aus dem Themenprofil) === -->
-            <p><b>Zwei Welten, eine Suche.</b> Pflege wird in zwei getrennten Literaturen verhandelt. Die Pflegewissenschaft veröffentlicht international in Zeitschriften (Blöcke 02 bis 04); die deutsche Langzeitpflege dagegen findet weitgehend außerhalb der Wissenschaft statt — in der amtlichen Pflegestatistik, in den Qualitätsprüfungen des Medizinischen Dienstes, in Expertenstandards und in den Berichten der Pflegekassen. Deshalb die eigenen Blöcke 01, 05 und 07. Wer nur in PubMed sucht, findet die Studienlage, aber nicht die hiesige Wirklichkeit; wer nur deutsche Institutionen liest, findet umgekehrt keine Evidenz.</p>
-            <!-- === THEMA-HINWEIS-ENDE === -->
-            <p><b>Portal vs. Live-Suche.</b> Von den derzeit <b id="cntGesamt"></b> eingebundenen Datenbanken unterstützen <b id="cntLive"></b> die Live-Suche; sie sind entsprechend gekennzeichnet. Weitere <b id="cntPortal"></b> sind als „Portal" markiert: Angebote wie LIVIVO, das DRKS oder die WHO-Plattform ICTRP erlauben technisch keine verlinkbaren Ergebnisadressen. Der Klick führt dort auf die Startseite — der Suchbegriff ist anschließend von Hand einzugeben.</p>
-            <p><b>Suchoperatoren.</b> <b>AND</b>, <b>OR</b> und <b>NOT</b> funktionieren nicht überall gleich — wir haben es einzeln nachgemessen. <span class="boolmark ja">AND/OR ✓</span> heißt: geprüft, die Operatoren wirken (<b id="cntBoolJa"></b> Datenbanken). <span class="boolmark nein">AND/OR ✗</span> heißt: geprüft, sie wirken nicht — die Wörter werden einfach mitgesucht (<b id="cntBoolNein"></b>). <b>Ohne Zeichen ist es ungeprüft</b> (<b id="cntBoolOffen"></b>): Diese Anbieter liefern eine Bot-Sperre oder eine reine JavaScript-Oberfläche, aus der sich kein belastbares Ergebnis ablesen ließ — das heißt ausdrücklich <i>nicht</i>, dass sie es nicht können. Der Filter „Operatoren" zeigt auf Wunsch nur die geprüft tauglichen.</p>
-            <p><b>Deutsch suchen, international finden.</b> Internationale Datenbanken kennen keine deutschen Fachbegriffe — „Pflegebedürftigkeit" liefert dort nichts. Der Hub übersetzt deshalb <b id="cntGlossar"></b> Fachbegriffe automatisch: Deutschsprachige Datenbanken behalten Ihren Begriff, internationale bekommen den Ausdruck, unter dem sie tatsächlich indexieren („Pflegebedürftigkeit" wird zu <i>care dependency</i>, „Pflegeheim" zu <i>nursing home</i>, „Pflegende Angehörige" zu <i>family caregivers</i>). Die Ergebnisleiste zeigt die verwendete Fassung; der Schalter unter dem Suchfeld stellt es ab.</p>
-            <p><b>Hinweis zu Lizenzen.</b> Mit <span class="badge lic">Lizenz</span> markierte Datenbanken (z. B. Web of Science, Scopus, Embase, CINAHL) sind kostenpflichtig — der Zugang läuft meist über Ihre Bibliothek/Institution. Der Link führt zur Startseite bzw. zum institutionellen Login.</p>
+          <!-- Bis Oktober 2026 standen hier acht Erklaerbloecke mit rund 700 Woertern
+               (Suche, Operatoren, Portale, Lizenzen, Glossar). Seit Stufe 2 steht
+               all das auf „Über die Knowledge-Hubs" und „Themen & Quellen"; hier
+               bleibt nur der Weg dorthin (Entwurf Mariann Stegmaier, Hub-Seiten S. 2).
+               Wegklicken speichert nichts - beim naechsten Besuch ist er wieder da. -->
+          <div class="erstmal" id="erstmal">
+            <span class="erstmal-frage">Zum ersten Mal hier?</span>
+            <a href="https://mvf-portal.github.io/hubs-test/ueber-die-hubs.html#suche">So funktioniert die Suche →</a>
+            <a href="themen-quellen.html">Themen &amp; Quellen dieses Hubs →</a>
+            <button type="button" class="erstmal-zu" aria-label="Hinweis schließen" title="Hinweis schließen">&times;</button>
+          </div>
+          <div class="hints-sponsor">
             <p id="sponsorText" hidden><b>Sponsoren.</b> Unsere Sponsoren ermöglichen mit ihrer finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Sie nehmen dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
             <p id="koopText" hidden><b>Medienpartnerschaft.</b> Dieser Hub wird in einer Medienkooperation präsentiert. Der Medienpartner ermöglicht mit seiner finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Er nimmt dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
           </div>
@@ -1694,11 +1725,26 @@
           Der Medienpartner nimmt darauf keinen Einfluss.</p>
         </div>
       </div>
-      <aside class="lede-nl">
-        <a class="btn-nl" href="newsletter.html">Newsletter abonnieren</a>
-        <span class="nl-mini">Die Studienauswahl jeden Morgen per E-Mail — kostenfrei und jederzeit kündbar.</span>
-        <a class="btn-ueber" href="ueber.html">Themen &amp; Quellen</a>
-        <a class="btn-ueber" href="https://mvf-portal.github.io/hubs-test/wissen/ausschreibungen.html#pflege" target="_blank" rel="noopener">Ausschreibungsradar <span aria-hidden="true">↗</span></a>
+      <!-- Band „Aktuell im Hub" (Entwurf Mariann Stegmaier, Hub-Seiten S. 3).
+           Bis Oktober 2026 eine schmale Spalte rechts neben der Suche - auf dem
+           Handy rutschte sie hinter die Suche, und Seitenspalten werden als
+           Werbung ueberlesen. Jetzt ein Band unter der Suche, jede Rubrik eine
+           Karte mit hoechstens drei Eintraegen. „Ausblenden" speichert nichts. -->
+      <aside class="band" id="band" aria-labelledby="bandTitel">
+        <div class="band-kopf">
+          <h2 id="bandTitel"><span class="dot"></span>Aktuell im Hub</h2>
+          <a class="band-nl" href="newsletter.html">Newsletter abonnieren</a>
+          <button class="band-zu" id="bandZu" type="button" aria-expanded="true" aria-controls="bandInhalt">Ausblenden</button>
+        </div>
+        <div class="band-inhalt" id="bandInhalt">
+        <section class="band-karte" id="bandStudien" hidden>
+          <div class="magazin-title band-studien-titel">Neue Studien aus PubMed</div>
+          <span class="ki-pille ki-klein">Von KI ausgewählt und zusammengefasst</span>
+          <ul class="magazin-list" id="bandStudienListe"></ul>
+          <a class="magazin-mehr" href="#studien">Alle neuen Studien ↓</a>
+        </section>
+        <section class="band-karte band-radar">
+          <div class="magazin-title band-radar-titel">Ausschreibungen &amp; Zulassungen</div>
         <!-- Hinweis auf den Ausschreibungsradar. Angeregt von einem Nutzer
              der Hubs: Wer zu einem Thema forscht, sucht nicht nur Studien,
              sondern auch Geld. Gesucht wird zentral im Versorgungsforschungs-
@@ -1716,6 +1762,8 @@
              dauerhaft leer. Das ist kein Ausfall, sondern der Zuschnitt:
              Auf diese Themen zeigt keine Arzneimittelzulassung. -->
         <div class="zulassung-hinweis" id="zulassungHinweis" hidden></div>
+          <a class="magazin-mehr" href="https://mvf-portal.github.io/hubs-test/wissen/ausschreibungen.html#pflege" target="_blank" rel="noopener">Zum Ausschreibungsradar ↗</a>
+        </section>
 
         <!-- Ausgesuchte News. Angeregt vom selben Nutzer wie der
              Ausschreibungsradar: Wer sich fuer ein Thema interessiert, will
@@ -1728,7 +1776,7 @@
              Scrollbereich (826 px hoch, 4.239 px Inhalt), und hinter
              Studienliste und Archivordner faende den Kasten niemand.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin" id="magazin" hidden>
+        <section class="magazin band-karte" id="magazin" hidden>
           <div class="magazin-title">Ausgesuchte News zu diesem Themenfeld</div>
           <p class="magazin-sub">Beiträge aus dem Portal von „Monitor
             Versorgungsforschung“ (<a href="https://www.monitor-versorgungsforschung.de/?utm_source=pflege-hub&amp;utm_medium=referral&amp;utm_campaign=magazin" target="_blank" rel="noopener">www.m-vf.de</a>)</p>
@@ -1742,7 +1790,7 @@
              Hochschulen und Instituten) und presseportal.de, letzteres nur
              als Auffuellung und nur bei Treffer im Titel.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin presse" id="presse" hidden>
+        <section class="magazin presse band-karte" id="presse" hidden>
           <div class="magazin-title">Weitere Pressemeldungen zum Thema</div>
           <p class="magazin-sub">Pressemitteilungen Dritter, aus
             <a href="https://idw-online.de/" target="_blank" rel="noopener">idw</a>
@@ -1757,12 +1805,13 @@
              Leserschaft betrifft. Im Versorgungsforschungs-Hub ungefiltert,
              sonst nach dem Thema des Hubs ausgewaehlt.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin presse" id="selbst" hidden>
+        <section class="magazin presse band-karte" id="selbst" hidden>
           <div class="magazin-title">Aus der Selbstverwaltung</div>
           <p class="magazin-sub">Beschlüsse und Meldungen des
             <a href="https://www.g-ba.de/" target="_blank" rel="noopener">Gemeinsamen Bundesausschusses</a></p>
           <ul class="magazin-list" id="selbstList"></ul>
         </section>
+        </div>
       </aside>
     </div>
 
@@ -2057,62 +2106,62 @@ const DB = [
 
 // Momentaufnahme neuester Studien (PubMed, nach Datum sortiert) — deutsche Zusammenfassungen
 // === STUDIES-BLOCK-START (taeglich 06:00 Uhr von GitHub Actions ersetzt) ===
-const SNAP_DATE = "23. Okt. 2026, 06:02 Uhr";
+const SNAP_DATE = "24. Okt. 2026, 06:00 Uhr";
 const SNAP_STATUS = "neu";
 const STUDIES = [
   {
-    journal:"Scand J Caring Sci", year:"2026", pmid:"42904583",
-    author:"Jeppesen MN et al.", pubdate:"Dez. 2026",
-    added:"22.10.2026",
-    title:"Häusliche Diabetesversorgung in vulnerablen Familien: Grenzen von Fachkompetenz, Bedarf an Begleitung",
-    sum:"Qualitative phänomenologische Studie mit 14 Fachpersonen (75 h Feldbeobachtung, Fokusgruppen) zu Herausforderungen bei häuslicher Typ-1-Diabetes-Versorgung von Kindern aus sozialen Risikosituationen in Dänemark.",
-    result:"Fachpersonen berichten von kontinuierlichem Lern- und Entwicklungsprozess, Anpassung von Fachkompetenz an Familienkontext erforderlich. Zentrale Dimensionen: Aufbau von Vertrauen und Beziehungsmanagement, emotionale Belastung, Umgang mit psychosozialen Problemen und ethischen Dilemmata oft jenseits vorhandener Expertise. Hauptbefund: Häusliche Diabetesversorgung erfordert Flexibilität, emotionale Bindung, erweiterte Kompetenzen; Bedarf für Struktursupervision, Peer-Support und organisatorische Anleitung.",
-    transfer:"Dänemark, vergleichbares nordeuropäisches Gesundheitssystem"
+    journal:"Rev Lat Am Enfermagem", year:"2026", pmid:"42912033",
+    author:"Pereira NAPG et al.", pubdate:"16.10.2026",
+    added:"23.10.2026",
+    title:"Mütterliche Sterblichkeit: Schulung von Pflegefachpersonen verbessert Meldepraxis und Ermittlungen",
+    sum:"Epidemiologische Studie mit 143 Pflegefachpersonen aus dem Primärbereich in Brasilien zu Faktoren, die ihre Beteiligung an Überwachung mütterlicher Todesfälle beeinflussen.",
+    result:"Pflegefachpersonen mit Schulung zeigten signifikant höhere Chancen, Untersuchungsverfahren durchzuführen und an Meetings der Müttersterblichkeitskommission teilzunehmen (OR=5,82; 95%-KI: 2,46–13,75). Schulung war mit Kenntnis der Ziele des Komitees und deren Umsetzung assoziiert. Zeit in der Stelle korrelierte mit Schulungsteilnahme und Untersuchungspraxis.",
+    transfer:"Brasilien, aber Effekt von Schulung auf Versorgungspraxis in multiprofessionalen Settings übertragbar."
   },
   {
-    journal:"BMC Geriatr", year:"2026", pmid:"42907949",
-    author:"Conradsson M et al.", pubdate:"21.10.2026",
-    added:"22.10.2026",
-    title:"Demenz-Rehabilitationsprogramm mit Angehörigenunterstützung: Was bewirkt es für pflegende Angehörige?",
-    sum:"Randomisierte Pilotstudie zu einem 20-wöchigen multiprofessionellen Rehabilitationsprogramm für Menschen mit Demenz im häuslichen Bereich, kombiniert mit Unterstützung und Schulung für pflegende Angehörige (Belastung, depressive Symptome, Lebensqualität).",
-    result:"95 % der Angehörigen berichteten nach den Gruppenveranstaltungen gestiegenes Wissen über Unterstützung der Erkrankten (20/21), 90 % verbesserte Bewältigungsstrategien. In Caregiver Burden Scale und Geriatric Depression Scale keine signifikanten Unterschiede zwischen Interventions- und Kontrollgruppe, aber Unterschiede in Lebensqualitäts-Subskalen zugunsten der Kontrolle in Monaten 24 und 36. Intervention zeigt gute Teilnahmefähigkeit (100 % Baseline-Assessment, 87 % bei Follow-ups).",
-    transfer:"Schweden, vergleichbare Langzeitpflege-Strukturen und Versicherungssystem"
+    journal:"Rev Lat Am Enfermagem", year:"2026", pmid:"42912031",
+    author:"Vila Nova PVR et al.", pubdate:"16.10.2026",
+    added:"23.10.2026",
+    title:"Pflege für transgender Frauen: Barrieren, Schulungsbedarf und inklusive Praktiken",
+    sum:"Qualitative Studie mit 94 Pflegefachpersonen aus dem Primärbereich in ganz Brasilien zur Versorgung transgender Frauen nach Leininger's Theorie der transkulturellem Pflege.",
+    result:"Vier Themenbereiche: Herausforderungen und Barrieren (Vorurteile, Zugänglichkeit); wesentliche Handlungen und Versorgung; Einbeziehung und Respekt; Rolle von Pflegefachpersonen und Gemeindegesundheitsarbeitern. Mehrheit der Pflegefachpersonen hatte keine spezifische Schulung oder Protokolle für diese Bevölkerungsgruppe. Initiativen für Willkommenskultur und Gemeindegesundheitsarbeit wurden identifiziert.",
+    transfer:"Brasilien, qualitatives Muster zu Schulungs- und Protokolldefiziten für spezialisierte Versorgung international relevant."
   },
   {
-    journal:"J Orthop Surg (Hong Kong)", year:"2026", pmid:"42906082",
-    author:"Yan J et al.", pubdate:"21.10.2026",
-    added:"22.10.2026",
-    title:"Strukturiertes Schmerzmanagement durch Pflegende: weniger Schmerzen, bessere Zufriedenheit nach Operation",
-    sum:"Retrospektive Vor-Nachher-Studie (206 Patienten) zu einem von Pflegenden geleiteten Workflow mit strukturierter Schmerzerfassung (NRS-Dokumentation), Eskalation bei NRS ≥4 und Reassessment 30–60 min nach Rettungsanalgesie auf orthopädischen Stationen.",
-    result:"Ineffektive Schmerzkon trolle (NRS ≥4) in den ersten 24 h sank von 38,8 % auf 24,1 % (p = 0,023). Mediane Zeit bis erste Rettungsanalgesie fiel von 55 auf 30 Minuten (p &lt; 0,001). Bewegungsinduzierter Spitzenschmerz sank von 6,0 auf 5,0 (p &lt; 0,001). Hochzufriedenheit stieg von 67,3 % auf 80,6 % (p = 0,030). Adjustierte Odds Ratio für ineffektive Schmerzkon trolle: 0,53 (95%-KI 0,29–0,96).",
-    transfer:"China, universelle Schmerzbehandlungsprinzipien übertragbar"
+    journal:"Front Public Health", year:"2026", pmid:"42909995",
+    author:"Cretazzo F et al.", pubdate:"07.10.2026",
+    added:"23.10.2026",
+    title:"Aktives Altern: wer profitiert? Übergänge pflegender älterer Menschen zwischen Pflege und Freiwilligenarbeit",
+    sum:"Längsschnittanalyse von SHARE-Wellen 7–9 zur Untersuchung, wie Übergänge älterer Europäer in und aus der Rolle des ‚Super-Helpers' (gleichzeitig pflegend und freiwillig tätig) mit Gesundheitsergebnissen assoziiert sind.",
+    result:"Übergänge von alleiniger Pflege zu Super-Helper-Rolle verbesserten Gesundheitsmerkmale; Übergänge von Freiwilligenarbeit zu Super-Helper-Rolle verschlechterten sie. Übergänge von Super-Helper zu alleiniger Freiwilligenarbeit waren kurzfristig mit schlechterer Selbstwahrnehmung und depressiven Symptomen assoziiert (besonders bei früheren Co-Wohner-Pflegenden). Respite-Care zeigte schützende Effekte gegen Überbelastung.",
+    transfer:"Europa (SHARE-Survey); Muster zu Pflegebelastung und Übergängen in Rollen für deutschsprachigen Raum relevant."
   },
   {
-    journal:"JMIR Aging", year:"2026", pmid:"42904387",
-    author:"Dolničar V et al.", pubdate:"20.10.2026",
-    added:"22.10.2026",
-    title:"Telecare für pflegende Angehörige: Sicherheitsempfinden stärker als technische Leistung",
-    sum:"Querschnittstudie mit 526 pflegenden Angehörigen in Slowenien zu Annahmefaktoren von Telecare-Technologien im Licht des UTAUT-Modells, erweitert um wahrgenommene psychosoziale Outcomes (Sicherheitsgefühl, Angstreduktion, Bindung).",
-    result:"Wahrgenommene psychosoziale Outcomes (Sicherheit, Stressabbau) zeigten stärkste Assoziation mit Nutzungsintention (β = 0,41, p &lt; 0,001) und erklärten 54 % der Varianz (R² = 0,54). Leistungserwartung (β = 0,52, p &lt; 0,001), Facilitating Conditions (β = 0,11, p = 0,005) und soziale Einflüsse (β = 0,21, p &lt; 0,001) waren zusätzliche Prädiktoren. Psychosoziale Outcomes reduzierten Koeffizient der Leistungserwartung wesentlich.",
-    transfer:"Slowenien, vergleichbare südeuropäische Versicherungslogik"
+    journal:"Z Gerontol Geriatr", year:"2026", pmid:"42825944",
+    author:"Gierke F et al.", pubdate:"02.10.2026",
+    added:"02.10.2026",
+    title:"Rehabilitative Pflege im Heim: Funktionsfähigkeit, Lebensqualität und Rückkehrerfolg in Deutschland",
+    sum:"Prospektive Einarm-Studie mit 67 Bewohnern aus drei deutschen Heimen zur Wirkung eines strukturierten rehabilitativen Aktivierungsansatzes auf funktionelle Selbstständigkeit, Gesundheit und Rückkehr nach Hause.",
+    result:"Allgemeine Gesundheitswahrnehmung zeigte signifikanten Zeiteffekt (p=0,023). SF-36 zeigt signifikante Verbesserungen bei körperlicher Funktionsfähigkeit, sozialer Funktionsfähigkeit, psychischem Wohlbefinden (alle p&lt;0,05). 32,8% der Patienten (n=22) kehrten innerhalb von 6 Monaten nach Hause zurück. Funktionelle Unabhängigkeit erhöhte sich deskriptiv, aber nicht signifikant (p=0,306).",
+    transfer:"Deutschland; Daten aus deutschen Pflegeheimen mit direkter Anwendbarkeit."
   },
   {
-    journal:"Nurs Open", year:"2026", pmid:"42905609",
-    author:"Tohmola A et al.", pubdate:"Okt. 2026",
-    added:"22.10.2026",
-    title:"Gerontologische Kompetenzen: junge Pflegekräfte selbstbewusster, aber Kompetenzlücken bleiben",
-    sum:"Querschnittstudie mit 493 Pflegekräften (Fachkrankenpfleger und Krankenpflegehelfer) in Finnland zur Selbsteinschätzung gerontologischer Kompetenzen mit 53-Item-Instrument (11 Kompetenzbereiche).",
-    result:"Fachkrankenpfleger bewerteten Gesamtkompetenz als sehr gut oder gut. Stärkste Dimensionen: Beziehungsgestaltung, sichere Wohnumgebung, Funktionsfähigkeitserhalt. Statistische Signifikanz nur für Alter: unter 40 Jahren deutlich höhere Gesamtkompetenz als ab 50 Jahren. Defizite in einzelnen Bereichen bleiben trotz guter Gesamtbewertung. Befund unterstreicht Bedeutung kontinuierlicher Kompetenzentwicklung über gesamte Berufslaufbahn.",
-    transfer:"Finnland, vergleichbare nordeuropäische Pflegeausbildung"
+    journal:"BMC Geriatr", year:"2026", pmid:"42919127",
+    author:"Goh YL et al.", pubdate:"28.07.2026",
+    added:"23.10.2026",
+    title:"Informationsquellen und Selbstwirksamkeit: was pflegenden Angehörigen in der Demenzbetreuung hilft",
+    sum:"Querschnittstudie an 258 pflegenden Angehörigen von Demenzpatienten in Malaysia, die untersuchte, wie Demenzwissen, eHealth-Literalität und Informationsquellen deren Selbstwirksamkeit beeinflussen.",
+    result:"Multiple Informationsquellen erhöhten Selbstwirksamkeit signifikant (erklärte Varianz von 6,7% auf 12,6%; p&lt;0,05). Schriftliche Materialien und ärztliche Beratung stärkten Vertrauen; Facebook und Selbsthilfegruppen verminderten Selbstwirksamkeit. Ländliche Angehörige fühlten sich weniger sicher bei Entlastungsangeboten; Verheiratete hatten weniger Schwierigkeiten mit Verhaltensproblemen.",
+    transfer:"Malaysia, aber Muster zu Informationseffekten auf Angehörigenbelastung international relevant."
   },
   {
-    journal:"BMC Surg", year:"2026", pmid:"42907841",
-    author:"Lv T et al.", pubdate:"27.07.2026",
-    added:"22.10.2026",
-    title:"Personalisierte Pflegepläne zur Ernährung: weniger Wundinfektionen, kürzerer Krankenhausaufenthalt",
-    sum:"Retrospektive Kohortenstudie zu individualisierten Pflegeplänen basierend auf modifiziertem Ernährungsscreening (abPG-SGA) bei 206 kolorektalen Krebspatienten zur Optimierung postoperativen Ernährungsstatus, Komplikationen und Verweildauer.",
-    result:"Personalisierte Pflege assoziiert mit signifikant niedrigeren Odds für Wundinfektionen (adjustiertes OR 0,26, 95%-KI 0,08–0,85, p = 0,025) und Harnwegsinfektionen (OR 0,17, 95%-KI 0,03–0,79, p = 0,022). Krankenhausaufenthalt reduziert um 1,92 Tage (adjustiertes β = -1,92, 95%-KI -3,31 bis -0,53, p = 0,007). Postoperative Prealbumin-Werte um 29,1 mg/L verbessert (p = 0,004).",
-    transfer:"China, Ernährungsmanagement-Prinzipien und Komplikationsprävention universell"
+    journal:"BMC Geriatr", year:"2026", pmid:"42919133",
+    author:"Kim E et al.", pubdate:"27.07.2026",
+    added:"23.10.2026",
+    title:"Sturzprävention durch Schulung: Wirkung auf Wissen, Sicherheit und Fallraten bei älteren Patienten im Krankenhaus",
+    sum:"Quasi-experimentelle Studie zum Vergleich einer intensiven, partizipativen Schulung (APREAL) mit Routineunterricht bei 70 älteren Patienten in koreanischen Pflegestationen.",
+    result:"APREAL-Gruppe zeigte signifikant höhere Werte für Sturzwissen (F=27,41; p&lt;0,001; η²=0,287), Selbstwirksamkeit (F=32,85; p&lt;0,001; η²=0,326) und Sturzpräventionsverhalten (F=93,14; p&lt;0,001; η²=0,578). Die Sturzrate war auf der Interventionsstation numerisch niedriger (0,0 vs. 2,3 pro 1.000 Patiententage), ohne statistische Kontrolle.",
+    transfer:"Südkorea mit vergleichbarem Versorgungsmodell; Sicherheitsbefund zur Schulungseffektivität übertragbar."
   },
 ];
 // === STUDIES-BLOCK-ENDE ===
@@ -2127,7 +2176,7 @@ const RADAR_FRISTEN = [["2026-12-31", "2027-01-07", "2027-01-07", "2027-01-07", 
 // === RADAR-BLOCK-ENDE ===
 
 // === ZULASSUNG-BLOCK-START (taeglich von GitHub Actions ersetzt) ===
-const ZUL_STAND = "22.10.2026";
+const ZUL_STAND = "24.10.2026";
 const ZUL_EIGENE = 0;
 const ZUL_GUTACHTEN = 0;
 const ZUL_ZULASSUNG = 0;
@@ -2137,7 +2186,7 @@ const ZUL_DIGA = 0;
 
 // Beitraege aus dem MVF-Archiv zum Thema — taeglich von scripts/newsfeed.py
 // === NEWS-BLOCK-START (taeglich von GitHub Actions ersetzt) ===
-const NEWS_STAND = "23.10.2026";
+const NEWS_STAND = "24.10.2026";
 const NEWS = [
   {titel:"Neuordnung der Pflegeversicherung: Kabinettsentwurf der Bundesregierung", datum:"2026-10-06", url:"https://www.monitor-versorgungsforschung.de/news/neuordnung-der-pflegeversicherung-kabinettsentwurf-der-bundesregierung/"},
   {titel:"Pflegereform im Kabinett: PKV warnt vor Aufweichung im Parlament", datum:"2026-09-30", url:"https://www.monitor-versorgungsforschung.de/news/pflegereform-im-kabinett-pkv-warnt-vor-aufweichung-im-parlament/"},
@@ -2274,14 +2323,18 @@ CATS.forEach(cat=>{
 document.getElementById('dbCount').textContent = DB.length;
 // Die Zahlen im Hinweis 'Portal vs. Live-Suche' aus DB zaehlen, nicht fest
 // eintragen - sonst veralten sie beim naechsten neuen Eintrag unbemerkt.
-document.getElementById('cntGesamt').textContent = DB.length;
-document.getElementById('cntLive').textContent   = DB.filter(x=>x.t==='live').length;
-document.getElementById('cntPortal').textContent = DB.filter(x=>x.t==='portal').length;
+// Seit Oktober 2026 stehen die Erklaertexte nicht mehr auf der Seite. setzeZahl
+// greift deshalb nur zu, wo es die Stelle gibt - ein harter Zugriff auf ein
+// fehlendes Element haelt das ganze Skript an, und die Seite bliebe leer.
+function setzeZahl(id, wert){ const el = document.getElementById(id); if(el) el.textContent = wert; }
+setzeZahl('cntGesamt', DB.length);
+setzeZahl('cntLive', DB.filter(x=>x.t==='live').length);
+setzeZahl('cntPortal', DB.filter(x=>x.t==='portal').length);
 // Boolesch-Zahlen aus denselben Daten wie die Kennzeichen - nie getrennt pflegen.
 const _live = DB.filter(x=>x.t==='live');
-document.getElementById('cntBoolJa').textContent    = _live.filter(x=>x.b===1).length;
-document.getElementById('cntBoolNein').textContent  = _live.filter(x=>x.b===0).length;
-document.getElementById('cntBoolOffen').textContent = _live.filter(x=>x.b===undefined).length;
+setzeZahl('cntBoolJa', _live.filter(x=>x.b===1).length);
+setzeZahl('cntBoolNein', _live.filter(x=>x.b===0).length);
+setzeZahl('cntBoolOffen', _live.filter(x=>x.b===undefined).length);
 
 // ---- Studien-Frame rendern ----
 document.getElementById('snapDate').textContent = SNAP_DATE;
@@ -2320,6 +2373,28 @@ document.getElementById('snapDate').textContent = SNAP_DATE;
       + 'neuen passenden Studien geliefert. Die Liste ist deshalb unverändert.';
     el.hidden = false;
   }
+})();
+// ---- Band „Aktuell im Hub": die drei neuesten Studien ----
+// Der Titel fuehrt zur Studie in der Spalte weiter unten (#studie-<PMID>), nicht
+// zu PubMed - dort steht die deutsche Zusammenfassung.
+(function(){
+  const liste = document.getElementById('bandStudienListe');
+  if(!liste || !STUDIES.length) return;
+  liste.innerHTML = STUDIES.slice(0, 3).map(s =>
+    '<li><a href="#studie-' + s.pmid + '">' + s.title + '</a>'
+    + '<span class="magazin-datum">' + s.journal + ' · ' + (s.pubdate || s.year) + '</span></li>').join('');
+  document.getElementById('bandStudien').hidden = false;
+})();
+(function(){
+  const band = document.getElementById('band'), knopf = document.getElementById('bandZu');
+  if(band && knopf) knopf.addEventListener('click', function(){
+    const zu = !band.hasAttribute('data-zu');
+    band.toggleAttribute('data-zu', zu);
+    knopf.setAttribute('aria-expanded', zu ? 'false' : 'true');
+    knopf.textContent = zu ? 'Einblenden' : 'Ausblenden';
+  });
+  const erst = document.getElementById('erstmal');
+  if(erst) erst.querySelector('.erstmal-zu').addEventListener('click', function(){ erst.hidden = true; });
 })();
 const studiesList = document.getElementById('studiesList');
 STUDIES.forEach(s=>{
@@ -2972,7 +3047,7 @@ shubLeeren.addEventListener('click', ()=>{ shubFeld.value = ''; shubSuchen(); sh
 const GLOSSAR = [{"de":"Telemedizin","en":"telemedicine"},{"de":"Videosprechstunde","en":"video consultation"},{"de":"Arzneimitteltherapiesicherheit","en":"medication safety"},{"de":"Routinedaten","en":"claims data"},{"de":"Abrechnungsdaten","en":"administrative claims data"},{"de":"Datenschutz","en":"data protection"},{"de":"Interoperabilität","en":"interoperability"},{"de":"maschinelles Lernen","en":"machine learning"},{"de":"Erstattung","en":"reimbursement"},{"de":"Nutzenbewertung","en":"health technology assessment"},{"de":"Implementierungsforschung","en":"implementation research"},{"de":"Versorgungsqualität","en":"quality of care"},{"de":"Patientensicherheit","en":"patient safety"},{"de":"Behandlungsfehler","en":"medical error"},{"de":"Patientenbeteiligung","en":"patient participation"},{"de":"Gesundheitsökonomie","en":"health economics"},{"de":"Kosteneffektivität","en":"cost-effectiveness"},{"de":"Gesundheitsausgaben","en":"health expenditure"},{"de":"Versorgungsforschung","en":"health services research"},{"de":"Epidemiologie","en":"epidemiology"},{"de":"randomisierte kontrollierte Studie","en":"randomized controlled trial"},{"de":"Kohortenstudie","en":"cohort study"},{"de":"Beobachtungsstudie","en":"observational study"},{"de":"Querschnittstudie","en":"cross-sectional study"},{"de":"Machbarkeitsstudie","en":"feasibility study"},{"de":"systematische Übersichtsarbeit","en":"systematic review"},{"de":"Metaanalyse","en":"meta-analysis"},{"de":"Scoping Review","en":"scoping review"},{"de":"Modellierung","en":"modelling"},{"de":"Befragung","en":"survey"},{"de":"ältere Menschen","en":"aged"},{"de":"Kinder","en":"child"},{"de":"chronische Erkrankung","en":"chronic disease"},{"de":"seltene Erkrankung","en":"rare disease"},{"de":"Multimorbidität","en":"multimorbidity"},{"de":"psychische Gesundheit","en":"mental health"},{"de":"Hausarzt","en":"general practitioner"},{"de":"Krankenhaus","en":"hospital"},{"de":"Notaufnahme","en":"emergency department"},{"de":"Fachkräftemangel","en":"nursing shortage"},{"de":"Gesundheitspersonal","en":"health personnel"},{"de":"Gesundheitssystem","en":"health system"},{"de":"Gesundheitspolitik","en":"health policy"},{"de":"Prävention","en":"prevention"},{"de":"Gesundheitsförderung","en":"health promotion"},{"de":"Gesundheitskompetenz","en":"health literacy"},{"de":"öffentlicher Gesundheitsdienst","en":"public health services"},{"de":"Pflege","en":"nursing care"},{"de":"Pflegewissenschaft","en":"nursing science"},{"de":"Pflegeforschung","en":"nursing research"},{"de":"Pflegebedürftigkeit","en":"care dependency"},{"de":"Pflegebedürftige","en":"care dependent persons"},{"de":"Pflegegrad","en":"care level"},{"de":"Begutachtung","en":"needs assessment"},{"de":"Pflegeversicherung","en":"long-term care insurance"},{"de":"Langzeitpflege","en":"long-term care"},{"de":"Kurzzeitpflege","en":"short-term care"},{"de":"Tagespflege","en":"adult day care"},{"de":"Verhinderungspflege","en":"respite care"},{"de":"stationäre Pflege","en":"residential care"},{"de":"ambulante Pflege","en":"home care services"},{"de":"häusliche Pflege","en":"home nursing"},{"de":"Pflegeheim","en":"nursing home"},{"de":"Altenheim","en":"homes for the aged"},{"de":"Pflegeeinrichtung","en":"long-term care facility"},{"de":"betreutes Wohnen","en":"assisted living facilities"},{"de":"Wohngruppe","en":"shared housing arrangement"},{"de":"Bewohner","en":"nursing home residents"},{"de":"Pflegefachperson","en":"registered nurse"},{"de":"Pflegefachkraft","en":"nursing staff"},{"de":"Pflegehilfskraft","en":"nursing assistants"},{"de":"Pflegepersonal","en":"nursing staff"},{"de":"Pflegedienstleitung","en":"nurse administrators"},{"de":"Pflegekammer","en":"nursing regulatory body"},{"de":"Pflegeausbildung","en":"nursing education"},{"de":"Akademisierung","en":"baccalaureate nursing education"},{"de":"Pflegepädagogik","en":"nursing education research"},{"de":"Kompetenzprofil","en":"nursing competence"},{"de":"Vorbehaltsaufgaben","en":"scope of nursing practice"},{"de":"Heilkundeübertragung","en":"advanced nursing practice"},{"de":"Personalbemessung","en":"nurse staffing"},{"de":"Personalschlüssel","en":"nurse-to-patient ratio"},{"de":"Fachkraftquote","en":"skill mix"},{"de":"Qualifikationsmix","en":"skill mix"},{"de":"Berufsausstieg","en":"nurse turnover"},{"de":"Verbleib im Beruf","en":"nurse retention"},{"de":"Arbeitsbelastung","en":"nursing workload"},{"de":"Arbeitszufriedenheit","en":"job satisfaction"},{"de":"Ausfallzeiten","en":"sickness absence"},{"de":"unterlassene Pflege","en":"missed nursing care"},{"de":"Pflegequalität","en":"quality of nursing care"},{"de":"Qualitätsprüfung","en":"quality inspection"},{"de":"Qualitätsindikatoren","en":"quality indicators"},{"de":"Ergebnisqualität","en":"outcome quality"},{"de":"Pflegedokumentation","en":"nursing records"},{"de":"Pflegeprozess","en":"nursing process"},{"de":"Pflegediagnose","en":"nursing diagnosis"},{"de":"Assessment","en":"geriatric assessment"},{"de":"Expertenstandard","en":"nursing practice guideline"},{"de":"Dekubitus","en":"pressure ulcer"},{"de":"Dekubitusprophylaxe","en":"pressure ulcer prevention"},{"de":"Sturzprophylaxe","en":"accidental falls prevention"},{"de":"Sturzrisiko","en":"fall risk"},{"de":"Mangelernährung","en":"malnutrition"},{"de":"Flüssigkeitsversorgung","en":"hydration"},{"de":"Kontinenzförderung","en":"urinary incontinence management"},{"de":"Schmerzmanagement","en":"pain management"},{"de":"Wundversorgung","en":"wound care"},{"de":"Mundgesundheit","en":"oral health"},{"de":"Mobilitätsförderung","en":"mobility promotion"},{"de":"freiheitsentziehende Maßnahmen","en":"physical restraints"},{"de":"Fixierung","en":"restraint use"},{"de":"Gewalt in der Pflege","en":"elder abuse"},{"de":"Vernachlässigung","en":"care neglect"},{"de":"Demenz","en":"dementia"},{"de":"Alzheimer-Krankheit","en":"Alzheimer disease"},{"de":"herausforderndes Verhalten","en":"behavioral symptoms of dementia"},{"de":"person-zentrierte Pflege","en":"person-centred care"},{"de":"Milieugestaltung","en":"environmental design dementia"},{"de":"Gerontologie","en":"geriatrics"},{"de":"Altersmedizin","en":"geriatric medicine"},{"de":"Gebrechlichkeit","en":"frailty"},{"de":"Polypharmazie","en":"polypharmacy"},{"de":"Delir","en":"delirium"},{"de":"Rehabilitation","en":"rehabilitation"},{"de":"geriatrische Rehabilitation","en":"geriatric rehabilitation"},{"de":"Palliativversorgung","en":"palliative care"},{"de":"Hospiz","en":"hospice care"},{"de":"Sterbebegleitung","en":"end of life care"},{"de":"Vorsorgevollmacht","en":"advance directives"},{"de":"vorausschauende Versorgungsplanung","en":"advance care planning"},{"de":"pflegende Angehörige","en":"family caregivers"},{"de":"informelle Pflege","en":"informal care"},{"de":"Angehörigenbelastung","en":"caregiver burden"},{"de":"Vereinbarkeit von Pflege und Beruf","en":"working carers"},{"de":"Pflegearrangement","en":"care arrangement"},{"de":"24-Stunden-Betreuung","en":"live-in care"},{"de":"Migrantinnen in der Pflege","en":"migrant care workers"},{"de":"Entlastungsangebote","en":"respite services"},{"de":"Pflegeberatung","en":"care counselling"},{"de":"Fallmanagement","en":"case management"},{"de":"Überleitung","en":"transitional care"},{"de":"Entlassmanagement","en":"discharge planning"},{"de":"Krankenhausverlegung","en":"hospital transfer"},{"de":"Wiederaufnahme","en":"hospital readmission"},{"de":"Sektorenübergreifende Versorgung","en":"integrated care"},{"de":"kommunale Pflegeplanung","en":"local care planning"},{"de":"Quartierskonzept","en":"age-friendly neighbourhood"},{"de":"Eigenanteil","en":"out-of-pocket payment"},{"de":"Pflegekosten","en":"long-term care costs"},{"de":"Pflegefinanzierung","en":"long-term care financing"},{"de":"Telepflege","en":"telenursing"},{"de":"Digitale Pflegeanwendung","en":"digital care application"},{"de":"Pflegeroboter","en":"care robot"},{"de":"altersgerechte Assistenzsysteme","en":"ambient assisted living"},{"de":"Hilfsmittel","en":"assistive technology"}];
 // === GLOSSAR-BLOCK-ENDE ===
 
-document.getElementById('cntGlossar').textContent = GLOSSAR.length;
+setzeZahl('cntGlossar', GLOSSAR.length);
 
 // Sprungziele Impressum/Datenschutz: Die Texte stecken in <details>. Wird eines
 // direkt angesprungen, muss es aufklappen - sonst landet man auf einer
@@ -3719,7 +3794,7 @@ const goMetaBtn   = document.getElementById('goMeta');
 const metaArtBox  = document.getElementById('metaArt');
 const metaBlaetterEl = document.getElementById('metaBlaetter');
 
-document.getElementById('cntMeta').textContent = MT_QUELLEN.length;
+setzeZahl('cntMeta', MT_QUELLEN.length);
 
 // Ein Treffer kann in allen vier Quellen stehen. Zusammengelegt wird ueber
 // die DOI, ersatzweise ueber die PubMed-Nummer, zuletzt ueber den auf

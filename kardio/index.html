@@ -466,6 +466,36 @@
     line-height:1.35; letter-spacing:-.005em; display:inline-block;
   }
   .mt-titel:hover{ color:var(--brand); text-decoration:underline; }
+  /* ---------- Stufe 3a (Entwurf Mariann Stegmaier): eine Spalte, Band ---------- */
+  .lede-zeile{ flex-direction:column; gap:18px; align-items:stretch; }
+  .erstmal{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin-top:16px; padding:11px 14px;
+    background:var(--brand-tint); border-radius:8px; font-size:14px; }
+  .erstmal[hidden]{ display:none; }
+  .erstmal-frage{ font-weight:700; color:var(--ink); }
+  .erstmal a{ color:var(--brand); font-weight:700; text-decoration:none; }
+  .erstmal a:hover{ text-decoration:underline; }
+  .erstmal-zu{ margin-left:auto; background:none; border:0; font-size:20px; line-height:1; cursor:pointer;
+    color:var(--ink-faint); padding:2px 6px; border-radius:4px; }
+  .erstmal-zu:hover{ color:var(--brand); background:var(--card); }
+  .hints-sponsor p{ margin:10px 0 0; font-size:12px; line-height:1.5; color:var(--ink-faint); }
+  .band{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 18px 16px; }
+  .band-kopf{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .band-kopf h2{ margin:0; font-size:17px; display:flex; align-items:center; gap:8px; }
+  .band-nl{ margin-left:auto; background:var(--action); color:var(--on-action); font-weight:700; font-size:13.5px;
+    text-decoration:none; padding:7px 14px; border-radius:6px; }
+  .band-nl:hover{ filter:brightness(1.08); }
+  .band-zu{ background:none; border:1px solid var(--line); border-radius:6px; font:inherit; font-size:12.5px;
+    color:var(--ink-soft); padding:6px 10px; cursor:pointer; }
+  .band-zu:hover{ border-color:var(--brand); color:var(--brand); }
+  .band[data-zu] .band-inhalt{ display:none; }
+  .band-inhalt{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin-top:12px; }
+  .band .band-karte{ margin:0; padding:12px 14px; border:1px solid var(--line-soft); border-radius:8px; background:var(--card-2); }
+  .band .band-karte[hidden]{ display:none; }
+  .band .magazin-list li:nth-child(n+4){ display:none; }
+  .band-studien-titel::before{ content:"\1F4C4" !important; }
+  .band-radar-titel::before{ content:"\1F4E2" !important; }
+  .band-radar .radar-hinweis, .band-radar .zulassung-hinweis{ margin:6px 0 0; }
+  .band .ki-pille.ki-klein{ margin:2px 0 4px; }
   /* KI-Kennzeichen, lila wie auf „Über die Knowledge-Hubs" (Entwurf Mariann Stegmaier). */
   .ki-pille{ display:inline-block; font-size:11px; font-weight:700; padding:2px 9px; border-radius:20px;
     background:#EEE8F7; color:#4B2E83; border:1px solid #D5C8EC; white-space:nowrap; }
@@ -1655,18 +1685,18 @@
               </div>
             </div>
           </details>
-          <div class="hints">
-            <p><b>So funktioniert die Suche.</b> Begriff eingeben, <b>Eingabetaste</b> drücken oder auf <b>„In allen Datenbanken suchen"</b> klicken — damit werden alle Kacheln auf Ihren Begriff eingestellt. Ein Klick auf eine Kachel öffnet dann <b>direkt die Trefferliste</b> dieser Datenbank in einem neuen Tab; ein zweites Mal suchen müssen Sie dort nicht. Die Kacheln bleiben eingestellt, Sie können also nacheinander mehrere Datenbanken öffnen, ohne den Begriff erneut einzugeben. Ausnahme sind die als <b>„Portal"</b> gekennzeichneten Anbieter — die erlauben technisch keine verlinkbare Trefferadresse.</p>
-            <p><b>Treffer direkt auf dieser Seite.</b> Der Knopf <b>&bdquo;Treffer direkt anzeigen&ldquo;</b> fragt die Datenbanken unmittelbar ab, die einen direkten Zugriff auf ihre Inhalte erlauben (derzeit <b id="cntMeta"></b>), und zeigt die Fundstellen zusammengef&uuml;hrt hier auf der Seite &mdash; jede mit Angabe der Datenbank, aus der sie stammt. Dubletten werden &uuml;ber die DOI zusammengelegt; erscheint eine Arbeit in mehreren Datenbanken, steht sie einmal in der Liste und tr&auml;gt mehrere Herkunftszeichen. Die Trefferliste zeigt <b>25 Treffer je Blatt</b>. Neben Zeitschriftenaufs&auml;tzen sind angemeldete Studien, Preprints und Repositorien darunter; der Filter <b>Art</b> trennt sie. Wo es eine legale frei zug&auml;ngliche Fassung gibt, steht ein Verweis <b>Volltext</b>. Die Liste l&auml;sst sich als Word, Excel, RIS oder BibTeX herunterladen und damit in Zotero, EndNote oder Citavi weiterverarbeiten. Die &uuml;brigen halten ihre Inhalte f&uuml;r eine solche Abfrage verschlossen; sie bleiben &uuml;ber die Kacheln zu &ouml;ffnen. Dabei erf&auml;hrt der jeweilige Anbieter Ihren Suchbegriff &mdash; N&auml;heres in den <a href="#datenschutz">Datenschutzhinweisen</a>.</p>
-            <p><b>Vollständigkeit.</b> Auch dieses Portal kann nicht sämtliche Artikel „aller Datenbanken" enthalten — das verhindern Lizenz- und Technikgrenzen. Es bündelt stattdessen die maßgeblichen Suchen, sodass eine Recherche systematisch über alle relevanten Datenbanken laufen kann.</p>
-            <!-- === THEMA-HINWEIS-START (themenspezifisch; aus dem Themenprofil) === -->
-            <p><b>Ein Hub für die ganze Kardiologie - und warum das so ist.</b> Die kardiologische Literatur umfasst rund 150 Arbeiten am Tag; keine tägliche Auswahl kann daraus sinnvoll sechs greifen. Dieses Portal verengt deshalb nicht das Thema, sondern den Ort der Veröffentlichung: Es liest rund 35 kardiologische und allgemeinmedizinische Kernzeitschriften, von Circulation und European Heart Journal bis Nature, Basic Research in Cardiology und Clinical Research in Cardiology. Klinik und Grundlagenforschung bleiben beide drin.</p>
-        <p><b>Die Nachbarschaft zum Diabetes-Hub</b> (<a href="https://mvf-portal.github.io/hubs-test/diabetes/">diabetes.m-vf.de</a>) ist gewollt und geregelt: SGLT2-Hemmer und GLP-1-Rezeptoragonisten sind heute beides - Diabetestherapie und Kardiologie. Steht ein kardialer Endpunkt im Vordergrund, erscheint die Arbeit hier; geht es um die Blutzuckereinstellung, steht sie drüben. Wer das Feld ganz verfolgen will, abonniert beide.</p>
-            <!-- === THEMA-HINWEIS-ENDE === -->
-            <p><b>Portal vs. Live-Suche.</b> Von den derzeit <b id="cntGesamt"></b> eingebundenen Datenbanken unterstützen <b id="cntLive"></b> die Live-Suche; sie sind entsprechend gekennzeichnet. Weitere <b id="cntPortal"></b> sind als „Portal" markiert: Angebote wie LIVIVO, das DRKS oder die WHO-Plattform ICTRP erlauben technisch keine verlinkbaren Ergebnisadressen. Der Klick führt dort auf die Startseite — der Suchbegriff ist anschließend von Hand einzugeben.</p>
-            <p><b>Suchoperatoren.</b> <b>AND</b>, <b>OR</b> und <b>NOT</b> funktionieren nicht überall gleich — wir haben es einzeln nachgemessen. <span class="boolmark ja">AND/OR ✓</span> heißt: geprüft, die Operatoren wirken (<b id="cntBoolJa"></b> Datenbanken). <span class="boolmark nein">AND/OR ✗</span> heißt: geprüft, sie wirken nicht — die Wörter werden einfach mitgesucht (<b id="cntBoolNein"></b>). <b>Ohne Zeichen ist es ungeprüft</b> (<b id="cntBoolOffen"></b>): Diese Anbieter liefern eine Bot-Sperre oder eine reine JavaScript-Oberfläche, aus der sich kein belastbares Ergebnis ablesen ließ — das heißt ausdrücklich <i>nicht</i>, dass sie es nicht können. Der Filter „Operatoren" zeigt auf Wunsch nur die geprüft tauglichen.</p>
-            <p><b>Deutsch suchen, international finden.</b> Internationale Datenbanken kennen keine deutschen Fachbegriffe — „Nachsorge“ liefert dort nichts. Der Hub übersetzt deshalb <b id="cntGlossar"></b> Fachbegriffe automatisch: Deutschsprachige Datenbanken behalten Ihren Begriff, internationale bekommen den Ausdruck, unter dem sie tatsächlich indexieren („Früherkennung“ wird zu <i>mass screening</i>, „Nachsorge“ zu <i>aftercare</i>, „Lebensqualität“ zu <i>quality of life</i>.). Die Ergebnisleiste zeigt die verwendete Fassung; der Schalter unter dem Suchfeld stellt es ab.</p>
-            <p><b>Hinweis zu Lizenzen.</b> Mit <span class="badge lic">Lizenz</span> markierte Datenbanken (z. B. Web of Science, Scopus, Embase, CINAHL) sind kostenpflichtig — der Zugang läuft meist über Ihre Bibliothek/Institution. Der Link führt zur Startseite bzw. zum institutionellen Login.</p>
+          <!-- Bis Oktober 2026 standen hier acht Erklaerbloecke mit rund 700 Woertern
+               (Suche, Operatoren, Portale, Lizenzen, Glossar). Seit Stufe 2 steht
+               all das auf „Über die Knowledge-Hubs" und „Themen & Quellen"; hier
+               bleibt nur der Weg dorthin (Entwurf Mariann Stegmaier, Hub-Seiten S. 2).
+               Wegklicken speichert nichts - beim naechsten Besuch ist er wieder da. -->
+          <div class="erstmal" id="erstmal">
+            <span class="erstmal-frage">Zum ersten Mal hier?</span>
+            <a href="https://mvf-portal.github.io/hubs-test/ueber-die-hubs.html#suche">So funktioniert die Suche →</a>
+            <a href="themen-quellen.html">Themen &amp; Quellen dieses Hubs →</a>
+            <button type="button" class="erstmal-zu" aria-label="Hinweis schließen" title="Hinweis schließen">&times;</button>
+          </div>
+          <div class="hints-sponsor">
             <p id="sponsorText" hidden><b>Sponsoren.</b> Unsere Sponsoren ermöglichen mit ihrer finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Sie nehmen dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
             <p id="koopText" hidden><b>Medienpartnerschaft.</b> Dieser Hub wird in einer Medienkooperation präsentiert. Der Medienpartner ermöglicht mit seiner finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Er nimmt dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
           </div>
@@ -1695,11 +1725,26 @@
           Der Medienpartner nimmt darauf keinen Einfluss.</p>
         </div>
       </div>
-      <aside class="lede-nl">
-        <a class="btn-nl" href="newsletter.html">Newsletter abonnieren</a>
-        <span class="nl-mini">Die Studienauswahl jeden Morgen per E-Mail — kostenfrei und jederzeit kündbar.</span>
-        <a class="btn-ueber" href="ueber.html">Themen &amp; Quellen</a>
-        <a class="btn-ueber" href="https://mvf-portal.github.io/hubs-test/wissen/ausschreibungen.html#kardio" target="_blank" rel="noopener">Ausschreibungsradar <span aria-hidden="true">↗</span></a>
+      <!-- Band „Aktuell im Hub" (Entwurf Mariann Stegmaier, Hub-Seiten S. 3).
+           Bis Oktober 2026 eine schmale Spalte rechts neben der Suche - auf dem
+           Handy rutschte sie hinter die Suche, und Seitenspalten werden als
+           Werbung ueberlesen. Jetzt ein Band unter der Suche, jede Rubrik eine
+           Karte mit hoechstens drei Eintraegen. „Ausblenden" speichert nichts. -->
+      <aside class="band" id="band" aria-labelledby="bandTitel">
+        <div class="band-kopf">
+          <h2 id="bandTitel"><span class="dot"></span>Aktuell im Hub</h2>
+          <a class="band-nl" href="newsletter.html">Newsletter abonnieren</a>
+          <button class="band-zu" id="bandZu" type="button" aria-expanded="true" aria-controls="bandInhalt">Ausblenden</button>
+        </div>
+        <div class="band-inhalt" id="bandInhalt">
+        <section class="band-karte" id="bandStudien" hidden>
+          <div class="magazin-title band-studien-titel">Neue Studien aus PubMed</div>
+          <span class="ki-pille ki-klein">Von KI ausgewählt und zusammengefasst</span>
+          <ul class="magazin-list" id="bandStudienListe"></ul>
+          <a class="magazin-mehr" href="#studien">Alle neuen Studien ↓</a>
+        </section>
+        <section class="band-karte band-radar">
+          <div class="magazin-title band-radar-titel">Ausschreibungen &amp; Zulassungen</div>
         <!-- Hinweis auf den Ausschreibungsradar. Angeregt von einem Nutzer
              der Hubs: Wer zu einem Thema forscht, sucht nicht nur Studien,
              sondern auch Geld. Gesucht wird zentral im Versorgungsforschungs-
@@ -1717,6 +1762,8 @@
              dauerhaft leer. Das ist kein Ausfall, sondern der Zuschnitt:
              Auf diese Themen zeigt keine Arzneimittelzulassung. -->
         <div class="zulassung-hinweis" id="zulassungHinweis" hidden></div>
+          <a class="magazin-mehr" href="https://mvf-portal.github.io/hubs-test/wissen/ausschreibungen.html#kardio" target="_blank" rel="noopener">Zum Ausschreibungsradar ↗</a>
+        </section>
 
         <!-- Ausgesuchte News. Angeregt vom selben Nutzer wie der
              Ausschreibungsradar: Wer sich fuer ein Thema interessiert, will
@@ -1729,7 +1776,7 @@
              Scrollbereich (826 px hoch, 4.239 px Inhalt), und hinter
              Studienliste und Archivordner faende den Kasten niemand.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin" id="magazin" hidden>
+        <section class="magazin band-karte" id="magazin" hidden>
           <div class="magazin-title">Ausgesuchte News zu diesem Themenfeld</div>
           <p class="magazin-sub">Beiträge aus dem Portal von „Monitor
             Versorgungsforschung“ (<a href="https://www.monitor-versorgungsforschung.de/?utm_source=kardio-hub&amp;utm_medium=referral&amp;utm_campaign=magazin" target="_blank" rel="noopener">www.m-vf.de</a>)</p>
@@ -1743,7 +1790,7 @@
              Hochschulen und Instituten) und presseportal.de, letzteres nur
              als Auffuellung und nur bei Treffer im Titel.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin presse" id="presse" hidden>
+        <section class="magazin presse band-karte" id="presse" hidden>
           <div class="magazin-title">Weitere Pressemeldungen zum Thema</div>
           <p class="magazin-sub">Pressemitteilungen Dritter, aus
             <a href="https://idw-online.de/" target="_blank" rel="noopener">idw</a>
@@ -1758,12 +1805,13 @@
              Leserschaft betrifft. Im Versorgungsforschungs-Hub ungefiltert,
              sonst nach dem Thema des Hubs ausgewaehlt.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin presse" id="selbst" hidden>
+        <section class="magazin presse band-karte" id="selbst" hidden>
           <div class="magazin-title">Aus der Selbstverwaltung</div>
           <p class="magazin-sub">Beschlüsse und Meldungen des
             <a href="https://www.g-ba.de/" target="_blank" rel="noopener">Gemeinsamen Bundesausschusses</a></p>
           <ul class="magazin-list" id="selbstList"></ul>
         </section>
+        </div>
       </aside>
     </div>
 
@@ -2018,62 +2066,62 @@ const DB = [
 
 // Momentaufnahme neuester Studien (PubMed, nach Datum sortiert) — deutsche Zusammenfassungen
 // === STUDIES-BLOCK-START (taeglich 06:00 Uhr von GitHub Actions ersetzt) ===
-const SNAP_DATE = "23. Okt. 2026, 06:02 Uhr";
+const SNAP_DATE = "24. Okt. 2026, 06:01 Uhr";
 const SNAP_STATUS = "neu";
 const STUDIES = [
   {
-    journal:"Eur Heart J", year:"2026", pmid:"42906949",
-    author:"Miró Ò et al.", pubdate:"22.10.2026",
-    added:"22.10.2026",
-    title:"Akute Herzinsuffizienz in der Notaufnahme: Konsens zur Diagnostik und Management",
-    sum:"Europäische Konsensusempfehlungen zur Diagnostik, Triage und Behandlung akuter Herzinsuffizienz in Notaufnahmen und Rettungsdiensten, mit Fokus auf phenotypische Klassifikation, Biomarker, Bildgebung, Ventilation, Diuretika und frühe Therapieinitiierung.",
-    result:"Das Dokument betont die kritische Bedeutung einer schnellen phenotypischen Klassifikation in akute dekompensierte Herzinsuffizienz, akutes Lungenödem, isoliertes Rechtsherzversagen oder kardiogener Schock zur Steuerung der Frühbehandlung und Triage. Es identifiziert Wissenslücken und Forschungsprioritäten, einschließlich pragmatischer Studien zu Rettungsdienst-Interventionen und Biomarker-gestützter Therapie zur Verbesserung der Outcomes bei akuter Herzinsuffizienz.",
-    transfer:"Europäische Konsensusarbeit, mehrere deutsche und österreichische Zentren, direkt auf europäische Notfall-Strukturen übertragbar."
+    journal:"Eur J Prev Cardiol", year:"2026", pmid:"42913481",
+    author:"Zhang W et al.", pubdate:"23.10.2026",
+    added:"23.10.2026",
+    title:"Kardiale Rehabilitation: 750–1000 MET-min/Woche optimal für VO2-Peak-Verbesserung",
+    sum:"Bayesianische Netzwerk-Metaanalyse von 100 RCTs mit 5.353 Patienten zur Dosis-Wirkungs-Beziehung verschiedener Trainingsmodalitäten (Intervall-Aerob, kontinuierlich, Kraft, Mind-Body) auf Sauerstoffaufnahme.",
+    result:"Dosis-Wirkungs-Kurve folgt Emax-Modell; ED50 ~80–90 MET-min/Woche; 750–1000 MET-min/Woche nähert sich maximaler Wirkung. Rangfolge: Intervall-Aerobtraining (Emax 3,50), Krafttraining (3,66), Kombination (3,49). Empfehlung: Intervall-Aerobtraining oder Kraft für gute Ausdauer, Mind-Body für begrenzte Toleranz.",
+    transfer:"Internationale Metaanalyse, Design übertragbar auf deutsche Rehabilitationsprogramme."
   },
   {
-    journal:"Eur J Prev Cardiol", year:"2026", pmid:"42906925",
-    author:"Chan A et al.", pubdate:"22.10.2026",
-    added:"22.10.2026",
-    title:"Digitale Gesundheitsinterventionen bei KHK: Weniger kardiovaskuläre Ereignisse",
-    sum:"Systematischer Review und Metaanalyse von 72 Studien (45 in Meta-Analyse, 23.111 Patienten) zur Wirksamkeit digitaler Gesundheitsinterventionen zur Versorgungsintegration bei Koronarer Herzkrankheit im Vergleich zu üblicher Behandlung.",
-    result:"Digitale Interventionen mit Versorgungsintegration reduzieren kardiovaskuläre Ereignisse (OR 0,74 [0,59–0,92], p=0,02), zeigen aber keinen signifikanten Effekt auf Gesamtsterblichkeit oder Readmissionen. Aktuelle Evidenz konzentriert sich auf patientenzentrierte Integration; systemic-level Integration bleibt untersucht.",
-    transfer:"Internationale Evidenz, Übertragung auf deutsches ambulantes Versorgungssystem mit strukturierten Herzprogrammen möglich."
+    journal:"Heart Rhythm", year:"2026", pmid:"42913987",
+    author:"Duytschaever M et al.", pubdate:"22.10.2026",
+    added:"23.10.2026",
+    title:"Pulsed-Field-Ablation bei Vorhofflimmern: 82,5 % Freiheit von Arrhythmien nach 12 Monaten",
+    sum:"Prospektive Studie mit 136 Patienten zur Pulmonalen-Venen-Isolierung mittels Pulsed-Field-Ablation (PFA) mit Kontaktkraft-Sensing und 3D-Mapping.",
+    result:"82,5 % der Patienten waren nach 12 Monaten frei von dokumentierten symptomatischen/asymptomatischen Vorhofflimmern; kardiovaskuläre Hospitalisierungen sanken um 40,9 %, Antiarrhythmika-Nutzung um 49,3 %. Ernsthaft durch Gerät/Prozedur bedingte Komplikationen traten in 2,9 % auf. Die PFA zeigte Sicherheit und Versorgungsvorteil.",
+    transfer:"Multizentrische europäische Studie, vergleichbar mit deutschen Ablationszentren."
   },
   {
-    journal:"Heart Rhythm", year:"2026", pmid:"42906715",
-    author:"Van Weyenbergh T et al.", pubdate:"21.10.2026",
-    added:"22.10.2026",
-    title:"Schrittmacher-induzierte Kardiomyopathie: RVOT-Position reduziert Risiko",
-    sum:"Retrospektive Single-Center-Studie an 401 Patienten mit leadless-Ventrikelschrittmachern (Micra AV n=145) zur Erfassung der Häufigkeit therapie-induzierter Kardiomyopathie und Assoziation von Implantationsort und AV-synchroner Stimulation mit Outcome.",
-    result:"Über 33,0 Monate median: Kardiomyopathie in 13,6% (4,8%/Jahr), therapie-induzierte Kardiomyopathie in 5,5% (1,9%/Jahr). RVOT-Implantation assoziiert mit niedrigerer Kardiomyopathie-Inzidenz (HR 0,48, p=0,019) und langsamerem Auswurffrraktions-Rückgang (−0,56%/Jahr vs. −1,43%/Jahr, p=0,013). Micra-AV-Geräte zeigten keinen Vorteil gegenüber VR-Geräten.",
-    transfer:"Belgische Universitätsklinik, europäische Implantationspraxis und Langzeit-Überwachung."
+    journal:"Heart Rhythm", year:"2026", pmid:"42913986",
+    author:"Kakarla S et al.", pubdate:"22.10.2026",
+    added:"23.10.2026",
+    title:"Katheter-Ablation vs. Schein-Ablation bei Vorhofflimmern: Meta-Analyse mit 468 Patienten",
+    sum:"Bayesianische Metaanalyse von vier randomisierten Studien zum Vergleich von Katheter-Ablation mit Sham-Kontrolle bei symptomatischem Vorhofflimmern hinsichtlich Lebensqualität und Rezidivrate.",
+    result:"Ablation verbesserte AFEQT-Score um 13,5 Punkte (95%-Kredibilität 1,6–26,9; Wahrscheinlichkeit klinisch bedeutsam &gt;5 Punkte: 0,94). Ablation reduzierte Vorhofflimmern-Rezidive in allen Studien (gepooltes Risiko-Verhältnis 0,49, 95%-KI 0,17–0,89). Evidenzqualität moderat für Rhythmuskontrolle, niedrig für Lebensqualität.",
+    transfer:"Internationale Metaanalyse mit europäischen Zentren; zeigt klinischen Nutzen für Leitlinien."
   },
   {
-    journal:"Europace", year:"2026", pmid:"42905913",
-    author:"Boveda S et al.", pubdate:"21.10.2026",
-    added:"22.10.2026",
-    title:"Pulsfeldablation bei Vorhofflimmern: 75–85 % Arrhythmiefreiheit paroxysmal",
-    sum:"Europäische Übersichtsarbeit zur Pulsfeldablation (PFA) bei paroxysmalem und persistierendem Vorhofflimmern, basierend auf aktuellen klinischen Studien, mit Angaben zu Effektivität, Komplikationen und Patientenberichteten Ergebnissen.",
-    result:"Paroxysmal Vorhofflimmern: 12-Monats-Arrhythmiefreiheit 75–85 %, Komplikationsrate 1–3 %. Persistierendes Vorhofflimmern: 60–75 % Arrhythmiefreiheit, &lt;3 % schwere Komplikationen. PFA zeigt verbesserte prozedurale Verträglichkeit, reduzierten Analgetika-Bedarf und mögliche Same-Day-Entlassung gegenüber thermalen Methoden.",
-    transfer:"Europäische Konsensusarbeit mehrerer Länder (Frankreich, Deutschland, Belgien, UK), direkt auf deutsche EP-Labore übertragbar."
+    journal:"JACC Heart Fail", year:"2026", pmid:"42911149",
+    author:"Wang T et al.", pubdate:"21.10.2026",
+    added:"23.10.2026",
+    title:"REBIRTH-Studie: Bromocriptin bei Peripartum-Kardiomyopathie – 200 Frauen randomisiert",
+    sum:"Randomisierte Studie mit 200 Frauen mit Peripartum-Kardiomyopathie (LVEF ≤40 % innerhalb 5 Monate postpartal), die Bromocriptin versus Placebo zusätzlich zur Leitlinien-Therapie erhalten; Primärendpunkt LVEF bei 6 Monaten.",
+    result:"Studie noch laufend, Ergebnisse für 2027 erwartet. Sekundärendpunkte: LVEF 12 Monate, Ereignisfreiheit (Tod, Herztransplantation, LVAD), Hospitaliserungsfreiheit bis 3 Jahre. 50 Frauen in separater Stillkohorte (ausgeschlossen von Randomisierung).",
+    transfer:"Nordamerikanische Studie in diverser Population, Therapieprinzipien auf Deutschland übertragbar."
   },
   {
-    journal:"Europace", year:"2026", pmid:"42905912",
-    author:"Cespón-Fernández M et al.", pubdate:"21.10.2026",
-    added:"22.10.2026",
-    title:"Pulsfeldablation: Echtzeit-Kontrolle der Läsions-Qualität noch nicht standardisiert",
-    sum:"Europäischer Übersichtsartikel zu Methoden der intraprozedualen Überwachung und Kontrolle der Läsions-Bildung und -Dauerhaftigkeit bei Pulsfeldablation für Vorhofflimmern.",
-    result:"Läsionsgröße und -geometrie hängen primär vom elektrischen Feld und kumulativer Elektroporation ab. Konventionelle thermale Marker (Elektrogramm-Abschwächung, Impedanzänderung, Stimulationsschwelle) korrelieren schlecht mit durablerender irreversibler Elektroporation. Multiparametrische Läsions-Schätzmodelle zeigen vielversprechende präklinische Ergebnisse, klinische Validierung bleibt begrenzt. Robuste intraprozedurale Marker fehlen noch; gegenwärtige Workflows stützen sich auf standardisierte Energieprotokolle und Läsions-Überlappung.",
-    transfer:"Europäische Arbeitsgruppe (Spanien, Schweiz, Niederlande, Belgien, USA), auf deutsche Katheterlabore anwendbar."
+    journal:"EuroIntervention", year:"2026", pmid:"42910974",
+    author:"Bujak K et al.", pubdate:"19.10.2026",
+    added:"23.10.2026",
+    title:"TAVI + koronare Stenose: Physiology-gesteuerte PCI reduziert MACE um 20 %",
+    sum:"Metaanalyse von 5 RCTs (N=1.644) zum Vergleich von Routine-Revaskularisierung vs. konservativer Behandlung bei koronarer Erkrankung vor/während TAVI; Netzwerk-Metaanalyse zu PCI-Strategien.",
+    result:"Routine-PCI vs. konservativ: MACE-Risiko gesenkt (RR 0,80, 95%-KI 0,65–0,98), ungeplante Revaskularisierung gesenkt (RR 0,30, 95%-KI 0,11–0,83), Major-Blutung erhöht (RR 1,57, 95%-KI 1,07–2,32). Physiology-gesteuerte PCI rangiert höchste für ischämische Outcomes.",
+    transfer:"Europäisch-amerikanische Evidenz, Koronaranatomie und Revaskularisierungsprinzipien Deutschland-übertragbar."
   },
   {
-    journal:"Heart Rhythm", year:"2026", pmid:"42887624",
-    author:"Lee YS et al.", pubdate:"16.10.2026",
+    journal:"J Am Heart Assoc", year:"2026", pmid:"42885791",
+    author:"Hauguel-Moreau M et al.", pubdate:"20.10.2026",
     added:"16.10.2026",
-    title:"Antikoagulation nach VHF-Ablation: Absetzen bei niedrigem Schlaganfallrisiko sicher",
-    sum:"Post-hoc-Analyse der ALONE-AF-Studie an 840 Patienten, stratifiziert nach CHA2DS2-VASc-Score ≤2 oder ≥3, zum Vergleich Antikoagulations-Absetzen versus Fortsetzung nach erfolgreicher VHF-Ablation.",
-    result:"CHA2DS2-VASc ≤2: Primärer Endpunkt (Schlaganfall, systemische Embolie, major bleeding) in 0,4 % (Absetzen) vs. 2,4 % (Fortsetzung), Differenz −1,9 Prozentpunkte (p=0,066). CHA2DS2-VASc ≥3: 1,8 % nur in Fortsetzungs-Gruppe. Alle major-bleeding-Ereignisse (n=5) traten in Fortsetzungs-Gruppen auf. Competing-risk-Analyse bestätigte Ergebnisse.",
-    transfer:"Koreanische Multizenterstudie, stroke-risk-Stratifizierung international anerkannt und auf Deutschland übertragbar."
+    title:"Frankreich: PCI-Einsatz stieg um 40 %, Bypass-Eingriffe sanken um 8 % (2014–2023)",
+    sum:"Analyse der Französischen Nationalen Krankenhausdatenbank von 2014 bis 2023 mit 6.290.951 koronaren Interventionen bei 2.985.822 Patienten zur Darstellung zeitlicher Trends.",
+    result:"Jährliche Interventionen stiegen um 33 %; Herzkatheter +32 %, PCI +40 %, Bypass –8 %. PCI-Wachstum war elektiv (+53,5 % auf 56,9 %); Multigefäß-Erkrankung stieg von 16,7 % auf 19,0 %. Letalität nach PCI: 2,05 % (2014) → 1,58 % (2023), nach Bypass: 3,5 % → 2,9 %.",
+    transfer:"Französische Versorgungsdaten, Sozialversicherungssystem ähnlich Deutschland."
   },
 ];
 // === STUDIES-BLOCK-ENDE ===
@@ -2088,7 +2136,7 @@ const RADAR_FRISTEN = [["2026-12-31", "2027-01-07", "2027-01-07", "2027-01-07", 
 // === RADAR-BLOCK-ENDE ===
 
 // === ZULASSUNG-BLOCK-START (taeglich von GitHub Actions ersetzt) ===
-const ZUL_STAND = "23.10.2026";
+const ZUL_STAND = "24.10.2026";
 const ZUL_EIGENE = 14;
 const ZUL_GUTACHTEN = 4;
 const ZUL_ZULASSUNG = 3;
@@ -2098,7 +2146,7 @@ const ZUL_DIGA = 0;
 
 // Beitraege aus dem MVF-Archiv zum Thema — taeglich von scripts/newsfeed.py
 // === NEWS-BLOCK-START (taeglich von GitHub Actions ersetzt) ===
-const NEWS_STAND = "23.10.2026";
+const NEWS_STAND = "24.10.2026";
 const NEWS = [
   {titel:"Gesundheitsatlas Herzinsuffizienz: 3,2 Millionen Betroffene", datum:"2026-10-07", url:"https://www.monitor-versorgungsforschung.de/news/gesundheitsatlas-herzinsuffizienz-32-millionen-betroffene/"},
   {titel:"Interatrialer Shunt bei Herzschwäche: G-BA beschließt neue Leistung", datum:"2026-09-18", url:"https://www.monitor-versorgungsforschung.de/news/interatrialer-shunt-bei-herzschwaeche-g-ba-beschliesst-neue-leistung/"},
@@ -2116,7 +2164,7 @@ const PRESSE = [
 // Meldungen des G-BA — taeglich von scripts/newsfeed.py
 // === SELBST-BLOCK-START (taeglich von GitHub Actions ersetzt) ===
 const SELBST = [
-  {titel:"Perkutan implantierter interatrialer Shunt zur Behandlung der Herzinsuffizienz mit reduzierter linksventrikulärer Ejektionsfraktion (LVEF ≤ 40 %)", datum:"2026-09-17", url:"/bewertungsverfahren/methodenbewertung/338/", quelle:"G-BA"},
+  {titel:"Bekanntmachung des Beratungsthemas, Einholung erster Einschätzungen sowie Ermittlung stellungnahmeberechtigter Medizinproduktehersteller: Überprüfung der allgemeinen Gesundheitsuntersuchung insbesondere im Hinblick auf Altersgrenzen, Zielgruppen, Häufigkeit der Untersuchungen, Untersuchungsinhalte, geschlechtsspezifische Besonderheiten und Zielerkrankungen, insbesondere hinsichtlich einer möglichen Eingrenzung auf Herz-Kreislauf-Erkrankungen sowie deren Risiken und Begleit- und Folgeerkrankungen als Schwerpunkt der Gesundheitsuntersuchung – Aufforderung zur Meldung –", datum:"2026-10-23", url:"/beschluesse/8006/", quelle:"G-BA"},
 ];
 // === SELBST-BLOCK-ENDE ===
 
@@ -2235,14 +2283,18 @@ CATS.forEach(cat=>{
 document.getElementById('dbCount').textContent = DB.length;
 // Die Zahlen im Hinweis 'Portal vs. Live-Suche' aus DB zaehlen, nicht fest
 // eintragen - sonst veralten sie beim naechsten neuen Eintrag unbemerkt.
-document.getElementById('cntGesamt').textContent = DB.length;
-document.getElementById('cntLive').textContent   = DB.filter(x=>x.t==='live').length;
-document.getElementById('cntPortal').textContent = DB.filter(x=>x.t==='portal').length;
+// Seit Oktober 2026 stehen die Erklaertexte nicht mehr auf der Seite. setzeZahl
+// greift deshalb nur zu, wo es die Stelle gibt - ein harter Zugriff auf ein
+// fehlendes Element haelt das ganze Skript an, und die Seite bliebe leer.
+function setzeZahl(id, wert){ const el = document.getElementById(id); if(el) el.textContent = wert; }
+setzeZahl('cntGesamt', DB.length);
+setzeZahl('cntLive', DB.filter(x=>x.t==='live').length);
+setzeZahl('cntPortal', DB.filter(x=>x.t==='portal').length);
 // Boolesch-Zahlen aus denselben Daten wie die Kennzeichen - nie getrennt pflegen.
 const _live = DB.filter(x=>x.t==='live');
-document.getElementById('cntBoolJa').textContent    = _live.filter(x=>x.b===1).length;
-document.getElementById('cntBoolNein').textContent  = _live.filter(x=>x.b===0).length;
-document.getElementById('cntBoolOffen').textContent = _live.filter(x=>x.b===undefined).length;
+setzeZahl('cntBoolJa', _live.filter(x=>x.b===1).length);
+setzeZahl('cntBoolNein', _live.filter(x=>x.b===0).length);
+setzeZahl('cntBoolOffen', _live.filter(x=>x.b===undefined).length);
 
 // ---- Studien-Frame rendern ----
 document.getElementById('snapDate').textContent = SNAP_DATE;
@@ -2281,6 +2333,28 @@ document.getElementById('snapDate').textContent = SNAP_DATE;
       + 'neuen passenden Studien geliefert. Die Liste ist deshalb unverändert.';
     el.hidden = false;
   }
+})();
+// ---- Band „Aktuell im Hub": die drei neuesten Studien ----
+// Der Titel fuehrt zur Studie in der Spalte weiter unten (#studie-<PMID>), nicht
+// zu PubMed - dort steht die deutsche Zusammenfassung.
+(function(){
+  const liste = document.getElementById('bandStudienListe');
+  if(!liste || !STUDIES.length) return;
+  liste.innerHTML = STUDIES.slice(0, 3).map(s =>
+    '<li><a href="#studie-' + s.pmid + '">' + s.title + '</a>'
+    + '<span class="magazin-datum">' + s.journal + ' · ' + (s.pubdate || s.year) + '</span></li>').join('');
+  document.getElementById('bandStudien').hidden = false;
+})();
+(function(){
+  const band = document.getElementById('band'), knopf = document.getElementById('bandZu');
+  if(band && knopf) knopf.addEventListener('click', function(){
+    const zu = !band.hasAttribute('data-zu');
+    band.toggleAttribute('data-zu', zu);
+    knopf.setAttribute('aria-expanded', zu ? 'false' : 'true');
+    knopf.textContent = zu ? 'Einblenden' : 'Ausblenden';
+  });
+  const erst = document.getElementById('erstmal');
+  if(erst) erst.querySelector('.erstmal-zu').addEventListener('click', function(){ erst.hidden = true; });
 })();
 const studiesList = document.getElementById('studiesList');
 STUDIES.forEach(s=>{
@@ -2933,7 +3007,7 @@ shubLeeren.addEventListener('click', ()=>{ shubFeld.value = ''; shubSuchen(); sh
 const GLOSSAR = [{"de":"Telemedizin","en":"telemedicine"},{"de":"Videosprechstunde","en":"video consultation"},{"de":"Arzneimitteltherapiesicherheit","en":"medication safety"},{"de":"Routinedaten","en":"claims data"},{"de":"Abrechnungsdaten","en":"administrative claims data"},{"de":"Datenschutz","en":"data protection"},{"de":"Interoperabilität","en":"interoperability"},{"de":"maschinelles Lernen","en":"machine learning"},{"de":"Erstattung","en":"reimbursement"},{"de":"Nutzenbewertung","en":"health technology assessment"},{"de":"Implementierungsforschung","en":"implementation research"},{"de":"Versorgungsqualität","en":"quality of care"},{"de":"Patientensicherheit","en":"patient safety"},{"de":"Behandlungsfehler","en":"medical error"},{"de":"Patientenbeteiligung","en":"patient participation"},{"de":"Gesundheitsökonomie","en":"health economics"},{"de":"Kosteneffektivität","en":"cost-effectiveness"},{"de":"Gesundheitsausgaben","en":"health expenditure"},{"de":"Versorgungsforschung","en":"health services research"},{"de":"Epidemiologie","en":"epidemiology"},{"de":"randomisierte kontrollierte Studie","en":"randomized controlled trial"},{"de":"Kohortenstudie","en":"cohort study"},{"de":"Beobachtungsstudie","en":"observational study"},{"de":"Querschnittstudie","en":"cross-sectional study"},{"de":"Machbarkeitsstudie","en":"feasibility study"},{"de":"systematische Übersichtsarbeit","en":"systematic review"},{"de":"Metaanalyse","en":"meta-analysis"},{"de":"Scoping Review","en":"scoping review"},{"de":"Modellierung","en":"modelling"},{"de":"Befragung","en":"survey"},{"de":"ältere Menschen","en":"aged"},{"de":"Kinder","en":"child"},{"de":"chronische Erkrankung","en":"chronic disease"},{"de":"seltene Erkrankung","en":"rare disease"},{"de":"Multimorbidität","en":"multimorbidity"},{"de":"psychische Gesundheit","en":"mental health"},{"de":"Hausarzt","en":"general practitioner"},{"de":"Krankenhaus","en":"hospital"},{"de":"Notaufnahme","en":"emergency department"},{"de":"Fachkräftemangel","en":"health workforce shortage"},{"de":"Gesundheitspersonal","en":"health personnel"},{"de":"Gesundheitssystem","en":"health system"},{"de":"Gesundheitspolitik","en":"health policy"},{"de":"Prävention","en":"prevention"},{"de":"Gesundheitsförderung","en":"health promotion"},{"de":"Gesundheitskompetenz","en":"health literacy"},{"de":"öffentlicher Gesundheitsdienst","en":"public health services"},{"de":"Herzinsuffizienz","en":"heart failure"},{"de":"Herzschwäche","en":"heart failure"},{"de":"Herzinfarkt","en":"myocardial infarction"},{"de":"Koronare Herzkrankheit","en":"coronary artery disease"},{"de":"Akutes Koronarsyndrom","en":"acute coronary syndrome"},{"de":"Vorhofflimmern","en":"atrial fibrillation"},{"de":"Herzrhythmusstörung","en":"arrhythmias, cardiac"},{"de":"Herzkatheter","en":"cardiac catheterization"},{"de":"Ballondilatation","en":"percutaneous coronary intervention"},{"de":"Bypass-Operation","en":"coronary artery bypass"},{"de":"Herzklappenfehler","en":"heart valve diseases"},{"de":"Aortenklappenstenose","en":"aortic valve stenosis"},{"de":"Klappenersatz","en":"heart valve prosthesis implantation"},{"de":"Schrittmacher","en":"pacemaker, artificial"},{"de":"Defibrillator","en":"defibrillators, implantable"},{"de":"Katheterablation","en":"catheter ablation"},{"de":"Herzmuskelerkrankung","en":"cardiomyopathies"},{"de":"Herzmuskelentzündung","en":"myocarditis"},{"de":"Bluthochdruck","en":"hypertension"},{"de":"Blutfettwerte","en":"lipids"},{"de":"Cholesterin","en":"cholesterol"},{"de":"Gerinnungshemmung","en":"anticoagulants"},{"de":"Blutverdünnung","en":"anticoagulants"},{"de":"Thrombozytenhemmer","en":"platelet aggregation inhibitors"},{"de":"Schlaganfall","en":"stroke"},{"de":"Periphere arterielle Verschlusskrankheit","en":"peripheral arterial disease"},{"de":"Aortenaneurysma","en":"aortic aneurysm"},{"de":"Herzstillstand","en":"heart arrest"},{"de":"Wiederbelebung","en":"cardiopulmonary resuscitation"},{"de":"Kardiologische Rehabilitation","en":"cardiac rehabilitation"},{"de":"Herztransplantation","en":"heart transplantation"},{"de":"Kunstherz","en":"heart-assist devices"},{"de":"Echokardiographie","en":"echocardiography"},{"de":"Belastungs-EKG","en":"exercise test"},{"de":"Telemonitoring","en":"telemetry"},{"de":"Risikofaktor","en":"risk factors"},{"de":"Prävention","en":"primary prevention"},{"de":"Pflege","en":"nursing"},{"de":"Pflegequalität","en":"quality of nursing care"},{"de":"Pflegebedürftigkeit","en":"long-term care needs"},{"de":"Pflegefachkraft","en":"nurse"}];
 // === GLOSSAR-BLOCK-ENDE ===
 
-document.getElementById('cntGlossar').textContent = GLOSSAR.length;
+setzeZahl('cntGlossar', GLOSSAR.length);
 
 // Sprungziele Impressum/Datenschutz: Die Texte stecken in <details>. Wird eines
 // direkt angesprungen, muss es aufklappen - sonst landet man auf einer
@@ -3680,7 +3754,7 @@ const goMetaBtn   = document.getElementById('goMeta');
 const metaArtBox  = document.getElementById('metaArt');
 const metaBlaetterEl = document.getElementById('metaBlaetter');
 
-document.getElementById('cntMeta').textContent = MT_QUELLEN.length;
+setzeZahl('cntMeta', MT_QUELLEN.length);
 
 // Ein Treffer kann in allen vier Quellen stehen. Zusammengelegt wird ueber
 // die DOI, ersatzweise ueber die PubMed-Nummer, zuletzt ueber den auf

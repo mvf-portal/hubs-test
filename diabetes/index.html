@@ -466,6 +466,36 @@
     line-height:1.35; letter-spacing:-.005em; display:inline-block;
   }
   .mt-titel:hover{ color:var(--brand); text-decoration:underline; }
+  /* ---------- Stufe 3a (Entwurf Mariann Stegmaier): eine Spalte, Band ---------- */
+  .lede-zeile{ flex-direction:column; gap:18px; align-items:stretch; }
+  .erstmal{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin-top:16px; padding:11px 14px;
+    background:var(--brand-tint); border-radius:8px; font-size:14px; }
+  .erstmal[hidden]{ display:none; }
+  .erstmal-frage{ font-weight:700; color:var(--ink); }
+  .erstmal a{ color:var(--brand); font-weight:700; text-decoration:none; }
+  .erstmal a:hover{ text-decoration:underline; }
+  .erstmal-zu{ margin-left:auto; background:none; border:0; font-size:20px; line-height:1; cursor:pointer;
+    color:var(--ink-faint); padding:2px 6px; border-radius:4px; }
+  .erstmal-zu:hover{ color:var(--brand); background:var(--card); }
+  .hints-sponsor p{ margin:10px 0 0; font-size:12px; line-height:1.5; color:var(--ink-faint); }
+  .band{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 18px 16px; }
+  .band-kopf{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .band-kopf h2{ margin:0; font-size:17px; display:flex; align-items:center; gap:8px; }
+  .band-nl{ margin-left:auto; background:var(--action); color:var(--on-action); font-weight:700; font-size:13.5px;
+    text-decoration:none; padding:7px 14px; border-radius:6px; }
+  .band-nl:hover{ filter:brightness(1.08); }
+  .band-zu{ background:none; border:1px solid var(--line); border-radius:6px; font:inherit; font-size:12.5px;
+    color:var(--ink-soft); padding:6px 10px; cursor:pointer; }
+  .band-zu:hover{ border-color:var(--brand); color:var(--brand); }
+  .band[data-zu] .band-inhalt{ display:none; }
+  .band-inhalt{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin-top:12px; }
+  .band .band-karte{ margin:0; padding:12px 14px; border:1px solid var(--line-soft); border-radius:8px; background:var(--card-2); }
+  .band .band-karte[hidden]{ display:none; }
+  .band .magazin-list li:nth-child(n+4){ display:none; }
+  .band-studien-titel::before{ content:"\1F4C4" !important; }
+  .band-radar-titel::before{ content:"\1F4E2" !important; }
+  .band-radar .radar-hinweis, .band-radar .zulassung-hinweis{ margin:6px 0 0; }
+  .band .ki-pille.ki-klein{ margin:2px 0 4px; }
   /* KI-Kennzeichen, lila wie auf „Über die Knowledge-Hubs" (Entwurf Mariann Stegmaier). */
   .ki-pille{ display:inline-block; font-size:11px; font-weight:700; padding:2px 9px; border-radius:20px;
     background:#EEE8F7; color:#4B2E83; border:1px solid #D5C8EC; white-space:nowrap; }
@@ -1655,19 +1685,18 @@
               </div>
             </div>
           </details>
-          <div class="hints">
-            <p><b>So funktioniert die Suche.</b> Begriff eingeben, <b>Eingabetaste</b> drücken oder auf <b>„In allen Datenbanken suchen"</b> klicken — damit werden alle Kacheln auf Ihren Begriff eingestellt. Ein Klick auf eine Kachel öffnet dann <b>direkt die Trefferliste</b> dieser Datenbank in einem neuen Tab; ein zweites Mal suchen müssen Sie dort nicht. Die Kacheln bleiben eingestellt, Sie können also nacheinander mehrere Datenbanken öffnen, ohne den Begriff erneut einzugeben. Ausnahme sind die als <b>„Portal"</b> gekennzeichneten Anbieter — die erlauben technisch keine verlinkbare Trefferadresse.</p>
-            <p><b>Treffer direkt auf dieser Seite.</b> Der Knopf <b>&bdquo;Treffer direkt anzeigen&ldquo;</b> fragt die Datenbanken unmittelbar ab, die einen direkten Zugriff auf ihre Inhalte erlauben (derzeit <b id="cntMeta"></b>), und zeigt die Fundstellen zusammengef&uuml;hrt hier auf der Seite &mdash; jede mit Angabe der Datenbank, aus der sie stammt. Dubletten werden &uuml;ber die DOI zusammengelegt; erscheint eine Arbeit in mehreren Datenbanken, steht sie einmal in der Liste und tr&auml;gt mehrere Herkunftszeichen. Die Trefferliste zeigt <b>25 Treffer je Blatt</b>. Neben Zeitschriftenaufs&auml;tzen sind angemeldete Studien, Preprints und Repositorien darunter; der Filter <b>Art</b> trennt sie. Wo es eine legale frei zug&auml;ngliche Fassung gibt, steht ein Verweis <b>Volltext</b>. Die Liste l&auml;sst sich als Word, Excel, RIS oder BibTeX herunterladen und damit in Zotero, EndNote oder Citavi weiterverarbeiten. Die &uuml;brigen halten ihre Inhalte f&uuml;r eine solche Abfrage verschlossen; sie bleiben &uuml;ber die Kacheln zu &ouml;ffnen. Dabei erf&auml;hrt der jeweilige Anbieter Ihren Suchbegriff &mdash; N&auml;heres in den <a href="#datenschutz">Datenschutzhinweisen</a>.</p>
-            <p><b>Vollständigkeit.</b> Auch dieses Portal kann nicht sämtliche Artikel „aller Datenbanken" enthalten — das verhindern Lizenz- und Technikgrenzen. Es bündelt stattdessen die maßgeblichen Suchen, sodass eine Recherche systematisch über alle relevanten Datenbanken laufen kann.</p>
-            <!-- === THEMA-HINWEIS-START (themenspezifisch; aus dem Themenprofil) === -->
-            <p><b>Was Sie hier finden.</b> Die Literatur zum Diabetes selbst: Typ-1- und Typ-2-Diabetes, Prädiabetes und Gestationsdiabetes, die Folgeerkrankungen an Auge, Niere, Nerv und Fuß, Antidiabetika und Insulintherapie, Glukosemesstechnik, Insulinpumpen und Closed-Loop-Systeme, Schulung, Disease-Management-Programme und Versorgungsforschung - dazu die Grundlagenforschung, aus der das alles hervorgeht. Gelesen werden rund dreißig diabetologische und allgemeinmedizinische Kernzeitschriften.</p>
-        <p><b>Nicht hier, sondern im Schwesterportal <a href="https://mvf-portal.github.io/hubs-test/adipositas/">adipositas.m-vf.de</a>:</b> Adipositas und Übergewicht als Krankheitsbild, Gewichtsmanagement, Adipositaschirurgie, Arzneimittel mit dem Gewicht als Endpunkt, das metabolische Syndrom und Programme zur Gewichtsregulierung. Die Abfrage dieses Hubs schließt diese Gebiete aus - gemessen sank die Überschneidung dadurch von 11,0 auf 4,7 Prozent.</p>
-        <p><b>Die Ausnahme sind die Inkretine.</b> GLP-1-Rezeptoragonisten und die neueren Doppelagonisten gehören fachlich in mehrere Portale und werden deshalb nicht ausgeschlossen, sondern geteilt: Steht ein glykämischer Endpunkt im Vordergrund, erscheint die Arbeit hier; geht es um Gewichtsreduktion, steht sie im Adipositas-Hub; steht ein kardialer Endpunkt im Vordergrund, im <a href="https://mvf-portal.github.io/hubs-test/kardio/">Kardiologie-Hub</a>.</p>
-            <!-- === THEMA-HINWEIS-ENDE === -->
-            <p><b>Portal vs. Live-Suche.</b> Von den derzeit <b id="cntGesamt"></b> eingebundenen Datenbanken unterstützen <b id="cntLive"></b> die Live-Suche; sie sind entsprechend gekennzeichnet. Weitere <b id="cntPortal"></b> sind als „Portal" markiert: Angebote wie LIVIVO, das DRKS oder die WHO-Plattform ICTRP erlauben technisch keine verlinkbaren Ergebnisadressen. Der Klick führt dort auf die Startseite — der Suchbegriff ist anschließend von Hand einzugeben.</p>
-            <p><b>Suchoperatoren.</b> <b>AND</b>, <b>OR</b> und <b>NOT</b> funktionieren nicht überall gleich — wir haben es einzeln nachgemessen. <span class="boolmark ja">AND/OR ✓</span> heißt: geprüft, die Operatoren wirken (<b id="cntBoolJa"></b> Datenbanken). <span class="boolmark nein">AND/OR ✗</span> heißt: geprüft, sie wirken nicht — die Wörter werden einfach mitgesucht (<b id="cntBoolNein"></b>). <b>Ohne Zeichen ist es ungeprüft</b> (<b id="cntBoolOffen"></b>): Diese Anbieter liefern eine Bot-Sperre oder eine reine JavaScript-Oberfläche, aus der sich kein belastbares Ergebnis ablesen ließ — das heißt ausdrücklich <i>nicht</i>, dass sie es nicht können. Der Filter „Operatoren" zeigt auf Wunsch nur die geprüft tauglichen.</p>
-            <p><b>Deutsch suchen, international finden.</b> Internationale Datenbanken kennen keine deutschen Fachbegriffe — „Nachsorge“ liefert dort nichts. Der Hub übersetzt deshalb <b id="cntGlossar"></b> Fachbegriffe automatisch: Deutschsprachige Datenbanken behalten Ihren Begriff, internationale bekommen den Ausdruck, unter dem sie tatsächlich indexieren („Früherkennung“ wird zu <i>mass screening</i>, „Nachsorge“ zu <i>aftercare</i>, „Lebensqualität“ zu <i>quality of life</i>.). Die Ergebnisleiste zeigt die verwendete Fassung; der Schalter unter dem Suchfeld stellt es ab.</p>
-            <p><b>Hinweis zu Lizenzen.</b> Mit <span class="badge lic">Lizenz</span> markierte Datenbanken (z. B. Web of Science, Scopus, Embase, CINAHL) sind kostenpflichtig — der Zugang läuft meist über Ihre Bibliothek/Institution. Der Link führt zur Startseite bzw. zum institutionellen Login.</p>
+          <!-- Bis Oktober 2026 standen hier acht Erklaerbloecke mit rund 700 Woertern
+               (Suche, Operatoren, Portale, Lizenzen, Glossar). Seit Stufe 2 steht
+               all das auf „Über die Knowledge-Hubs" und „Themen & Quellen"; hier
+               bleibt nur der Weg dorthin (Entwurf Mariann Stegmaier, Hub-Seiten S. 2).
+               Wegklicken speichert nichts - beim naechsten Besuch ist er wieder da. -->
+          <div class="erstmal" id="erstmal">
+            <span class="erstmal-frage">Zum ersten Mal hier?</span>
+            <a href="https://mvf-portal.github.io/hubs-test/ueber-die-hubs.html#suche">So funktioniert die Suche →</a>
+            <a href="themen-quellen.html">Themen &amp; Quellen dieses Hubs →</a>
+            <button type="button" class="erstmal-zu" aria-label="Hinweis schließen" title="Hinweis schließen">&times;</button>
+          </div>
+          <div class="hints-sponsor">
             <p id="sponsorText" hidden><b>Sponsoren.</b> Unsere Sponsoren ermöglichen mit ihrer finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Sie nehmen dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
             <p id="koopText" hidden><b>Medienpartnerschaft.</b> Dieser Hub wird in einer Medienkooperation präsentiert. Der Medienpartner ermöglicht mit seiner finanziellen Unterstützung den Betrieb und das Hosting dieses Services. Er nimmt dabei keinerlei Einfluss auf Auswahl der Datenbanken, der Ergebnisse oder den dargestellten Inhalt.</p>
           </div>
@@ -1696,11 +1725,26 @@
           Der Medienpartner nimmt darauf keinen Einfluss.</p>
         </div>
       </div>
-      <aside class="lede-nl">
-        <a class="btn-nl" href="newsletter.html">Newsletter abonnieren</a>
-        <span class="nl-mini">Die Studienauswahl jeden Morgen per E-Mail — kostenfrei und jederzeit kündbar.</span>
-        <a class="btn-ueber" href="ueber.html">Themen &amp; Quellen</a>
-        <a class="btn-ueber" href="https://mvf-portal.github.io/hubs-test/wissen/ausschreibungen.html#diabetes" target="_blank" rel="noopener">Ausschreibungsradar <span aria-hidden="true">↗</span></a>
+      <!-- Band „Aktuell im Hub" (Entwurf Mariann Stegmaier, Hub-Seiten S. 3).
+           Bis Oktober 2026 eine schmale Spalte rechts neben der Suche - auf dem
+           Handy rutschte sie hinter die Suche, und Seitenspalten werden als
+           Werbung ueberlesen. Jetzt ein Band unter der Suche, jede Rubrik eine
+           Karte mit hoechstens drei Eintraegen. „Ausblenden" speichert nichts. -->
+      <aside class="band" id="band" aria-labelledby="bandTitel">
+        <div class="band-kopf">
+          <h2 id="bandTitel"><span class="dot"></span>Aktuell im Hub</h2>
+          <a class="band-nl" href="newsletter.html">Newsletter abonnieren</a>
+          <button class="band-zu" id="bandZu" type="button" aria-expanded="true" aria-controls="bandInhalt">Ausblenden</button>
+        </div>
+        <div class="band-inhalt" id="bandInhalt">
+        <section class="band-karte" id="bandStudien" hidden>
+          <div class="magazin-title band-studien-titel">Neue Studien aus PubMed</div>
+          <span class="ki-pille ki-klein">Von KI ausgewählt und zusammengefasst</span>
+          <ul class="magazin-list" id="bandStudienListe"></ul>
+          <a class="magazin-mehr" href="#studien">Alle neuen Studien ↓</a>
+        </section>
+        <section class="band-karte band-radar">
+          <div class="magazin-title band-radar-titel">Ausschreibungen &amp; Zulassungen</div>
         <!-- Hinweis auf den Ausschreibungsradar. Angeregt von einem Nutzer
              der Hubs: Wer zu einem Thema forscht, sucht nicht nur Studien,
              sondern auch Geld. Gesucht wird zentral im Versorgungsforschungs-
@@ -1718,6 +1762,8 @@
              dauerhaft leer. Das ist kein Ausfall, sondern der Zuschnitt:
              Auf diese Themen zeigt keine Arzneimittelzulassung. -->
         <div class="zulassung-hinweis" id="zulassungHinweis" hidden></div>
+          <a class="magazin-mehr" href="https://mvf-portal.github.io/hubs-test/wissen/ausschreibungen.html#diabetes" target="_blank" rel="noopener">Zum Ausschreibungsradar ↗</a>
+        </section>
 
         <!-- Ausgesuchte News. Angeregt vom selben Nutzer wie der
              Ausschreibungsradar: Wer sich fuer ein Thema interessiert, will
@@ -1730,7 +1776,7 @@
              Scrollbereich (826 px hoch, 4.239 px Inhalt), und hinter
              Studienliste und Archivordner faende den Kasten niemand.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin" id="magazin" hidden>
+        <section class="magazin band-karte" id="magazin" hidden>
           <div class="magazin-title">Ausgesuchte News zu diesem Themenfeld</div>
           <p class="magazin-sub">Beiträge aus dem Portal von „Monitor
             Versorgungsforschung“ (<a href="https://www.monitor-versorgungsforschung.de/?utm_source=diabetes-hub&amp;utm_medium=referral&amp;utm_campaign=magazin" target="_blank" rel="noopener">www.m-vf.de</a>)</p>
@@ -1744,7 +1790,7 @@
              Hochschulen und Instituten) und presseportal.de, letzteres nur
              als Auffuellung und nur bei Treffer im Titel.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin presse" id="presse" hidden>
+        <section class="magazin presse band-karte" id="presse" hidden>
           <div class="magazin-title">Weitere Pressemeldungen zum Thema</div>
           <p class="magazin-sub">Pressemitteilungen Dritter, aus
             <a href="https://idw-online.de/" target="_blank" rel="noopener">idw</a>
@@ -1759,12 +1805,13 @@
              Leserschaft betrifft. Im Versorgungsforschungs-Hub ungefiltert,
              sonst nach dem Thema des Hubs ausgewaehlt.
              Gefuellt von scripts/newsfeed.py, verborgen bis dahin. -->
-        <section class="magazin presse" id="selbst" hidden>
+        <section class="magazin presse band-karte" id="selbst" hidden>
           <div class="magazin-title">Aus der Selbstverwaltung</div>
           <p class="magazin-sub">Beschlüsse und Meldungen des
             <a href="https://www.g-ba.de/" target="_blank" rel="noopener">Gemeinsamen Bundesausschusses</a></p>
           <ul class="magazin-list" id="selbstList"></ul>
         </section>
+        </div>
       </aside>
     </div>
 
@@ -2027,62 +2074,53 @@ const DB = [
 
 // Momentaufnahme neuester Studien (PubMed, nach Datum sortiert) — deutsche Zusammenfassungen
 // === STUDIES-BLOCK-START (taeglich 06:00 Uhr von GitHub Actions ersetzt) ===
-const SNAP_DATE = "23. Okt. 2026, 06:02 Uhr";
+const SNAP_DATE = "24. Okt. 2026, 06:01 Uhr";
 const SNAP_STATUS = "neu";
 const STUDIES = [
   {
-    journal:"Diabetes Res Clin Pract", year:"2026", pmid:"42906758",
-    author:"He M et al.", pubdate:"21.10.2026",
-    added:"22.10.2026",
-    title:"Mehr Glukosestoffwechsel-Defekte erhöhen Fettleberrisiko bei Prädiabetes",
-    sum:"Prospektive chinesische Kohortenstudie mit 4.768 Teilnehmern ohne oder mit Prädiabetes über 3 Jahre: Untersucht wurde, wie die Anzahl gleichzeitiger Glukosestoffwechsel-Störungen (erhöhte Nüchternglukose, pathologische OGTT, erhöhtes HbA1c) mit der Entwicklung und dem Rückgang einer metabolisch dysfunktionalen Fettlebererkrankung assoziiert sind.",
-    result:"2.687 Patienten hatten zu Studienbeginn eine Fettleber. Verglichen mit normaler Glukosetoleranz war die bereinigte Wahrscheinlichkeit für eine neue Fettleber erhöht um 45 % (95%-KI 1,09–1,93) bei zwei gleichzeitigen Defekten und um 92 % (95%-KI 1,13–3,26) bei allen drei Defekten. Umgekehrt war die Wahrscheinlichkeit einer Fettleber-Rückbildung reduziert um 38 % (95%-KI 0,46–0,82) bzw. 62 % (95%-KI 0,23–0,61).",
-    transfer:"China, aber biologisches Konzept und Studiendesign auf deutsches Gesundheitssystem übertragbar"
+    journal:"Prim Care Diabetes", year:"2026", pmid:"42919753",
+    author:"Burroughs TE et al.", pubdate:"23.10.2026",
+    added:"23.10.2026",
+    title:"Substanzkonsum-Profile mit Hospitalisierungsrisiko bei Diabetes assoziiert",
+    sum:"Analyse von 6.805 erwachsenen Diabetikern aus US-Nationaldaten zur Identifikation von Substanzkonsum-Mustern und deren Verknüpfung mit klinischen Outcomes.",
+    result:"Drei Profile identifiziert: Niedrig/Kein Konsum (67,6%), Cannabis und Binge-Drinking (24,4%), Polysubstanzgebrauch (8,0%). Polysubstanznutzer hatten erhöhte Odds für Hospitalisierung (OR 1,46) und schlechtere subjektive Gesundheit als die Referenzgruppe. Mental-Health-Belastung und männliches Geschlecht waren Risikofaktoren.",
+    transfer:"USA-Daten, andere Versorgungsstruktur; Screening-Konzept prinzipiell übertragbar."
   },
   {
-    journal:"Diabetes", year:"2026", pmid:"42905866",
-    author:"Moedt E et al.", pubdate:"21.10.2026",
-    added:"22.10.2026",
-    title:"Neue Protein-Biomarker erkennen Nierenschaden bei Diabetes trotz normaler Albumin-Ausscheidung",
-    sum:"Klinische Studie an niederländischem Universitätsklinikum: Bei Typ-2-Diabetikern mit normaler Albuminurie und normaler Nierenfunktion wurde untersucht, ob neue Blut- und Urin-Proteine (TNFR-1, TNFR-2, KIM-1, MMP-7, uEGF/Cr) einen verborgenen Nierenschaden erkennen und einen Rückgang der Nierenfunktion vorhersagen, besser als die bisherige Albuminausscheidung.",
-    result:"Die Baseline-Albuminurie war nicht prädiktiv für den kombinierten Nieren-Endpunkt. Dagegen waren TNFR-1, TNFR-2, KIM-1 und MMP-7 unabhängig assoziiert. Bei Patienten, die einen Nierenfunktionsrückgang entwickelten, zeigten diese Biomarker und uEGF/Cr divergente Verläufe im Gegensatz zur stabilen Albuminurie.",
-    transfer:"Niederlande, vergleichbares Versicherungssystem und Gesundheitsdokumentation"
+    journal:"Diabetes Metab", year:"2026", pmid:"42918612",
+    author:"Kong Y et al.", pubdate:"23.10.2026",
+    added:"23.10.2026",
+    title:"Viszerales Fett über BMI hinaus zeigt frühe Glukosestörung an",
+    sum:"Querschnittstudie mit MRT-vermessenem Fettverteilungsmuster bei 474 stoffwechselgesunden Erwachsenen (40–65 Jahre) zur Vorhersage von Insulinresistenz und gestörter Glukosetoleranz.",
+    result:"Jede 1-SD-Erhöhung des BMI-adjustierten viszeralen Fettanteils korrelierte mit niedrigerem Matsuda-Index (β=−0,41), höherem HOMA-IR (β=0,10), 2-Stunden-Glukose +0,22 mmol/l und höherem Prädiabetes-Risiko (OR 1,32 für WHO-Definition). Subkutanes Fett zeigte keine signifikanten Assoziationen.",
+    transfer:"China; Messmethode erfordert MRT, in Deutschland flächendeckend kaum verfügbar."
   },
   {
-    journal:"Diabetes Technol Ther", year:"2026", pmid:"42897853",
-    author:"Tellez S et al.", pubdate:"19.10.2026",
-    added:"20.10.2026",
-    title:"Vor-OP-Schulung verbessert Vorbereitung auf Diabetes nach Pankreas-Entfernung mit Inselzell-Transplantation",
-    sum:"US-amerikanische Qualitätsverbesserungsstudie an 33 pädiatrischen Patienten, die sich einer Pankreatektomie mit Inselzell-Autotransplantation unterzogen: Untersucht wurde, ob eine strukturierte Diabetes-Schulung vor der Operation die Zeit für die klinische Schulung nach der Operation reduziert und die Vorbereitung der primären Bezugsperson auf komplexe Therapie (Insulinpumpe, kontinuierliche Glukosemessung) verbessert.",
-    result:"Die Schulungszeit vor der OP stieg statistisch signifikant in den späteren Kohorten (p = 0,0291 und p = 0,0007). Die stationäre Diabetes-Schulung nach OP nahm um 133 Minuten ab (p = 0,0717, marginal signifikant). Wissenstests dokumentierten einen wesentlichen Wissenserwerb, der von vor bis nach der OP erhalten blieb. Das Selbstvertrauen nahm zu (p = 0,063), die Zufriedenheitswerte blieben hoch.",
-    transfer:"USA-Setting, aber Schulungskonzept auf deutsche Diabetes-Schwerpunktkliniken übertragbar"
+    journal:"Diabetologia", year:"2026", pmid:"42918866",
+    author:"Britten FL et al.", pubdate:"22.10.2026",
+    added:"23.10.2026",
+    title:"Stillen nach Geburt: BMI, nicht Diabetes selbst, senkt Stillquoten",
+    sum:"Prospektive Fall-Kontroll-Studie mit 29 Frauen mit Typ-2-Diabetes und zwei Kontrollgruppen (jeweils n=28–29, eine mit angepasstem BMI, eine normalgewichtig), Follow-up 4 Monate postpartal in Australien.",
+    result:"Vollstillen nach 4 Monaten: 24% (Diabetes) vs. 38% (BMI-angepasste Kontrollen) vs. 64% (normale BMI); Unterschied Diabetes vs. BMI-angepasst nicht signifikant (p=0,26), aber Diabetes vs. normal-BMI signifikant (p=0,002). Beliebiges Stillen: 55% vs. 54% vs. 82% (p=0,79 vs. p=0,03). Maternal-Adipositas, nicht Typ-2-Diabetes selbst, ist Hauptdeterminante reduzierter Stillraten.",
+    transfer:"Australien, englischsprachiges System; Befund zur Rolle von Adipositas prinzipiell übertragbar."
   },
   {
-    journal:"Cardiovasc Diabetol", year:"2026", pmid:"42907820",
-    author:"Phan F et al.", pubdate:"27.07.2026",
-    added:"22.10.2026",
-    title:"Diabetische Retinopathie verbessert Risikovorhersage für Herzinfarkt und Schlaganfall",
-    sum:"Prospektive französische Kohortenstudie an 424 Typ-2-Diabetikern ohne bisherige kardiovaskuläre Ereignisse: Es wurde untersucht, ob das Vorliegen einer diabetischen Retinopathie zusammen mit dem Koronarkalk-Score die Vorhersage von Herzinfarkt, Schlaganfall, Herzschwäche und kardiovaskulärem Tod verbessert.",
-    result:"In 7 Jahren traten kardiovaskuläre Ereignisse bei 50 Patienten (11,8 %) auf. Diabetische Retinopathie war signifikant häufiger bei denen mit Ereignissen (58 % vs. 25 %, p &lt; 0,001). Die Kombination aus Retinopathie und Koronarkalk-Score erhöhte die diagnostische Aussagekraft: AUC stieg von 0,68 auf 0,75 (p = 0,01), nach Anpassung an klassische Risikofaktoren auf 0,79 (p = 0,04). Retinopathie reklassifizierte einen erheblichen Anteil von Patienten mit niedrigen bis mittleren Koronarkalk-Scores in höhere Risikokategorien.",
-    transfer:"Frankreich, Universitätsklinik Paris mit strukturierter Erfassung - Konzept auf deutsche Kliniken übertragbar"
+    journal:"J Diabetes Complications", year:"2026", pmid:"42914763",
+    author:"Abdel Monem MS et al.", pubdate:"16.10.2026",
+    added:"23.10.2026",
+    title:"SGLT2-Inhibitoren verbessern Leberhistologie bei biopsie-verifizierter MASH",
+    sum:"Metaanalyse von 7 Studien (n=110) zur Wirkung von SGLT2-Inhibitoren auf histologisch verifizierte metabolic-dysfunction-associated steatohepatitis (MASH) bei Typ-2-Diabetikern.",
+    result:"SGLT2i führten zu signifikanten Verbesserungen: Lebersteatose und Fibrose-Histologie reduziert, controlled attenuation parameter (CAP) SMCR −0,56 (95%-KI −0,75 bis −0,36), liver stiffness measurement SMCR −0,58 (−1,03 bis −0,14), NAFLD-Activity-Score SMCR −1,18 (−2,29 bis −0,06); Waist Circumference −0,33 SD, Blutdruck gesenkt. Sicherheit konsistent, aber erhebliche Heterogenität bei LSM und Histologie.",
+    transfer:"Metaanalyse, internationale Studien; SGLT2i sind in deutschen DMPs enthalten."
   },
   {
-    journal:"Cardiovasc Diabetol", year:"2026", pmid:"42907853",
-    author:"Zhou J et al.", pubdate:"26.07.2026",
-    added:"22.10.2026",
-    title:"Entzündungs-Proteinmuster sagt Herzinfarkt bei Typ-1-Diabetes voraus",
-    sum:"Prospektive US-amerikanische Kohortenstudie: 417 Typ-1-Diabetiker mit Beginn im Kindesalter wurden über 30 Jahre nachbeobachtet. Mit Hochdurchsatz-Proteomik wurden 184 Blutproteine gemessen, um festzustellen, welche Proteinkombinationen einen Herzinfarkt oder die Notwendigkeit einer Herzkatheter-Intervention vorhersagen.",
-    result:"In 30 Jahren traten bei 151 Patienten (36,2 %) ein Herzinfarkt, eine koronare Revaskularisation oder ein verschlossenes Gefäß auf. Ein Protein-Modul mit 56 Proteinen (TNF/Notch-Signaling, T-Zell-Aktivierung) war mit erhöhtem Risiko assoziiert (Hazard Ratio 1,35, 95%-KI 1,06–1,72, p = 0,014). Ein anderes Modul mit 33 Proteinen (Lipidabbau, Hormonantwort) war protektiv (HR 0,82, 95%-KI 0,70–0,96, p = 0,017). Das Entzündungs-Modul vermittelte 14 % des Effekts von erhöhtem HbA1c auf Herzinfarkt.",
-    transfer:"USA-Kohortendaten, aber biologisches Muster unabhängig von Versicherungssystem"
-  },
-  {
-    journal:"Diabetol Metab Syndr", year:"2026", pmid:"42897592",
-    author:"Hassan M et al.", pubdate:"24.07.2026",
-    added:"20.10.2026",
-    title:"Mazdutide senkt HbA1c stärker und Körpergewicht mehr als Dulaglutide",
-    sum:"Systematische Übersicht und Metaanalyse: 3 randomisierte kontrollierte Studien mit insgesamt Hunderten von Typ-2-Diabetikern wurden verglichen, die Mazdutid (dualer GLP-1- und Glukagon-Rezeptoragonist) oder Dulaglutid (reiner GLP-1-Agonist) erhielten. Primäre Endpunkte waren HbA1c-Senkung, Körpergewichtsreduktion und Erreichung von Therapiezielen.",
-    result:"Mazdutid senkte HbA1c um zusätzliche 0,25 % und Körpergewicht um zusätzliche 2,97 kg mehr als Dulaglutid. Patienten erreichten häufiger HbA1c &lt; 7,0 % und ≥ 5 % Gewichtsabnahme sowie die kombinierte Ziel (HR nicht spezifisch beziffert, aber Trend zugunsten Mazdutid). Mazdutid war mit höheren Raten gastrointestinaler Nebenwirkungen assoziiert; schwerwiegende Nebenwirkungen und Studienabbrüche waren ähnlich. Evidenzsicherheit für Glykämie und Gewichtsendpunkte: hoch.",
-    transfer:"Globale RCT-Daten, biologisch unabhängig von Gesundheitssystem"
+    journal:"Diabetes", year:"2026", pmid:"42803383",
+    author:"Gastaldelli A et al.", pubdate:"28.09.2026",
+    added:"28.09.2026",
+    title:"Insulinresistenz neu verstanden: Plastische Anpassungen statt Uniform-Defekt",
+    sum:"Konsensuspapier führender europäischer und nordamerikanischer Experten zur Neubewertung des Konzepts Insulinresistenz, basierend auf aktueller Forschung und EASD-Symposium 2025.",
+    result:"Insulinresistenz wird nicht länger als einheitliche pathophysiologische Entität beschrieben, sondern als diverse, plastische Ansammlung lokaler, organspezifischer und zeitlich variable adaptive sowie maladaptive Reaktionen auf physiologische und Umweltbedingungen. Bestehende Therapien wirken überwiegend indirekt. Empfehlung: Fokus auf Pathway-spezifische Defekte zur Entwicklung echter Insulinsensitizer. Verfügbare Methoden zur Messung werden dargelegt, offene Forschungsfragen benannt.",
+    transfer:"Mehrheit europäische und deutsche Autoren, EASD-Kontext; grundlagliche Neubewertung."
   },
 ];
 // === STUDIES-BLOCK-ENDE ===
@@ -2097,7 +2135,7 @@ const RADAR_FRISTEN = [["2026-12-31", "2027-01-07", "2027-01-07", "2027-01-07", 
 // === RADAR-BLOCK-ENDE ===
 
 // === ZULASSUNG-BLOCK-START (taeglich von GitHub Actions ersetzt) ===
-const ZUL_STAND = "23.10.2026";
+const ZUL_STAND = "24.10.2026";
 const ZUL_EIGENE = 10;
 const ZUL_GUTACHTEN = 3;
 const ZUL_ZULASSUNG = 4;
@@ -2107,7 +2145,7 @@ const ZUL_DIGA = 1;
 
 // Beitraege aus dem MVF-Archiv zum Thema — taeglich von scripts/newsfeed.py
 // === NEWS-BLOCK-START (taeglich von GitHub Actions ersetzt) ===
-const NEWS_STAND = "23.10.2026";
+const NEWS_STAND = "24.10.2026";
 const NEWS = [
   {titel:"Früherkennung und Ketoazidose: Abbott Big City Talk in Berlin", datum:"2026-10-07", url:"https://www.monitor-versorgungsforschung.de/news/frueherkennung-und-ketoazidose-abbott-big-city-talk-in-berlin/"},
   {titel:"Zugang zu Diabetes- und Adipositasmedikamenten weltweit: Lilly-Zusage bis 2040", datum:"2026-10-05", url:"https://www.monitor-versorgungsforschung.de/news/zugang-zu-diabetes-und-adipositasmedikamenten-weltweit-lilly-zusage-bis-2040/"},
@@ -2241,14 +2279,18 @@ CATS.forEach(cat=>{
 document.getElementById('dbCount').textContent = DB.length;
 // Die Zahlen im Hinweis 'Portal vs. Live-Suche' aus DB zaehlen, nicht fest
 // eintragen - sonst veralten sie beim naechsten neuen Eintrag unbemerkt.
-document.getElementById('cntGesamt').textContent = DB.length;
-document.getElementById('cntLive').textContent   = DB.filter(x=>x.t==='live').length;
-document.getElementById('cntPortal').textContent = DB.filter(x=>x.t==='portal').length;
+// Seit Oktober 2026 stehen die Erklaertexte nicht mehr auf der Seite. setzeZahl
+// greift deshalb nur zu, wo es die Stelle gibt - ein harter Zugriff auf ein
+// fehlendes Element haelt das ganze Skript an, und die Seite bliebe leer.
+function setzeZahl(id, wert){ const el = document.getElementById(id); if(el) el.textContent = wert; }
+setzeZahl('cntGesamt', DB.length);
+setzeZahl('cntLive', DB.filter(x=>x.t==='live').length);
+setzeZahl('cntPortal', DB.filter(x=>x.t==='portal').length);
 // Boolesch-Zahlen aus denselben Daten wie die Kennzeichen - nie getrennt pflegen.
 const _live = DB.filter(x=>x.t==='live');
-document.getElementById('cntBoolJa').textContent    = _live.filter(x=>x.b===1).length;
-document.getElementById('cntBoolNein').textContent  = _live.filter(x=>x.b===0).length;
-document.getElementById('cntBoolOffen').textContent = _live.filter(x=>x.b===undefined).length;
+setzeZahl('cntBoolJa', _live.filter(x=>x.b===1).length);
+setzeZahl('cntBoolNein', _live.filter(x=>x.b===0).length);
+setzeZahl('cntBoolOffen', _live.filter(x=>x.b===undefined).length);
 
 // ---- Studien-Frame rendern ----
 document.getElementById('snapDate').textContent = SNAP_DATE;
@@ -2287,6 +2329,28 @@ document.getElementById('snapDate').textContent = SNAP_DATE;
       + 'neuen passenden Studien geliefert. Die Liste ist deshalb unverändert.';
     el.hidden = false;
   }
+})();
+// ---- Band „Aktuell im Hub": die drei neuesten Studien ----
+// Der Titel fuehrt zur Studie in der Spalte weiter unten (#studie-<PMID>), nicht
+// zu PubMed - dort steht die deutsche Zusammenfassung.
+(function(){
+  const liste = document.getElementById('bandStudienListe');
+  if(!liste || !STUDIES.length) return;
+  liste.innerHTML = STUDIES.slice(0, 3).map(s =>
+    '<li><a href="#studie-' + s.pmid + '">' + s.title + '</a>'
+    + '<span class="magazin-datum">' + s.journal + ' · ' + (s.pubdate || s.year) + '</span></li>').join('');
+  document.getElementById('bandStudien').hidden = false;
+})();
+(function(){
+  const band = document.getElementById('band'), knopf = document.getElementById('bandZu');
+  if(band && knopf) knopf.addEventListener('click', function(){
+    const zu = !band.hasAttribute('data-zu');
+    band.toggleAttribute('data-zu', zu);
+    knopf.setAttribute('aria-expanded', zu ? 'false' : 'true');
+    knopf.textContent = zu ? 'Einblenden' : 'Ausblenden';
+  });
+  const erst = document.getElementById('erstmal');
+  if(erst) erst.querySelector('.erstmal-zu').addEventListener('click', function(){ erst.hidden = true; });
 })();
 const studiesList = document.getElementById('studiesList');
 STUDIES.forEach(s=>{
@@ -2939,7 +3003,7 @@ shubLeeren.addEventListener('click', ()=>{ shubFeld.value = ''; shubSuchen(); sh
 const GLOSSAR = [{"de":"Telemedizin","en":"telemedicine"},{"de":"Videosprechstunde","en":"video consultation"},{"de":"Arzneimitteltherapiesicherheit","en":"medication safety"},{"de":"Routinedaten","en":"claims data"},{"de":"Abrechnungsdaten","en":"administrative claims data"},{"de":"Datenschutz","en":"data protection"},{"de":"Interoperabilität","en":"interoperability"},{"de":"maschinelles Lernen","en":"machine learning"},{"de":"Erstattung","en":"reimbursement"},{"de":"Nutzenbewertung","en":"health technology assessment"},{"de":"Implementierungsforschung","en":"implementation research"},{"de":"Versorgungsqualität","en":"quality of care"},{"de":"Patientensicherheit","en":"patient safety"},{"de":"Behandlungsfehler","en":"medical error"},{"de":"Patientenbeteiligung","en":"patient participation"},{"de":"Gesundheitsökonomie","en":"health economics"},{"de":"Kosteneffektivität","en":"cost-effectiveness"},{"de":"Gesundheitsausgaben","en":"health expenditure"},{"de":"Versorgungsforschung","en":"health services research"},{"de":"Epidemiologie","en":"epidemiology"},{"de":"randomisierte kontrollierte Studie","en":"randomized controlled trial"},{"de":"Kohortenstudie","en":"cohort study"},{"de":"Beobachtungsstudie","en":"observational study"},{"de":"Querschnittstudie","en":"cross-sectional study"},{"de":"Machbarkeitsstudie","en":"feasibility study"},{"de":"systematische Übersichtsarbeit","en":"systematic review"},{"de":"Metaanalyse","en":"meta-analysis"},{"de":"Scoping Review","en":"scoping review"},{"de":"Modellierung","en":"modelling"},{"de":"Befragung","en":"survey"},{"de":"ältere Menschen","en":"aged"},{"de":"Kinder","en":"child"},{"de":"chronische Erkrankung","en":"chronic disease"},{"de":"seltene Erkrankung","en":"rare disease"},{"de":"Multimorbidität","en":"multimorbidity"},{"de":"psychische Gesundheit","en":"mental health"},{"de":"Hausarzt","en":"general practitioner"},{"de":"Krankenhaus","en":"hospital"},{"de":"Notaufnahme","en":"emergency department"},{"de":"Fachkräftemangel","en":"health workforce shortage"},{"de":"Gesundheitspersonal","en":"health personnel"},{"de":"Gesundheitssystem","en":"health system"},{"de":"Gesundheitspolitik","en":"health policy"},{"de":"Prävention","en":"prevention"},{"de":"Gesundheitsförderung","en":"health promotion"},{"de":"Gesundheitskompetenz","en":"health literacy"},{"de":"öffentlicher Gesundheitsdienst","en":"public health services"},{"de":"Zuckerkrankheit","en":"diabetes mellitus"},{"de":"Typ-1-Diabetes","en":"diabetes mellitus type 1"},{"de":"Typ-2-Diabetes","en":"diabetes mellitus type 2"},{"de":"Schwangerschaftsdiabetes","en":"gestational diabetes"},{"de":"Gestationsdiabetes","en":"gestational diabetes"},{"de":"Prädiabetes","en":"prediabetic state"},{"de":"Gestörte Glukosetoleranz","en":"glucose intolerance"},{"de":"Blutzucker","en":"blood glucose"},{"de":"Langzeitblutzucker","en":"glycated hemoglobin"},{"de":"Blutzuckereinstellung","en":"glycemic control"},{"de":"Blutzuckerselbstmessung","en":"blood glucose self-monitoring"},{"de":"Kontinuierliche Glukosemessung","en":"continuous glucose monitoring"},{"de":"Insulinpumpe","en":"insulin infusion systems"},{"de":"Unterzuckerung","en":"hypoglycemia"},{"de":"Überzuckerung","en":"hyperglycemia"},{"de":"Ketoazidose","en":"diabetic ketoacidosis"},{"de":"Insulinresistenz","en":"insulin resistance"},{"de":"Betazelle","en":"insulin-secreting cells"},{"de":"Bauchspeicheldrüse","en":"pancreas"},{"de":"Inselzelltransplantation","en":"islets of langerhans transplantation"},{"de":"Orale Antidiabetika","en":"hypoglycemic agents"},{"de":"Blutzuckersenker","en":"hypoglycemic agents"},{"de":"Diabetisches Fußsyndrom","en":"diabetic foot"},{"de":"Diabetische Netzhauterkrankung","en":"diabetic retinopathy"},{"de":"Diabetische Nierenerkrankung","en":"diabetic nephropathies"},{"de":"Diabetische Nervenschädigung","en":"diabetic neuropathies"},{"de":"Folgeerkrankungen","en":"diabetes complications"},{"de":"Amputation","en":"amputation"},{"de":"Schulung","en":"patient education as topic"},{"de":"Strukturierte Behandlungsprogramme","en":"disease management"},{"de":"Früherkennung","en":"mass screening"},{"de":"Therapietreue","en":"medication adherence"},{"de":"Krankheitslast","en":"cost of illness"},{"de":"Versorgungsqualität","en":"quality of health care"},{"de":"Lebensqualität","en":"quality of life"},{"de":"Diabetesbelastung","en":"diabetes distress"},{"de":"Pflege","en":"nursing"},{"de":"Pflegequalität","en":"quality of nursing care"},{"de":"Pflegebedürftigkeit","en":"long-term care needs"},{"de":"Pflegefachkraft","en":"nurse"}];
 // === GLOSSAR-BLOCK-ENDE ===
 
-document.getElementById('cntGlossar').textContent = GLOSSAR.length;
+setzeZahl('cntGlossar', GLOSSAR.length);
 
 // Sprungziele Impressum/Datenschutz: Die Texte stecken in <details>. Wird eines
 // direkt angesprungen, muss es aufklappen - sonst landet man auf einer
@@ -3686,7 +3750,7 @@ const goMetaBtn   = document.getElementById('goMeta');
 const metaArtBox  = document.getElementById('metaArt');
 const metaBlaetterEl = document.getElementById('metaBlaetter');
 
-document.getElementById('cntMeta').textContent = MT_QUELLEN.length;
+setzeZahl('cntMeta', MT_QUELLEN.length);
 
 // Ein Treffer kann in allen vier Quellen stehen. Zusammengelegt wird ueber
 // die DOI, ersatzweise ueber die PubMed-Nummer, zuletzt ueber den auf
